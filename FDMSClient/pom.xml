@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.slickcode.fdmanagementsystem</groupId>
+		<artifactId>FDManagementSystem</artifactId>
+		<version>1.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<groupId>com.slickcode.fdmanagementsystem</groupId>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>FDMSClient</artifactId>
+	<packaging>jar</packaging>
+	<name>FDMSClient</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.slickcode.fdmanagementsystem</groupId>
+			<artifactId>FDMSCommon</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.slickcode.fdmanagementsystem</groupId>
+			<artifactId>FDMSValidator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.slickcode.fdmanagementsystem</groupId>
+			<artifactId>FDMSService</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.slickcode.frameworks</groupId>
+			<artifactId>BaseFrameworkClient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.slickcode.frameworks</groupId>
+			<artifactId>BaseFrameworkCommon</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
