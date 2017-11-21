@@ -22,9 +22,8 @@ public class HomePage extends FdmsBasePage {
 	private String maturedFdVOsTitle;
 	private String nextWeekFdVOsTitle;
 
-	public HomePage(List<FdVO> currentFdVOList, List<FdVO> maturedFdVOList,
-			List<FdVO> nextWeekFdVOList, String currentFdsTitle,
-			String maturedFdVOsTitle, String nextWeekFdVOsTitle) {
+	public HomePage(List<FdVO> currentFdVOList, List<FdVO> maturedFdVOList, List<FdVO> nextWeekFdVOList,
+			String currentFdsTitle, String maturedFdVOsTitle, String nextWeekFdVOsTitle) {
 		this.currentFdVOList = currentFdVOList;
 		this.maturedFdVOList = maturedFdVOList;
 		this.nextWeekFdVOList = nextWeekFdVOList;
@@ -41,6 +40,7 @@ public class HomePage extends FdmsBasePage {
 
 	@Override
 	public void arrangeComponents() {
+		return;
 	}
 
 	@Override
@@ -74,10 +74,12 @@ public class HomePage extends FdmsBasePage {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override
 	public void prepareTabOutOrderList() {
+		return;
 	}
 
 }

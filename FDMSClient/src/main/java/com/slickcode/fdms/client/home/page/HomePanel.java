@@ -107,6 +107,7 @@ public class HomePanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	/**
@@ -156,6 +157,7 @@ public class HomePanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
+		return;
 	}
 
 	/**

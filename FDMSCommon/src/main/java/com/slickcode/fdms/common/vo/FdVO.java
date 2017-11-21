@@ -1,8 +1,14 @@
 package com.slickcode.fdms.common.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class FdVO extends BaseVO {
+public class FdVO extends BaseVO implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1630502769145234915L;
 
 	private Integer fdId;
 	private Integer fdBankReferenceNumber;
@@ -269,15 +275,11 @@ public class FdVO extends BaseVO {
 	 */
 	@Override
 	public String toString() {
-		return "FdVO [fdId=" + fdId + ", fdBankReferenceNumber="
-				+ fdBankReferenceNumber + ", fdNumber=" + fdNumber
-				+ ", bankVO=" + bankVO + ", firstOwnerVO=" + firstOwnerVO
-				+ ", secondOwnerVO=" + secondOwnerVO + ", nomineeVO="
-				+ nomineeVO + ", investedAmount=" + investedAmount
-				+ ", maturityAmount=" + maturityAmount + ", investmentDate="
-				+ investmentDate + ", maturityDate=" + maturityDate
-				+ ", remark=" + remark + ", status=" + status
-				+ ", originalFdNumber=" + originalFdNumber + ", renewedFrom="
+		return "FdVO [fdId=" + fdId + ", fdBankReferenceNumber=" + fdBankReferenceNumber + ", fdNumber=" + fdNumber
+				+ ", bankVO=" + bankVO + ", firstOwnerVO=" + firstOwnerVO + ", secondOwnerVO=" + secondOwnerVO
+				+ ", nomineeVO=" + nomineeVO + ", investedAmount=" + investedAmount + ", maturityAmount="
+				+ maturityAmount + ", investmentDate=" + investmentDate + ", maturityDate=" + maturityDate + ", remark="
+				+ remark + ", status=" + status + ", originalFdNumber=" + originalFdNumber + ", renewedFrom="
 				+ renewedFrom + ", renewedTo=" + renewedTo + "]";
 	}
 

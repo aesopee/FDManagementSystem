@@ -179,6 +179,7 @@ public class ShowAllFDPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	/**
@@ -198,5 +199,6 @@ public class ShowAllFDPanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
+		return;
 	}
 }

@@ -22,6 +22,7 @@ public class ForgotPasswordThirdPage extends LoginBasePage {
 	}
 
 	public void arrangeComponents() {
+		return;
 	}
 
 	@Override
@@ -50,9 +51,11 @@ public class ForgotPasswordThirdPage extends LoginBasePage {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override
 	public void prepareTabOutOrderList() {
+		return;
 	}
 }

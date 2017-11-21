@@ -54,7 +54,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 	private BaseLabel securityAnswerLabel;
 	private BaseTextField securityAnswerField;
 	private BaseLabel securityAnswerLabelError;
-	private NonEmtryValidator securityAnswerValidator;
+	private transient NonEmtryValidator securityAnswerValidator;
 
 	private BaseButton nextButton;
 	private BaseButton cancelButton;
@@ -200,7 +200,6 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 		populateSecurityAnswer();
 		addButtonGrid();
 		arrangeComponents();
-
 		return this;
 	}
 
@@ -250,6 +249,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override

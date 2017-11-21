@@ -164,6 +164,7 @@ public class ShowAllBankPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	/**
@@ -183,6 +184,7 @@ public class ShowAllBankPanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
+		return;
 	}
 
 }

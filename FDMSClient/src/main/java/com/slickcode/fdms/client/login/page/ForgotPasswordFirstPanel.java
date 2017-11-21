@@ -42,12 +42,12 @@ public class ForgotPasswordFirstPanel extends BasePanel {
 	private BaseLabel personIdLabel;
 	private BaseTextField personIdField;
 	private BaseLabel personIdLabelError;
-	private NumericValidator personIdValidator;
+	private transient NumericValidator personIdValidator;
 
 	private BaseLabel userNameLabel;
 	private BaseTextField userNameField;
 	private BaseLabel userNameLabelError;
-	private NonEmtryValidator userNameValidator;
+	private transient NonEmtryValidator userNameValidator;
 
 	private BaseButton nextButton;
 	private BaseButton cancelButton;
@@ -189,6 +189,7 @@ public class ForgotPasswordFirstPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override

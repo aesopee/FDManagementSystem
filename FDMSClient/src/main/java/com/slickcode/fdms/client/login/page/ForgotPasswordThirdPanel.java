@@ -48,12 +48,12 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	private BaseLabel passwordLabel;
 	private BasePasswordField passwordField;
 	private BaseLabel passwordLabelError;
-	private NonEmtryValidator passwordValidator;
+	private transient NonEmtryValidator passwordValidator;
 
 	private BaseLabel confirmPasswordLabel;
 	private BasePasswordField confirmPasswordField;
 	private BaseLabel confirmPasswordLabelError;
-	private NonEmtryValidator confirmPasswordValidator;
+	private transient NonEmtryValidator confirmPasswordValidator;
 
 	private BaseButton changePasswordButton;
 	private BaseButton cancelButton;
@@ -255,6 +255,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override

@@ -66,12 +66,12 @@ public class FdMainPanel extends BasePanel {
 	private BaseLabel fdIdLabel;
 	private BaseTextField fdIdField;
 	private BaseLabel fdIdLabelError;
-	private NumericValidator fdIdValidator;
+	private transient NumericValidator fdIdValidator;
 
 	private BaseLabel fdBankReferenceNumberLabel;
 	private BaseTextField fdBankReferenceNumberField;
 	private BaseLabel fdBankReferenceNumberLabelError;
-	private NumericValidator fdBankReferenceNumberValidator;
+	private transient NumericValidator fdBankReferenceNumberValidator;
 
 	private BaseLabel originalFdNumberLabel;
 	private BaseTextField originalFdNumberField;
@@ -85,7 +85,7 @@ public class FdMainPanel extends BasePanel {
 	private BaseLabel fdNumberLabel;
 	private BaseTextField fdNumberField;
 	private BaseLabel fdNumberLabelError;
-	private NonEmtryValidator fdNumberValidator;
+	private transient NonEmtryValidator fdNumberValidator;
 
 	private BaseLabel bankNameLabel;
 	private BaseComboBox<SelectItem> bankNameComboBox;
@@ -106,24 +106,24 @@ public class FdMainPanel extends BasePanel {
 	private BaseLabel investedAmountLabel;
 	private BaseTextField investedAmountField;
 	private BaseLabel investedAmountLabelError;
-	private AmountValidator investedAmountValidator;
+	private transient AmountValidator investedAmountValidator;
 
 	private BaseLabel maturityAmountLabel;
 	private BaseTextField maturityAmountField;
 	private BaseLabel maturityAmountLabelError;
-	private AmountValidator maturityAmountValidator;
+	private transient AmountValidator maturityAmountValidator;
 
 	private BaseLabel investmentDateLabel;
 	private BaseTextField investmentDateField;
 	private BaseButton investmentDateButton;
 	private BaseLabel investmentDateLabelError;
-	private DateValidator investmentDateValidator;
+	private transient DateValidator investmentDateValidator;
 
 	private BaseLabel maturityDateLabel;
 	private BaseTextField maturityDateField;
 	private BaseButton maturityDateButton;
 	private BaseLabel maturityDateLabelError;
-	private DateValidator maturityDateValidator;
+	private transient DateValidator maturityDateValidator;
 
 	private BaseLabel remarkLabel;
 	private BaseTextField remarkField;
