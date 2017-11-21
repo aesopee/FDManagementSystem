@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -85,178 +84,137 @@ public class NewUserSecondPanel extends BasePanel {
 	private LoginVO loginVO;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(CommonConstants.LABEL_PERSON_ID,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel
-				.getPreferredSize().getWidth());
+		personIdLabel = new BaseLabel(CommonConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel.getPreferredSize().getWidth());
 		personIdLabel.setLabelFor(personIdValue);
 		add(personIdLabel);
 
 		personIdValue = new BaseLabel(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, personIdValue
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, personIdValue.getPreferredSize().getWidth());
 		add(personIdValue);
 	}
 
 	private void populateFirstName() {
-		firstNameLabel = new BaseLabel(CommonConstants.LABEL_FIRST_NAME,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstNameLabel
-				.getPreferredSize().getWidth());
+		firstNameLabel = new BaseLabel(CommonConstants.LABEL_FIRST_NAME, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstNameLabel.getPreferredSize().getWidth());
 		firstNameLabel.setLabelFor(firstNameValue);
 		add(firstNameLabel);
 
 		firstNameValue = new BaseLabel(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstNameValue
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstNameValue.getPreferredSize().getWidth());
 		add(firstNameValue);
 	}
 
 	private void populateLastName() {
-		lastNameLabel = new BaseLabel(CommonConstants.LABEL_LAST_NAME,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, lastNameLabel
-				.getPreferredSize().getWidth());
+		lastNameLabel = new BaseLabel(CommonConstants.LABEL_LAST_NAME, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, lastNameLabel.getPreferredSize().getWidth());
 		lastNameLabel.setLabelFor(lastNameValue);
 		add(lastNameLabel);
 
 		lastNameValue = new BaseLabel(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, lastNameValue
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, lastNameValue.getPreferredSize().getWidth());
 		add(lastNameValue);
 	}
 
 	private void populateSecurityQuestion() {
-		securityQuestionLabel = new BaseLabel(
-				CommonConstants.LABEL_SECURITY_QUESTION, ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				securityQuestionLabel.getPreferredSize().getWidth());
+		securityQuestionLabel = new BaseLabel(CommonConstants.LABEL_SECURITY_QUESTION, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, securityQuestionLabel.getPreferredSize().getWidth());
 		securityQuestionLabel.setLabelFor(securityQuestionComboBox);
 		add(securityQuestionLabel);
 
 		securityQuestionComboBox = new BaseComboBox<>(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				securityQuestionComboBox.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, securityQuestionComboBox.getPreferredSize().getWidth());
 		add(securityQuestionComboBox);
 
 		securityQuestionLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				securityQuestionLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, securityQuestionLabelError.getPreferredSize().getWidth());
 		add(securityQuestionLabelError);
 	}
 
 	private void populateSecurityAnswer() {
-		securityAnswerLabel = new BaseLabel(
-				CommonConstants.LABEL_SECURITY_ANSWER, ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				securityAnswerLabel.getPreferredSize().getWidth());
+		securityAnswerLabel = new BaseLabel(CommonConstants.LABEL_SECURITY_ANSWER, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, securityAnswerLabel.getPreferredSize().getWidth());
 		securityAnswerLabel.setLabelFor(securityAnswerField);
 		add(securityAnswerLabel);
 
 		securityAnswerField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				securityAnswerField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, securityAnswerField.getPreferredSize().getWidth());
 		add(securityAnswerField);
 
 		securityAnswerLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				securityAnswerLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, securityAnswerLabelError.getPreferredSize().getWidth());
 		add(securityAnswerLabelError);
 
-		securityAnswerValidator = new NonEmtryValidator(
-				CommonConstants.LABEL_SECURITY_ANSWER, securityAnswerField,
+		securityAnswerValidator = new NonEmtryValidator(CommonConstants.LABEL_SECURITY_ANSWER, securityAnswerField,
 				securityAnswerLabelError, true);
-		securityAnswerField.getDocument().addDocumentListener(
-				securityAnswerValidator);
+		securityAnswerField.getDocument().addDocumentListener(securityAnswerValidator);
 	}
 
 	private void populateUserName() {
-		userNameLabel = new BaseLabel(CommonConstants.LABEL_USER_NAME,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel
-				.getPreferredSize().getWidth());
+		userNameLabel = new BaseLabel(CommonConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel.getPreferredSize().getWidth());
 		userNameLabel.setLabelFor(userNameField);
 		add(userNameLabel);
 
 		userNameField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, userNameField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, userNameField.getPreferredSize().getWidth());
 		add(userNameField);
 
 		userNameLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				userNameLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, userNameLabelError.getPreferredSize().getWidth());
 		add(userNameLabelError);
 
-		userNameValidator = new NonEmtryValidator(userNameField.getText(),
-				userNameField, userNameLabelError, true);
+		userNameValidator = new NonEmtryValidator(userNameField.getText(), userNameField, userNameLabelError, true);
 		userNameField.getDocument().addDocumentListener(userNameValidator);
 	}
 
 	private void populatePassword() {
-		passwordLabel = new BaseLabel(CommonConstants.LABEL_PSWD,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, passwordLabel
-				.getPreferredSize().getWidth());
+		passwordLabel = new BaseLabel(CommonConstants.LABEL_PSWD, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, passwordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(passwordField);
 		add(passwordLabel);
 
 		passwordField = new BasePasswordField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, passwordField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, passwordField.getPreferredSize().getWidth());
 		add(passwordField);
 
 		passwordLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				passwordLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, passwordLabelError.getPreferredSize().getWidth());
 		add(passwordLabelError);
 
-		passwordValidator = new NonEmtryValidator(passwordLabel.getText(),
-				passwordField, passwordLabelError, true);
+		passwordValidator = new NonEmtryValidator(passwordLabel.getText(), passwordField, passwordLabelError, true);
 		passwordField.getDocument().addDocumentListener(passwordValidator);
 	}
 
 	private void populateConfirmPassword() {
-		confirmPasswordLabel = new BaseLabel(
-				CommonConstants.LABEL_CONFIRM_PSWD, ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				confirmPasswordLabel.getPreferredSize().getWidth());
+		confirmPasswordLabel = new BaseLabel(CommonConstants.LABEL_CONFIRM_PSWD, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, confirmPasswordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(confirmPasswordField);
 		add(confirmPasswordLabel);
 
 		confirmPasswordField = new BasePasswordField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				confirmPasswordField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, confirmPasswordField.getPreferredSize().getWidth());
 		add(confirmPasswordField);
 
 		confirmPasswordLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				confirmPasswordLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, confirmPasswordLabelError.getPreferredSize().getWidth());
 		add(confirmPasswordLabelError);
 
-		confirmPasswordValidator = new NonEmtryValidator(
-				confirmPasswordLabel.getText(), confirmPasswordField,
+		confirmPasswordValidator = new NonEmtryValidator(confirmPasswordLabel.getText(), confirmPasswordField,
 				confirmPasswordLabelError, true);
-		confirmPasswordField.getDocument().addDocumentListener(
-				confirmPasswordValidator);
+		confirmPasswordField.getDocument().addDocumentListener(confirmPasswordValidator);
 	}
 
 	private void addButtonGrid() {
-		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding,
-				rowHeight);
+		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 		ImageIcon cancelIcon = BaseUtils.populateImage(ImageConstants.CANCEL);
-		cancelButton = new BaseButton(cancelIcon,
-				new GoToLoginPageActionListner(), CommonConstants.BUTTON_CANCEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton
-				.getPreferredSize().getWidth());
+		cancelButton = new BaseButton(cancelIcon, new GoToLoginPageActionListner(), CommonConstants.BUTTON_CANCEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(cancelButton);
 
 		ImageIcon signupIcon = BaseUtils.populateImage(ImageConstants.SIGN_UP);
-		signUpButton = new BaseButton(signupIcon,
-				new SignUpButtonActionListner(this),
-				CommonConstants.BUTTON_SIGN_UP);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, signUpButton
-				.getPreferredSize().getWidth());
+		signUpButton = new BaseButton(signupIcon, new SignUpButtonActionListner(this), CommonConstants.BUTTON_SIGN_UP);
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, signUpButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(signUpButton);
 		add(buttonGridPanel.createPanel());
 	}
@@ -271,128 +229,99 @@ public class NewUserSecondPanel extends BasePanel {
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(personIdValue, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(personIdValue, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * First Name Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(firstNameLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(firstNameLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(firstNameValue, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(firstNameValue, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Last Name Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(lastNameLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(lastNameLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(lastNameValue, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(lastNameValue, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Security Question Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(securityQuestionLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(securityQuestionLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(securityQuestionComboBox, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(securityQuestionComboBox, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(securityQuestionLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(securityQuestionLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		/**
 		 * Security Answer Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(securityAnswerLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(securityAnswerLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(securityAnswerField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(securityAnswerField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(securityAnswerLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(securityAnswerLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		/**
 		 * User Name Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(userNameLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(userNameLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(userNameField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(userNameField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(userNameLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(userNameLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Password Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(passwordLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(passwordLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(passwordField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(passwordField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(passwordLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(passwordLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Confirm Password Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(confirmPasswordLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(confirmPasswordLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(confirmPasswordField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(confirmPasswordField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(confirmPasswordLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(confirmPasswordLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		/**
 		 * Button Row
@@ -400,11 +329,10 @@ public class NewUserSecondPanel extends BasePanel {
 		buttonGridPanel.arrangeComponents();
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop, BaseUtils
-				.getMax(0, buttonGridPanel.getPreferredSize().getWidth()),
-				rowHeight, buttonGridPanel.getPreferredSize().getWidth(),
-				buttonGridPanel.getPreferredSize().getHeight(), baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop,
+				BaseUtils.getMax(0, buttonGridPanel.getPreferredSize().getWidth()), rowHeight,
+				buttonGridPanel.getPreferredSize().getWidth(), buttonGridPanel.getPreferredSize().getHeight(),
+				baseDimension);
 	}
 
 	@Override
@@ -425,34 +353,26 @@ public class NewUserSecondPanel extends BasePanel {
 	@Override
 	public void loadPanelData() {
 		personIdValue.setText(loginVO.getPersonVO().getPersonId());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, personIdValue
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, personIdValue.getPreferredSize().getWidth());
 
 		firstNameValue.setText(loginVO.getPersonVO().getFirstName());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstNameValue
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstNameValue.getPreferredSize().getWidth());
 
 		lastNameValue.setText(loginVO.getPersonVO().getLastName());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, lastNameValue
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, lastNameValue.getPreferredSize().getWidth());
 
 		securityQuestionComboBox.setSelectItemList(SelectItemConvertor
-				.populateSecurityQuestionSelectItemList(FDMSCache.getInstance()
-						.getSecurityQuestionVOList()));
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				securityQuestionComboBox.getPreferredSize().getWidth());
+				.populateSecurityQuestionSelectItemList(FDMSCache.getInstance().getSecurityQuestionVOList()));
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, securityQuestionComboBox.getPreferredSize().getWidth());
 
 		securityAnswerField.setText(loginVO.getSecurityAnswer());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				securityAnswerField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, securityAnswerField.getPreferredSize().getWidth());
 
 		passwordField.setText(loginVO.getPassword());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, passwordField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, passwordField.getPreferredSize().getWidth());
 
 		confirmPasswordField.setText(loginVO.getPassword());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				confirmPasswordField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, confirmPasswordField.getPreferredSize().getWidth());
 
 		setTitle(CommonConstants.HEADER_NEW_USER);
 		arrangeComponents();
@@ -471,9 +391,8 @@ public class NewUserSecondPanel extends BasePanel {
 		loginVO.setPersonVO(personVO);
 		loginVO.setUserName(userNameField.getText());
 		loginVO.setPassword(passwordField.getText());
-		loginVO.setSecurityQuestion(FDMSCache.getInstance()
-				.getSecurityQuestionVOByCode(
-						securityQuestionComboBox.getSelectedValue()));
+		loginVO.setSecurityQuestion(
+				FDMSCache.getInstance().getSecurityQuestionVOByCode(securityQuestionComboBox.getSelectedValue()));
 		loginVO.setSecurityAnswer(securityAnswerField.getText());
 
 		LoginPanelBean bean = new LoginPanelBean();
@@ -486,22 +405,17 @@ public class NewUserSecondPanel extends BasePanel {
 
 		boolean usernameResult = userNameValidator.validateOnSubmit();
 		boolean passwordResult = passwordValidator.validateOnSubmit();
-		boolean confirmPasswordResult = confirmPasswordValidator
-				.validateOnSubmit();
-		boolean securityQuestionResult = FDMSValidator.validateBaseComboBox(
-				securityQuestionComboBox, securityQuestionLabelError,
-				securityQuestionLabel.getText());
-		boolean securityAnswerResult = securityAnswerValidator
-				.validateOnSubmit();
+		boolean confirmPasswordResult = confirmPasswordValidator.validateOnSubmit();
+		boolean securityQuestionResult = FDMSValidator.validateBaseComboBox(securityQuestionComboBox,
+				securityQuestionLabelError, securityQuestionLabel.getText());
+		boolean securityAnswerResult = securityAnswerValidator.validateOnSubmit();
 		boolean passwordCheckResult = true;
 		if (passwordResult && confirmPasswordResult) {
-			passwordCheckResult = FDMSValidator.checkPasswordSimilarity(
-					passwordField, confirmPasswordField, passwordLabelError,
-					confirmPasswordLabelError);
+			passwordCheckResult = FDMSValidator.checkPasswordSimilarity(passwordField, confirmPasswordField,
+					passwordLabelError, confirmPasswordLabelError);
 		}
-		return usernameResult && passwordResult && confirmPasswordResult
-				&& securityQuestionResult && securityAnswerResult
-				&& passwordCheckResult;
+		return usernameResult && passwordResult && confirmPasswordResult && securityQuestionResult
+				&& securityAnswerResult && passwordCheckResult;
 	}
 
 	@Override

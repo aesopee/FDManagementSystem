@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -48,17 +47,17 @@ public class BankMainPanel extends BasePanel {
 	private BaseLabel bankIdLabel;
 	private BaseTextField bankIdField;
 	private BaseLabel bankIdLabelError;
-	private NumericValidator bankIdValidator;
+	private transient NumericValidator bankIdValidator;
 
 	private BaseLabel bankNameLabel;
 	private BaseTextField bankNameField;
 	private BaseLabel bankNameLabelError;
-	private NonEmtryValidator bankNameValidator;
+	private transient NonEmtryValidator bankNameValidator;
 
 	private BaseLabel branchLabel;
 	private BaseTextField branchField;
 	private BaseLabel branchLabelError;
-	private NonEmtryValidator branchValidator;
+	private transient NonEmtryValidator branchValidator;
 
 	private ButtonGridPanel buttonGridPanel;
 	private BaseButton mainButton;
@@ -119,17 +118,17 @@ public class BankMainPanel extends BasePanel {
 		fromTop = this.baseDimension.getHeight() + this.heightPadding;
 		BaseUtils.setBound(this.bankIdLabel, fromLeft, fromTop,
 				this.firstColumnWidth, this.rowHeight, 0, 0,
-				this.baseDimension, Alignment.CENTER);
+				this.baseDimension);
 
 		fromLeft = fromLeft + this.firstColumnWidth + this.widthPadding;
 		BaseUtils.setBound(this.bankIdField, fromLeft, fromTop,
 				this.secondColumnWidth, this.rowHeight, 0, 0,
-				this.baseDimension, Alignment.CENTER);
+				this.baseDimension);
 
 		fromLeft = fromLeft + this.secondColumnWidth + this.widthPadding;
 		BaseUtils.setBound(this.bankIdLabelError, fromLeft, fromTop,
 				this.thirdColumnWidth, this.rowHeight, 0, 0,
-				this.baseDimension, Alignment.CENTER);
+				this.baseDimension);
 
 		/**
 		 * Bank Name Row
@@ -138,17 +137,17 @@ public class BankMainPanel extends BasePanel {
 		fromTop = this.baseDimension.getHeight() + this.heightPadding;
 		BaseUtils.setBound(this.bankNameLabel, fromLeft, fromTop,
 				this.firstColumnWidth, this.rowHeight, 0, 0,
-				this.baseDimension, Alignment.CENTER);
+				this.baseDimension);
 
 		fromLeft = fromLeft + this.firstColumnWidth + this.widthPadding;
 		BaseUtils.setBound(this.bankNameField, fromLeft, fromTop,
 				this.secondColumnWidth, this.rowHeight, 0, 0,
-				this.baseDimension, Alignment.CENTER);
+				this.baseDimension);
 
 		fromLeft = fromLeft + this.secondColumnWidth + this.widthPadding;
 		BaseUtils.setBound(this.bankNameLabelError, fromLeft, fromTop,
 				this.thirdColumnWidth, this.rowHeight, 0, 0,
-				this.baseDimension, Alignment.CENTER);
+				this.baseDimension);
 
 		/**
 		 * Branch Row
@@ -157,17 +156,17 @@ public class BankMainPanel extends BasePanel {
 		fromTop = this.baseDimension.getHeight() + this.heightPadding;
 		BaseUtils.setBound(this.branchLabel, fromLeft, fromTop,
 				this.firstColumnWidth, this.rowHeight, 0, 0,
-				this.baseDimension, Alignment.CENTER);
+				this.baseDimension);
 
 		fromLeft = fromLeft + this.firstColumnWidth + this.widthPadding;
 		BaseUtils.setBound(this.branchField, fromLeft, fromTop,
 				this.secondColumnWidth, this.rowHeight, 0, 0,
-				this.baseDimension, Alignment.CENTER);
+				this.baseDimension);
 
 		fromLeft = fromLeft + this.secondColumnWidth + this.widthPadding;
 		BaseUtils.setBound(this.branchLabelError, fromLeft, fromTop,
 				this.thirdColumnWidth, this.rowHeight, 0, 0,
-				this.baseDimension, Alignment.CENTER);
+				this.baseDimension);
 
 		/**
 		 * Button Row
@@ -178,8 +177,7 @@ public class BankMainPanel extends BasePanel {
 		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop, BaseUtils
 				.getMax(0, buttonGridPanel.getPreferredSize().getWidth()),
 				rowHeight, buttonGridPanel.getPreferredSize().getWidth(),
-				buttonGridPanel.getPreferredSize().getHeight(), baseDimension,
-				Alignment.CENTER);
+				buttonGridPanel.getPreferredSize().getHeight(), baseDimension);
 	}
 
 	@Override

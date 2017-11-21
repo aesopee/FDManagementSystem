@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -58,74 +57,58 @@ public class LoginPanel extends BasePanel {
 	private ButtonGridPanel buttonGridPanel;
 
 	private void populateUserName() {
-		userNameLabel = new BaseLabel(CommonConstants.LABEL_USER_NAME,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel
-				.getPreferredSize().getWidth());
+		userNameLabel = new BaseLabel(CommonConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel.getPreferredSize().getWidth());
 		userNameLabel.setLabelFor(userNameField);
 		add(userNameLabel);
 
 		userNameField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, userNameField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, userNameField.getPreferredSize().getWidth());
 		add(userNameField);
 
 		userNameLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				userNameLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, userNameLabelError.getPreferredSize().getWidth());
 		add(userNameLabelError);
 
-		userNameValidator = new NonEmtryValidator(
-				CommonConstants.LABEL_USER_NAME, userNameField,
-				userNameLabelError, true);
+		userNameValidator = new NonEmtryValidator(CommonConstants.LABEL_USER_NAME, userNameField, userNameLabelError,
+				true);
 		userNameField.getDocument().addDocumentListener(userNameValidator);
 	}
 
 	private void populatePassword() {
-		passwordLabel = new BaseLabel(CommonConstants.LABEL_PSWD,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, passwordLabel
-				.getPreferredSize().getWidth());
+		passwordLabel = new BaseLabel(CommonConstants.LABEL_PSWD, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, passwordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(passwordField);
 		add(passwordLabel);
 
 		passwordField = new BasePasswordField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, passwordField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, passwordField.getPreferredSize().getWidth());
 		add(passwordField);
 
 		passwordLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				passwordLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, passwordLabelError.getPreferredSize().getWidth());
 		add(passwordLabelError);
 
-		passwordValidator = new NonEmtryValidator(
-				CommonConstants.LABEL_PSWD, passwordField,
-				passwordLabelError, true);
+		passwordValidator = new NonEmtryValidator(CommonConstants.LABEL_PSWD, passwordField, passwordLabelError, true);
 		passwordField.getDocument().addDocumentListener(passwordValidator);
 	}
 
 	private void addButtonGrid() {
 		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, 50);
 
-		ImageIcon newUserIcon = BaseUtils
-				.populateImage(ImageConstants.NEW_USER);
+		ImageIcon newUserIcon = BaseUtils.populateImage(ImageConstants.NEW_USER);
 
-		newUserButton = new BaseButton(newUserIcon,
-				new GoToNewUserPageFirstActionListner(),
+		newUserButton = new BaseButton(newUserIcon, new GoToNewUserPageFirstActionListner(),
 				CommonConstants.BUTTON_NEW_USER);
 
 		buttonGridPanel.addButtonToList(newUserButton);
 
 		ImageIcon loginIcon = BaseUtils.populateImage(ImageConstants.LOGIN);
-		loginButton = new BaseButton(loginIcon, new LoginButtonActionListner(
-				this), CommonConstants.BUTTON_LOGIN);
+		loginButton = new BaseButton(loginIcon, new LoginButtonActionListner(this), CommonConstants.BUTTON_LOGIN);
 		buttonGridPanel.addButtonToList(loginButton);
 
-		ImageIcon forgotIcon = BaseUtils
-				.populateImage(ImageConstants.FORGOT_PSWD);
-		forgotPasswordButton = new BaseButton(forgotIcon,
-				new GoToForgotPasswordPageFirstActionListner(),
+		ImageIcon forgotIcon = BaseUtils.populateImage(ImageConstants.FORGOT_PSWD);
+		forgotPasswordButton = new BaseButton(forgotIcon, new GoToForgotPasswordPageFirstActionListner(),
 				CommonConstants.BUTTON_FORGOT_PSWD);
 
 		buttonGridPanel.addButtonToList(forgotPasswordButton);
@@ -142,34 +125,26 @@ public class LoginPanel extends BasePanel {
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(userNameLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(userNameLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(userNameField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(userNameField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(userNameLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(userNameLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Password Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(passwordLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(passwordLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(passwordField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(passwordField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(passwordLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(passwordLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Button Row
@@ -177,11 +152,10 @@ public class LoginPanel extends BasePanel {
 		buttonGridPanel.arrangeComponents();
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop, BaseUtils
-				.getMax(0, buttonGridPanel.getPreferredSize().getWidth()),
-				rowHeight, buttonGridPanel.getPreferredSize().getWidth(),
-				buttonGridPanel.getPreferredSize().getHeight(), baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop,
+				BaseUtils.getMax(0, buttonGridPanel.getPreferredSize().getWidth()), rowHeight,
+				buttonGridPanel.getPreferredSize().getWidth(), buttonGridPanel.getPreferredSize().getHeight(),
+				baseDimension);
 	}
 
 	@Override

@@ -2,7 +2,6 @@ package com.slickcode.fdms.client.home.page;
 
 import java.util.List;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JPanel;
 
 import com.slickcode.baseframework.domain.IPanelBean;
@@ -37,12 +36,11 @@ public class HomePanel extends BasePanel {
 		 */
 		fromLeft = fromLeft + widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(showMaturedFDPanel, fromLeft, fromTop, BaseUtils
-				.getMax(0, showMaturedFDPanel.getPreferredSize().getWidth()),
-				BaseUtils.getMax(0, showMaturedFDPanel.getPreferredSize()
-						.getHeight()), showMaturedFDPanel.getPreferredSize()
-						.getWidth(), showMaturedFDPanel.getPreferredSize()
-						.getHeight(), baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(showMaturedFDPanel, fromLeft, fromTop,
+				BaseUtils.getMax(0, showMaturedFDPanel.getPreferredSize().getWidth()),
+				BaseUtils.getMax(0, showMaturedFDPanel.getPreferredSize().getHeight()),
+				showMaturedFDPanel.getPreferredSize().getWidth(), showMaturedFDPanel.getPreferredSize().getHeight(),
+				baseDimension);
 
 		/**
 		 * showFDsInNextWeekPanel
@@ -50,23 +48,20 @@ public class HomePanel extends BasePanel {
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(showFDsInNextWeekPanel, fromLeft, fromTop,
-				BaseUtils.getMax(0, showFDsInNextWeekPanel.getPreferredSize()
-						.getWidth()), BaseUtils.getMax(0,
-						showFDsInNextWeekPanel.getPreferredSize().getHeight()),
+				BaseUtils.getMax(0, showFDsInNextWeekPanel.getPreferredSize().getWidth()),
+				BaseUtils.getMax(0, showFDsInNextWeekPanel.getPreferredSize().getHeight()),
 				showFDsInNextWeekPanel.getPreferredSize().getWidth(),
-				showFDsInNextWeekPanel.getPreferredSize().getHeight(),
-				baseDimension, Alignment.CENTER);
+				showFDsInNextWeekPanel.getPreferredSize().getHeight(), baseDimension);
 
 		/**
 		 * showCurrentFDsPanel
 		 */
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(showCurrentFDsPanel, fromLeft, fromTop, BaseUtils
-				.getMax(0, showCurrentFDsPanel.getPreferredSize().getWidth()),
-				BaseUtils.getMax(0, showCurrentFDsPanel.getPreferredSize()
-						.getHeight()), showCurrentFDsPanel.getPreferredSize()
-						.getWidth(), showCurrentFDsPanel.getPreferredSize()
-						.getHeight(), baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(showCurrentFDsPanel, fromLeft, fromTop,
+				BaseUtils.getMax(0, showCurrentFDsPanel.getPreferredSize().getWidth()),
+				BaseUtils.getMax(0, showCurrentFDsPanel.getPreferredSize().getHeight()),
+				showCurrentFDsPanel.getPreferredSize().getWidth(), showCurrentFDsPanel.getPreferredSize().getHeight(),
+				baseDimension);
 
 	}
 

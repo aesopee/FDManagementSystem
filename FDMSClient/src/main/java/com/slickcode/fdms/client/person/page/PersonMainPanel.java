@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -76,127 +75,98 @@ public class PersonMainPanel extends BasePanel {
 	private ScreenMode screenMode;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(CommonConstants.LABEL_PERSON_ID,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel
-				.getPreferredSize().getWidth());
+		personIdLabel = new BaseLabel(CommonConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel.getPreferredSize().getWidth());
 		personIdLabel.setLabelFor(personIdField);
 		add(personIdLabel);
 
 		personIdField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, personIdField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, personIdField.getPreferredSize().getWidth());
 		add(personIdField);
 
 		personIdLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				personIdLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, personIdLabelError.getPreferredSize().getWidth());
 		add(personIdLabelError);
 
-		personIdValidator = new NumericValidator(personIdLabel.getText(),
-				personIdField, personIdLabelError, true);
+		personIdValidator = new NumericValidator(personIdLabel.getText(), personIdField, personIdLabelError, true);
 		personIdField.getDocument().addDocumentListener(personIdValidator);
 	}
 
 	private void populateFirstName() {
-		firstNameLabel = new BaseLabel(CommonConstants.LABEL_FIRST_NAME,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstNameLabel
-				.getPreferredSize().getWidth());
+		firstNameLabel = new BaseLabel(CommonConstants.LABEL_FIRST_NAME, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstNameLabel.getPreferredSize().getWidth());
 		firstNameLabel.setLabelFor(firstNameField);
 		add(firstNameLabel);
 
 		firstNameField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstNameField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstNameField.getPreferredSize().getWidth());
 		add(firstNameField);
 
 		firstNameLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				firstNameLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, firstNameLabelError.getPreferredSize().getWidth());
 		add(firstNameLabelError);
 
-		firstNameValidator = new NonEmtryValidator(firstNameLabel.getText(),
-				firstNameField, firstNameLabelError, true);
+		firstNameValidator = new NonEmtryValidator(firstNameLabel.getText(), firstNameField, firstNameLabelError, true);
 		firstNameField.getDocument().addDocumentListener(firstNameValidator);
 	}
 
 	private void populateMiddleName() {
-		middleNameLabel = new BaseLabel(CommonConstants.LABEL_MIDDLE_NAME,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, middleNameLabel
-				.getPreferredSize().getWidth());
+		middleNameLabel = new BaseLabel(CommonConstants.LABEL_MIDDLE_NAME, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, middleNameLabel.getPreferredSize().getWidth());
 		middleNameLabel.setLabelFor(middleNameField);
 		add(middleNameLabel);
 
 		middleNameField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, middleNameField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, middleNameField.getPreferredSize().getWidth());
 		add(middleNameField);
 
 		middleNameLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				middleNameLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, middleNameLabelError.getPreferredSize().getWidth());
 		add(middleNameLabelError);
 
-		middleNameValidator = new NonEmtryValidator(middleNameLabel.getText(),
-				middleNameField, middleNameLabelError, false);
+		middleNameValidator = new NonEmtryValidator(middleNameLabel.getText(), middleNameField, middleNameLabelError,
+				false);
 		middleNameField.getDocument().addDocumentListener(middleNameValidator);
 	}
 
 	private void populateLastName() {
-		lastNameLabel = new BaseLabel(CommonConstants.LABEL_LAST_NAME,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, lastNameLabel
-				.getPreferredSize().getWidth());
+		lastNameLabel = new BaseLabel(CommonConstants.LABEL_LAST_NAME, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, lastNameLabel.getPreferredSize().getWidth());
 		lastNameLabel.setLabelFor(lastNameField);
 		add(lastNameLabel);
 
 		lastNameField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, lastNameField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, lastNameField.getPreferredSize().getWidth());
 		add(lastNameField);
 
 		lastNameLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				lastNameLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, lastNameLabelError.getPreferredSize().getWidth());
 		add(lastNameLabelError);
 
-		lastNameValidator = new NonEmtryValidator(lastNameLabel.getText(),
-				lastNameField, lastNameLabelError, true);
+		lastNameValidator = new NonEmtryValidator(lastNameLabel.getText(), lastNameField, lastNameLabelError, true);
 		lastNameField.getDocument().addDocumentListener(lastNameValidator);
 	}
 
 	private void addButtonGrid() {
-		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding,
-				rowHeight);
+		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 		ImageIcon cancelIcon = BaseUtils.populateImage(ImageConstants.CANCEL);
-		cancelButton = new BaseButton(cancelIcon,
-				new GoToHomePageListner(this), CommonConstants.BUTTON_CANCEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton
-				.getPreferredSize().getWidth());
+		cancelButton = new BaseButton(cancelIcon, new GoToHomePageListner(this), CommonConstants.BUTTON_CANCEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(cancelButton);
 
 		ImageIcon searchIcon = BaseUtils.populateImage(ImageConstants.SEARCH);
-		mainButton = new BaseButton(searchIcon, null,
-				CommonConstants.BUTTON_SEARCH);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, mainButton
-				.getPreferredSize().getWidth());
+		mainButton = new BaseButton(searchIcon, null, CommonConstants.BUTTON_SEARCH);
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, mainButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(mainButton);
 
 		ImageIcon copyIcon = BaseUtils.populateImage(ImageConstants.COPY);
-		copyButton = new BaseButton(copyIcon,
-				new CopyPersonActionListner(this), CommonConstants.BUTTON_COPY);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, copyButton
-				.getPreferredSize().getWidth());
+		copyButton = new BaseButton(copyIcon, new CopyPersonActionListner(this), CommonConstants.BUTTON_COPY);
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, copyButton.getPreferredSize().getWidth());
 
-		ImageIcon relatedFdsIcon = BaseUtils
-				.populateImage(ImageConstants.RELATED_FDS);
-		relatedFdsButton = new BaseButton(relatedFdsIcon,
-				new FetchPersonRelatedActionListner(this),
+		ImageIcon relatedFdsIcon = BaseUtils.populateImage(ImageConstants.RELATED_FDS);
+		relatedFdsButton = new BaseButton(relatedFdsIcon, new FetchPersonRelatedActionListner(this),
 				CommonConstants.BUTTON_RELATED_FDS);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				relatedFdsButton.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, relatedFdsButton.getPreferredSize().getWidth());
 
 		add(buttonGridPanel.createPanel());
 	}
@@ -211,71 +181,52 @@ public class PersonMainPanel extends BasePanel {
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(personIdField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(personIdField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(personIdLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(personIdLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * First Name Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(firstNameLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(firstNameLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(firstNameField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(firstNameField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(firstNameLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(firstNameLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Middle Name Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(middleNameLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(middleNameLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(middleNameField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(middleNameField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(middleNameLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(middleNameLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Last Name Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(lastNameLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(lastNameLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(lastNameField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(lastNameField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(lastNameLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(lastNameLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Button Row
@@ -283,11 +234,10 @@ public class PersonMainPanel extends BasePanel {
 		buttonGridPanel.arrangeComponents();
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop, BaseUtils
-				.getMax(0, buttonGridPanel.getPreferredSize().getWidth()),
-				rowHeight, buttonGridPanel.getPreferredSize().getWidth(),
-				buttonGridPanel.getPreferredSize().getHeight(), baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop,
+				BaseUtils.getMax(0, buttonGridPanel.getPreferredSize().getWidth()), rowHeight,
+				buttonGridPanel.getPreferredSize().getWidth(), buttonGridPanel.getPreferredSize().getHeight(),
+				baseDimension);
 	}
 
 	@Override
@@ -304,20 +254,16 @@ public class PersonMainPanel extends BasePanel {
 	public void loadPanelData() {
 
 		personIdField.setText(personVO.getPersonId());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, personIdField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, personIdField.getPreferredSize().getWidth());
 
 		firstNameField.setText(personVO.getFirstName());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstNameField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstNameField.getPreferredSize().getWidth());
 
 		middleNameField.setText(personVO.getMiddleName());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, middleNameField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, middleNameField.getPreferredSize().getWidth());
 
 		lastNameField.setText(personVO.getLastName());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, lastNameField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, lastNameField.getPreferredSize().getWidth());
 
 		applyRights();
 		arrangeComponents();
@@ -346,8 +292,7 @@ public class PersonMainPanel extends BasePanel {
 		boolean firstNameResult = firstNameValidator.validateOnSubmit();
 		boolean middleNameResult = middleNameValidator.validateOnSubmit();
 		boolean lastNameIdResult = lastNameValidator.validateOnSubmit();
-		return personIdResult && firstNameResult && middleNameResult
-				&& lastNameIdResult;
+		return personIdResult && firstNameResult && middleNameResult && lastNameIdResult;
 	}
 
 	public void applyRights() {
@@ -363,8 +308,7 @@ public class PersonMainPanel extends BasePanel {
 			lastNameValidator.setMandatory(true);
 			setTitle(CommonConstants.HEADER_ADD_PERSON);
 			ImageIcon addIcon = BaseUtils.populateImage(ImageConstants.ADD);
-			mainButton.setAllValues(addIcon, new AddPersonActionListner(this),
-					CommonConstants.BUTTON_ADD);
+			mainButton.setAllValues(addIcon, new AddPersonActionListner(this), CommonConstants.BUTTON_ADD);
 			break;
 		case EDIT:
 			personIdField.setEditable(false);
@@ -376,10 +320,8 @@ public class PersonMainPanel extends BasePanel {
 			lastNameField.setEditable(true);
 			lastNameValidator.setMandatory(true);
 			setTitle(CommonConstants.HEADER_EDIT_PERSON);
-			ImageIcon updateIcon = BaseUtils
-					.populateImage(ImageConstants.UPDATE);
-			mainButton.setAllValues(updateIcon, new UpdatePersonActionListner(
-					this), CommonConstants.BUTTON_UPDATE);
+			ImageIcon updateIcon = BaseUtils.populateImage(ImageConstants.UPDATE);
+			mainButton.setAllValues(updateIcon, new UpdatePersonActionListner(this), CommonConstants.BUTTON_UPDATE);
 			break;
 		case SEARCH:
 			personIdField.setEditable(true);
@@ -391,10 +333,8 @@ public class PersonMainPanel extends BasePanel {
 			lastNameField.setEditable(true);
 			lastNameValidator.setMandatory(false);
 			setTitle(CommonConstants.HEADER_SEARCH_PERSON);
-			ImageIcon searchIcon = BaseUtils
-					.populateImage(ImageConstants.SEARCH);
-			mainButton.setAllValues(searchIcon, new SearchPersonActionListner(
-					this), CommonConstants.BUTTON_SEARCH);
+			ImageIcon searchIcon = BaseUtils.populateImage(ImageConstants.SEARCH);
+			mainButton.setAllValues(searchIcon, new SearchPersonActionListner(this), CommonConstants.BUTTON_SEARCH);
 			break;
 		case VIEW:
 			personIdField.setEditable(false);
@@ -407,9 +347,7 @@ public class PersonMainPanel extends BasePanel {
 			lastNameValidator.setMandatory(false);
 			setTitle(CommonConstants.HEADER_SHOW_PERSON);
 			ImageIcon editIcon = BaseUtils.populateImage(ImageConstants.EDIT);
-			mainButton.setAllValues(editIcon,
-					new EditPersonActionListner(this),
-					CommonConstants.BUTTON_EDIT);
+			mainButton.setAllValues(editIcon, new EditPersonActionListner(this), CommonConstants.BUTTON_EDIT);
 			buttonGridPanel.addButtonToList(copyButton);
 			buttonGridPanel.addButtonToList(relatedFdsButton);
 			break;

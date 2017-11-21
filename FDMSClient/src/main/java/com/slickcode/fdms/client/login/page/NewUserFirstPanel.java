@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -161,16 +160,15 @@ public class NewUserFirstPanel extends BasePanel {
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+				rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
 		BaseUtils.setBound(personIdField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+				rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
 		BaseUtils.setBound(personIdLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+				thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * First Name Row
@@ -178,17 +176,15 @@ public class NewUserFirstPanel extends BasePanel {
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(firstNameLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+				rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
 		BaseUtils.setBound(firstNameField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+				secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
 		BaseUtils.setBound(firstNameLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+				thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Last Name Row
@@ -196,16 +192,15 @@ public class NewUserFirstPanel extends BasePanel {
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(lastNameLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+				rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
 		BaseUtils.setBound(lastNameField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+				rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
 		BaseUtils.setBound(lastNameLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+				thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Button Row
@@ -216,8 +211,7 @@ public class NewUserFirstPanel extends BasePanel {
 		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop, BaseUtils
 				.getMax(0, buttonGridPanel.getPreferredSize().getWidth()),
 				rowHeight, buttonGridPanel.getPreferredSize().getWidth(),
-				buttonGridPanel.getPreferredSize().getHeight(), baseDimension,
-				Alignment.CENTER);
+				buttonGridPanel.getPreferredSize().getHeight(), baseDimension);
 	}
 
 	@Override

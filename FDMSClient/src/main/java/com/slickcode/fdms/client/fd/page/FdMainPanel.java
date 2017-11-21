@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -145,34 +144,26 @@ public class FdMainPanel extends BasePanel {
 	private ScreenMode screenMode;
 
 	private void populateFDId() {
-		fdIdLabel = new BaseLabel(CommonConstants.LABEL_FD_ID,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, fdIdLabel
-				.getPreferredSize().getWidth());
+		fdIdLabel = new BaseLabel(CommonConstants.LABEL_FD_ID, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, fdIdLabel.getPreferredSize().getWidth());
 		fdIdLabel.setLabelFor(fdIdField);
 		add(fdIdLabel);
 
 		fdIdField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, fdIdField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, fdIdField.getPreferredSize().getWidth());
 		add(fdIdField);
 
 		fdIdLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, fdIdLabelError
-				.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, fdIdLabelError.getPreferredSize().getWidth());
 		add(fdIdLabelError);
 
-		fdIdValidator = new NumericValidator(fdIdLabel.getText(), fdIdField,
-				fdIdLabelError, true);
+		fdIdValidator = new NumericValidator(fdIdLabel.getText(), fdIdField, fdIdLabelError, true);
 		fdIdField.getDocument().addDocumentListener(fdIdValidator);
 	}
 
 	private void populateFdBankReferenceNumber() {
-		fdBankReferenceNumberLabel = new BaseLabel(
-				CommonConstants.LABEL_FD_BANK_REFERENCE_NUMBAI,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				fdBankReferenceNumberLabel.getPreferredSize().getWidth());
+		fdBankReferenceNumberLabel = new BaseLabel(CommonConstants.LABEL_FD_BANK_REFERENCE_NUMBAI, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, fdBankReferenceNumberLabel.getPreferredSize().getWidth());
 		fdBankReferenceNumberLabel.setLabelFor(fdBankReferenceNumberField);
 		add(fdBankReferenceNumberLabel);
 
@@ -181,223 +172,174 @@ public class FdMainPanel extends BasePanel {
 				fdBankReferenceNumberField.getPreferredSize().getWidth());
 		add(fdBankReferenceNumberField);
 
-		fdBankReferenceNumberLabelError = new BaseLabel(
-				ComponentEnum.NO_ERROR_IMAGE);
+		fdBankReferenceNumberLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
 		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
 				fdBankReferenceNumberLabelError.getPreferredSize().getWidth());
 		add(fdBankReferenceNumberLabelError);
 
-		fdBankReferenceNumberValidator = new NumericValidator(
-				fdBankReferenceNumberLabel.getText(),
-				fdBankReferenceNumberField, fdBankReferenceNumberLabelError,
-				true);
-		fdBankReferenceNumberField.getDocument().addDocumentListener(
-				fdBankReferenceNumberValidator);
+		fdBankReferenceNumberValidator = new NumericValidator(fdBankReferenceNumberLabel.getText(),
+				fdBankReferenceNumberField, fdBankReferenceNumberLabelError, true);
+		fdBankReferenceNumberField.getDocument().addDocumentListener(fdBankReferenceNumberValidator);
 	}
 
 	private void populateFDNumber() {
-		fdNumberLabel = new BaseLabel(CommonConstants.LABEL_FD_NUMBER,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, fdNumberLabel
-				.getPreferredSize().getWidth());
+		fdNumberLabel = new BaseLabel(CommonConstants.LABEL_FD_NUMBER, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, fdNumberLabel.getPreferredSize().getWidth());
 		fdNumberLabel.setLabelFor(fdNumberField);
 		add(fdNumberLabel);
 
 		fdNumberField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, fdNumberField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, fdNumberField.getPreferredSize().getWidth());
 		add(fdNumberField);
 
 		fdNumberLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				fdNumberLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, fdNumberLabelError.getPreferredSize().getWidth());
 		add(fdNumberLabelError);
 
-		fdNumberValidator = new NonEmtryValidator(fdNumberLabel.getText(),
-				fdNumberField, fdNumberLabelError, true);
+		fdNumberValidator = new NonEmtryValidator(fdNumberLabel.getText(), fdNumberField, fdNumberLabelError, true);
 		fdNumberField.getDocument().addDocumentListener(fdNumberValidator);
 	}
 
 	private void populateRenewedToFDNumber() {
-		renewedToFdNumberLabel = new BaseLabel(
-				CommonConstants.LABEL_RENEWED_TO_FD_NUMBER, ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				renewedToFdNumberLabel.getPreferredSize().getWidth());
+		renewedToFdNumberLabel = new BaseLabel(CommonConstants.LABEL_RENEWED_TO_FD_NUMBER, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, renewedToFdNumberLabel.getPreferredSize().getWidth());
 		renewedToFdNumberLabel.setLabelFor(renewedToFdNumberField);
 		add(renewedToFdNumberLabel);
 
 		renewedToFdNumberField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				renewedToFdNumberField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, renewedToFdNumberField.getPreferredSize().getWidth());
 		renewedToFdNumberField.setEnabled(false);
 		add(renewedToFdNumberField);
 
 	}
 
 	private void populateRenewedFromFDNumber() {
-		renewedFromFdNumberLabel = new BaseLabel(
-				CommonConstants.LABEL_RENEWED_FROM_FD_NUMBER,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				renewedFromFdNumberLabel.getPreferredSize().getWidth());
+		renewedFromFdNumberLabel = new BaseLabel(CommonConstants.LABEL_RENEWED_FROM_FD_NUMBER, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, renewedFromFdNumberLabel.getPreferredSize().getWidth());
 		renewedFromFdNumberLabel.setLabelFor(renewedFromFdNumberField);
 		add(renewedFromFdNumberLabel);
 
 		renewedFromFdNumberField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				renewedFromFdNumberField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, renewedFromFdNumberField.getPreferredSize().getWidth());
 		renewedFromFdNumberField.setEnabled(false);
 		add(renewedFromFdNumberField);
 
 	}
 
 	private void populateOriginalFDNumber() {
-		originalFdNumberLabel = new BaseLabel(
-				CommonConstants.LABEL_ORIGINAL_FD_NUMBER, ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				originalFdNumberLabel.getPreferredSize().getWidth());
+		originalFdNumberLabel = new BaseLabel(CommonConstants.LABEL_ORIGINAL_FD_NUMBER, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, originalFdNumberLabel.getPreferredSize().getWidth());
 		originalFdNumberLabel.setLabelFor(originalFdNumberField);
 		add(originalFdNumberLabel);
 
 		originalFdNumberField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				originalFdNumberField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, originalFdNumberField.getPreferredSize().getWidth());
 		originalFdNumberField.setEnabled(false);
 		add(originalFdNumberField);
 
 	}
 
 	private void populateBankName() {
-		bankNameLabel = new BaseLabel(CommonConstants.LABEL_BANK_NAME,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, bankNameLabel
-				.getPreferredSize().getWidth());
+		bankNameLabel = new BaseLabel(CommonConstants.LABEL_BANK_NAME, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, bankNameLabel.getPreferredSize().getWidth());
 		bankNameLabel.setLabelFor(bankNameComboBox);
 		add(bankNameLabel);
 
 		bankNameComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				bankNameComboBox.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, bankNameComboBox.getPreferredSize().getWidth());
 		add(bankNameComboBox);
 
 		bankNameLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				bankNameLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, bankNameLabelError.getPreferredSize().getWidth());
 		add(bankNameLabelError);
 	}
 
 	private void populateFirstOwnerName() {
-		firstOwnerLabel = new BaseLabel(CommonConstants.LABEL_FIRST_OWNER,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstOwnerLabel
-				.getPreferredSize().getWidth());
+		firstOwnerLabel = new BaseLabel(CommonConstants.LABEL_FIRST_OWNER, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstOwnerLabel.getPreferredSize().getWidth());
 		firstOwnerLabel.setLabelFor(firstOwnerComboBox);
 		add(firstOwnerLabel);
 
 		firstOwnerComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				firstOwnerComboBox.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstOwnerComboBox.getPreferredSize().getWidth());
 		add(firstOwnerComboBox);
 
 		firstOwnerLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				firstOwnerLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, firstOwnerLabelError.getPreferredSize().getWidth());
 		add(firstOwnerLabelError);
 	}
 
 	private void populateSecondOwner() {
-		secondOwnerLabel = new BaseLabel(CommonConstants.LABEL_SECOND_OWNER,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, secondOwnerLabel
-				.getPreferredSize().getWidth());
+		secondOwnerLabel = new BaseLabel(CommonConstants.LABEL_SECOND_OWNER, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, secondOwnerLabel.getPreferredSize().getWidth());
 		secondOwnerLabel.setLabelFor(secondOwnerComboBox);
 		add(secondOwnerLabel);
 
 		secondOwnerComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				secondOwnerComboBox.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, secondOwnerComboBox.getPreferredSize().getWidth());
 		add(secondOwnerComboBox);
 
 		secondOwnerLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				secondOwnerLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, secondOwnerLabelError.getPreferredSize().getWidth());
 		add(secondOwnerLabelError);
 	}
 
 	private void populateNominee() {
-		nomineeLabel = new BaseLabel(CommonConstants.LABEL_NOMINEE,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, nomineeLabel
-				.getPreferredSize().getWidth());
+		nomineeLabel = new BaseLabel(CommonConstants.LABEL_NOMINEE, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, nomineeLabel.getPreferredSize().getWidth());
 		nomineeLabel.setLabelFor(nomineeComboBox);
 		add(nomineeLabel);
 
 		nomineeComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, nomineeComboBox
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, nomineeComboBox.getPreferredSize().getWidth());
 		add(nomineeComboBox);
 
 		nomineeLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, nomineeLabelError
-				.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, nomineeLabelError.getPreferredSize().getWidth());
 		add(nomineeLabelError);
 	}
 
 	private void populateInvestedAmount() {
-		investedAmountLabel = new BaseLabel(
-				CommonConstants.LABEL_INVESTED_AMOUNT, ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				investedAmountLabel.getPreferredSize().getWidth());
+		investedAmountLabel = new BaseLabel(CommonConstants.LABEL_INVESTED_AMOUNT, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, investedAmountLabel.getPreferredSize().getWidth());
 		investedAmountLabel.setLabelFor(investedAmountField);
 		add(investedAmountLabel);
 
 		investedAmountField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				investedAmountField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, investedAmountField.getPreferredSize().getWidth());
 		add(investedAmountField);
 
 		investedAmountLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				investedAmountLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, investedAmountLabelError.getPreferredSize().getWidth());
 		add(investedAmountLabelError);
 
-		investedAmountValidator = new AmountValidator(
-				investedAmountLabel.getText(), investedAmountField,
+		investedAmountValidator = new AmountValidator(investedAmountLabel.getText(), investedAmountField,
 				investedAmountLabelError, true);
-		investedAmountField.getDocument().addDocumentListener(
-				investedAmountValidator);
+		investedAmountField.getDocument().addDocumentListener(investedAmountValidator);
 	}
 
 	private void populateMaturityAmount() {
-		maturityAmountLabel = new BaseLabel(
-				CommonConstants.LABEL_MATURITY_AMOUNT, ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				maturityAmountLabel.getPreferredSize().getWidth());
+		maturityAmountLabel = new BaseLabel(CommonConstants.LABEL_MATURITY_AMOUNT, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, maturityAmountLabel.getPreferredSize().getWidth());
 		maturityAmountLabel.setLabelFor(maturityAmountField);
 		add(maturityAmountLabel);
 
 		maturityAmountField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				maturityAmountField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, maturityAmountField.getPreferredSize().getWidth());
 		add(maturityAmountField);
 
 		maturityAmountLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				maturityAmountLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, maturityAmountLabelError.getPreferredSize().getWidth());
 		add(maturityAmountLabelError);
 
-		maturityAmountValidator = new AmountValidator(
-				maturityAmountLabel.getText(), maturityAmountField,
+		maturityAmountValidator = new AmountValidator(maturityAmountLabel.getText(), maturityAmountField,
 				maturityAmountLabelError, true);
-		maturityAmountField.getDocument().addDocumentListener(
-				maturityAmountValidator);
+		maturityAmountField.getDocument().addDocumentListener(maturityAmountValidator);
 	}
 
 	private void populateInvestmentDate() {
-		investmentDateLabel = new BaseLabel(
-				CommonConstants.LABEL_INVESTMENT_DATE, ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth,
-				investmentDateLabel.getPreferredSize().getWidth());
+		investmentDateLabel = new BaseLabel(CommonConstants.LABEL_INVESTMENT_DATE, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, investmentDateLabel.getPreferredSize().getWidth());
 		investmentDateLabel.setLabelFor(investmentDateField);
 		add(investmentDateLabel);
 
@@ -405,139 +347,102 @@ public class FdMainPanel extends BasePanel {
 		investmentDateField.setEnabled(false);
 		add(investmentDateField);
 
-		ImageIcon calendarIcon = BaseUtils.populateImage(
-				ImageConstants.CALENDAR, 50, 50);
+		ImageIcon calendarIcon = BaseUtils.populateImage(ImageConstants.CALENDAR, 50, 50);
 		investmentDateButton = new BaseButton(calendarIcon,
-				new DatePickerListner(MainPage.getInstance(),
-						investmentDateField), CommonConstants.BUTTON_PICK_DATE);
+				new DatePickerListner(MainPage.getInstance(), investmentDateField), CommonConstants.BUTTON_PICK_DATE);
 		add(investmentDateButton);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				investmentDateField.getPreferredSize().getWidth()
-						+ investmentDateButton.getPreferredSize().getWidth()
-						+ widthPadding);
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, investmentDateField.getPreferredSize().getWidth()
+				+ investmentDateButton.getPreferredSize().getWidth() + widthPadding);
 
 		investmentDateLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				investmentDateLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, investmentDateLabelError.getPreferredSize().getWidth());
 		add(investmentDateLabelError);
 
-		investmentDateValidator = new DateValidator(
-				investmentDateLabel.getText(), investmentDateField,
+		investmentDateValidator = new DateValidator(investmentDateLabel.getText(), investmentDateField,
 				investmentDateLabelError, true, "DD-MM-YYYY");
-		investmentDateField.getDocument().addDocumentListener(
-				investmentDateValidator);
+		investmentDateField.getDocument().addDocumentListener(investmentDateValidator);
 	}
 
 	private void populateMaturityDate() {
-		maturityDateLabel = new BaseLabel(CommonConstants.LABEL_MATURITY_DATE,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, maturityDateLabel
-				.getPreferredSize().getWidth());
+		maturityDateLabel = new BaseLabel(CommonConstants.LABEL_MATURITY_DATE, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, maturityDateLabel.getPreferredSize().getWidth());
 		maturityDateLabel.setLabelFor(maturityDateField);
 		add(maturityDateLabel);
 
 		maturityDateField = new BaseTextField(ComponentEnum.VALUE);
 		maturityDateField.setEnabled(false);
 		add(maturityDateField);
-		ImageIcon calendarIcon = BaseUtils.populateImage(
-				ImageConstants.CALENDAR, 50, 50);
-		maturityDateButton = new BaseButton(
-				calendarIcon,
-				new DatePickerListner(MainPage.getInstance(), maturityDateField),
-				CommonConstants.BUTTON_PICK_DATE);
+		ImageIcon calendarIcon = BaseUtils.populateImage(ImageConstants.CALENDAR, 50, 50);
+		maturityDateButton = new BaseButton(calendarIcon,
+				new DatePickerListner(MainPage.getInstance(), maturityDateField), CommonConstants.BUTTON_PICK_DATE);
 		add(maturityDateButton);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				maturityDateField.getPreferredSize().getWidth()
-						+ maturityDateButton.getPreferredSize().getWidth()
-						+ widthPadding);
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, maturityDateField.getPreferredSize().getWidth()
+				+ maturityDateButton.getPreferredSize().getWidth() + widthPadding);
 
 		maturityDateLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth,
-				maturityDateLabelError.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, maturityDateLabelError.getPreferredSize().getWidth());
 		add(maturityDateLabelError);
 
-		maturityDateValidator = new DateValidator(maturityDateLabel.getText(),
-				maturityDateField, maturityDateLabelError, true, "DD-MM-YYYY");
-		maturityDateField.getDocument().addDocumentListener(
-				maturityDateValidator);
+		maturityDateValidator = new DateValidator(maturityDateLabel.getText(), maturityDateField,
+				maturityDateLabelError, true, "DD-MM-YYYY");
+		maturityDateField.getDocument().addDocumentListener(maturityDateValidator);
 	}
 
 	private void populateRemark() {
-		remarkLabel = new BaseLabel(CommonConstants.LABEL_REMARK,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, remarkLabel
-				.getPreferredSize().getWidth());
+		remarkLabel = new BaseLabel(CommonConstants.LABEL_REMARK, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, remarkLabel.getPreferredSize().getWidth());
 		remarkLabel.setLabelFor(remarkField);
 		add(remarkLabel);
 
 		remarkField = new BaseTextField(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, remarkField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, remarkField.getPreferredSize().getWidth());
 		add(remarkField);
 
 		remarkLabelError = new BaseLabel(ComponentEnum.NO_ERROR_IMAGE);
-		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, remarkLabelError
-				.getPreferredSize().getWidth());
+		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, remarkLabelError.getPreferredSize().getWidth());
 		add(remarkLabelError);
 	}
 
 	private void populateStatus() {
-		statusLabel = new BaseLabel(CommonConstants.LABEL_STATUS,
-				ComponentEnum.LABEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, statusLabel
-				.getPreferredSize().getWidth());
+		statusLabel = new BaseLabel(CommonConstants.LABEL_STATUS, ComponentEnum.LABEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, statusLabel.getPreferredSize().getWidth());
 		statusLabel.setLabelFor(statusComboBox);
 		add(statusLabel);
 
 		statusComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, statusComboBox
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, statusComboBox.getPreferredSize().getWidth());
 		statusComboBox.setEnabled(false);
 		add(statusComboBox);
 	}
 
 	private void addButtonGrid() {
-		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding,
-				rowHeight);
+		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 
 		ImageIcon cancelIcon = BaseUtils.populateImage(ImageConstants.CANCEL);
-		cancelButton = new BaseButton(cancelIcon,
-				new GoToHomePageListner(this), CommonConstants.BUTTON_CANCEL);
-		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton
-				.getPreferredSize().getWidth());
+		cancelButton = new BaseButton(cancelIcon, new GoToHomePageListner(this), CommonConstants.BUTTON_CANCEL);
+		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(cancelButton);
 
 		ImageIcon updateIcon = BaseUtils.populateImage(ImageConstants.UPDATE);
-		mainButton = new BaseButton(updateIcon, null,
-				CommonConstants.BUTTON_UPDATE);
+		mainButton = new BaseButton(updateIcon, null, CommonConstants.BUTTON_UPDATE);
 		buttonGridPanel.addButtonToList(mainButton);
 
 		ImageIcon copyIcon = BaseUtils.populateImage(ImageConstants.COPY);
-		copyButton = new BaseButton(copyIcon, new CopyFdActionListner(this),
-				CommonConstants.BUTTON_COPY);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, copyButton
-				.getPreferredSize().getWidth());
+		copyButton = new BaseButton(copyIcon, new CopyFdActionListner(this), CommonConstants.BUTTON_COPY);
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, copyButton.getPreferredSize().getWidth());
 
 		ImageIcon renewIcon = BaseUtils.populateImage(ImageConstants.RENEW);
-		renewButton = new BaseButton(renewIcon,
-				new InitiateRenewFdActionListner(this),
-				CommonConstants.BUTTON_RENEW);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, renewButton
-				.getPreferredSize().getWidth());
+		renewButton = new BaseButton(renewIcon, new InitiateRenewFdActionListner(this), CommonConstants.BUTTON_RENEW);
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, renewButton.getPreferredSize().getWidth());
 
-		ImageIcon withdrawIcon = BaseUtils
-				.populateImage(ImageConstants.WITHDRAW);
-		withdrawButton = new BaseButton(withdrawIcon,
-				new WithdrawFdActionListner(this),
+		ImageIcon withdrawIcon = BaseUtils.populateImage(ImageConstants.WITHDRAW);
+		withdrawButton = new BaseButton(withdrawIcon, new WithdrawFdActionListner(this),
 				CommonConstants.BUTTON_WITHDRAW);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, withdrawButton
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, withdrawButton.getPreferredSize().getWidth());
 
 		ImageIcon trackIcon = BaseUtils.populateImage(ImageConstants.TRACK);
-		trackFdButton = new BaseButton(trackIcon,
-				new TrackFdActionListner(this), CommonConstants.BUTTON_TRACK);
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, trackFdButton
-				.getPreferredSize().getWidth());
+		trackFdButton = new BaseButton(trackIcon, new TrackFdActionListner(this), CommonConstants.BUTTON_TRACK);
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, trackFdButton.getPreferredSize().getWidth());
 
 		add(buttonGridPanel.createPanel());
 	}
@@ -552,282 +457,215 @@ public class FdMainPanel extends BasePanel {
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(fdIdLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(fdIdLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(fdIdField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(fdIdField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(fdIdLabelError, fromLeft, fromTop, thirdColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(fdIdLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * FD Bank Reference Number Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(fdBankReferenceNumberLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(fdBankReferenceNumberLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(fdBankReferenceNumberField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(fdBankReferenceNumberField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(fdBankReferenceNumberLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(fdBankReferenceNumberLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		/**
 		 * FD Number Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(fdNumberLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(fdNumberLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(fdNumberField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(fdNumberField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(fdNumberLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(fdNumberLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Starting FD Number Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(originalFdNumberLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(originalFdNumberLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(originalFdNumberField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(originalFdNumberField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Renewed From FD Number Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(renewedFromFdNumberLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(renewedFromFdNumberLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(renewedFromFdNumberField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(renewedFromFdNumberField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		/**
 		 * Renewed To FD Number Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(renewedToFdNumberLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(renewedToFdNumberLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(renewedToFdNumberField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(renewedToFdNumberField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		/**
 		 * Bank Name Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(bankNameLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(bankNameLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(bankNameComboBox, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(bankNameComboBox, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(bankNameLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(bankNameLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * First Owner Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(firstOwnerLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(firstOwnerLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(firstOwnerComboBox, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(firstOwnerComboBox, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(firstOwnerLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(firstOwnerLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Second Owner Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(secondOwnerLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(secondOwnerLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(secondOwnerComboBox, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(secondOwnerComboBox, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(secondOwnerLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(secondOwnerLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Nominee Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(nomineeLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(nomineeLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(nomineeComboBox, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(nomineeComboBox, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(nomineeLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(nomineeLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Investment Amount Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(investedAmountLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(investedAmountLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(investedAmountField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(investedAmountField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(investedAmountLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(investedAmountLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		/**
 		 * Maturity Amount Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(maturityAmountLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(maturityAmountLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(maturityAmountField, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(maturityAmountField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(maturityAmountLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(maturityAmountLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		/**
 		 * Investment Date Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(investmentDateLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(investmentDateLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		List<Component> componentList = new ArrayList<Component>();
 		componentList.add(investmentDateField);
 		componentList.add(investmentDateButton);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		baseDimension = BaseUtils.arrangeComponentInRow(componentList,
-				secondColumnWidth, widthPadding, 2, fromLeft, fromTop,
-				rowHeight, heightPadding, baseDimension);
+		baseDimension = BaseUtils.arrangeComponentInRow(componentList, secondColumnWidth, widthPadding, 2, fromLeft,
+				fromTop, rowHeight, heightPadding, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(investmentDateLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(investmentDateLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0,
+				baseDimension);
 
 		/**
 		 * Maturity Date Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(maturityDateLabel, fromLeft, fromTop,
-				firstColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(maturityDateLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		componentList = new ArrayList<Component>();
 		componentList.add(maturityDateField);
 		componentList.add(maturityDateButton);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		baseDimension = BaseUtils.arrangeComponentInRow(componentList,
-				secondColumnWidth, widthPadding, 2, fromLeft, fromTop,
-				rowHeight, heightPadding, baseDimension);
+		baseDimension = BaseUtils.arrangeComponentInRow(componentList, secondColumnWidth, widthPadding, 2, fromLeft,
+				fromTop, rowHeight, heightPadding, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(maturityDateLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(maturityDateLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Status Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(statusLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(statusLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(statusComboBox, fromLeft, fromTop,
-				secondColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(statusComboBox, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Remark Row
 		 */
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(remarkLabel, fromLeft, fromTop, firstColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(remarkLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
-		BaseUtils.setBound(remarkField, fromLeft, fromTop, secondColumnWidth,
-				rowHeight, 0, 0, baseDimension, Alignment.CENTER);
+		BaseUtils.setBound(remarkField, fromLeft, fromTop, secondColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + secondColumnWidth + widthPadding;
-		BaseUtils.setBound(remarkLabelError, fromLeft, fromTop,
-				thirdColumnWidth, rowHeight, 0, 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(remarkLabelError, fromLeft, fromTop, thirdColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		/**
 		 * Button Row
@@ -835,11 +673,10 @@ public class FdMainPanel extends BasePanel {
 		buttonGridPanel.arrangeComponents();
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop, BaseUtils
-				.getMax(0, buttonGridPanel.getPreferredSize().getWidth()),
-				rowHeight, buttonGridPanel.getPreferredSize().getWidth(),
-				buttonGridPanel.getPreferredSize().getHeight(), baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop,
+				BaseUtils.getMax(0, buttonGridPanel.getPreferredSize().getWidth()), rowHeight,
+				buttonGridPanel.getPreferredSize().getWidth(), buttonGridPanel.getPreferredSize().getHeight(),
+				baseDimension);
 	}
 
 	@Override
@@ -868,95 +705,66 @@ public class FdMainPanel extends BasePanel {
 	@Override
 	public void loadPanelData() {
 		fdIdField.setText(fdVO.getFdId());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, fdIdField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, fdIdField.getPreferredSize().getWidth());
 
 		fdBankReferenceNumberField.setText(fdVO.getFdBankReferenceNumber());
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
 				fdBankReferenceNumberField.getPreferredSize().getWidth());
 
 		fdNumberField.setText(fdVO.getFdNumber());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, fdNumberField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, fdNumberField.getPreferredSize().getWidth());
 
 		originalFdNumberField.setText(fdVO.getOriginalFdNumber());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				originalFdNumberField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, originalFdNumberField.getPreferredSize().getWidth());
 
 		renewedFromFdNumberField.setText(fdVO.getRenewedFrom());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				renewedFromFdNumberField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, renewedFromFdNumberField.getPreferredSize().getWidth());
 
 		renewedToFdNumberField.setText(fdVO.getRenewedTo());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				renewedToFdNumberField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, renewedToFdNumberField.getPreferredSize().getWidth());
 
-		bankNameComboBox.setSelectItemList(SelectItemConvertor
-				.populateBankSelectItemList(FDMSCache.getInstance()
-						.getBankVOList()));
-		bankNameComboBox.setSelectedItem(SelectItemConvertor
-				.populateBankSelectItem(fdVO.getBankVO()));
+		bankNameComboBox.setSelectItemList(
+				SelectItemConvertor.populateBankSelectItemList(FDMSCache.getInstance().getBankVOList()));
+		bankNameComboBox.setSelectedItem(SelectItemConvertor.populateBankSelectItem(fdVO.getBankVO()));
 
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				bankNameComboBox.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, bankNameComboBox.getPreferredSize().getWidth());
 
-		firstOwnerComboBox.setSelectItemList(SelectItemConvertor
-				.populatePersonSelectItemList(FDMSCache.getInstance()
-						.getPersonVOList()));
-		firstOwnerComboBox.setSelectedItem(SelectItemConvertor
-				.populatePersonSelectItem(fdVO.getFirstOwnerVO()));
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				firstOwnerComboBox.getPreferredSize().getWidth());
+		firstOwnerComboBox.setSelectItemList(
+				SelectItemConvertor.populatePersonSelectItemList(FDMSCache.getInstance().getPersonVOList()));
+		firstOwnerComboBox.setSelectedItem(SelectItemConvertor.populatePersonSelectItem(fdVO.getFirstOwnerVO()));
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstOwnerComboBox.getPreferredSize().getWidth());
 
-		secondOwnerComboBox.setSelectItemList(SelectItemConvertor
-				.populatePersonSelectItemList(FDMSCache.getInstance()
-						.getPersonVOList()));
-		secondOwnerComboBox.setSelectedItem(SelectItemConvertor
-				.populatePersonSelectItem(fdVO.getSecondOwnerVO()));
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				secondOwnerComboBox.getPreferredSize().getWidth());
+		secondOwnerComboBox.setSelectItemList(
+				SelectItemConvertor.populatePersonSelectItemList(FDMSCache.getInstance().getPersonVOList()));
+		secondOwnerComboBox.setSelectedItem(SelectItemConvertor.populatePersonSelectItem(fdVO.getSecondOwnerVO()));
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, secondOwnerComboBox.getPreferredSize().getWidth());
 
-		nomineeComboBox.setSelectItemList(SelectItemConvertor
-				.populatePersonSelectItemList(FDMSCache.getInstance()
-						.getPersonVOList()));
-		nomineeComboBox.setSelectedItem(SelectItemConvertor
-				.populatePersonSelectItem(fdVO.getNomineeVO()));
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, nomineeComboBox
-				.getPreferredSize().getWidth());
+		nomineeComboBox.setSelectItemList(
+				SelectItemConvertor.populatePersonSelectItemList(FDMSCache.getInstance().getPersonVOList()));
+		nomineeComboBox.setSelectedItem(SelectItemConvertor.populatePersonSelectItem(fdVO.getNomineeVO()));
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, nomineeComboBox.getPreferredSize().getWidth());
 
 		investedAmountField.setText(fdVO.getInvestedAmount());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				investedAmountField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, investedAmountField.getPreferredSize().getWidth());
 
 		maturityAmountField.setText(fdVO.getMaturityAmount());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				maturityAmountField.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, maturityAmountField.getPreferredSize().getWidth());
 
-		investmentDateField.setText(DateUtilities.parseDateToString(
-				fdVO.getInvestmentDate(), FDMConstant.DATE_FORMAT));
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				investmentDateField.getPreferredSize().getWidth()
-						+ investmentDateButton.getPreferredSize().getWidth()
-						+ widthPadding);
+		investmentDateField.setText(DateUtilities.parseDateToString(fdVO.getInvestmentDate(), FDMConstant.DATE_FORMAT));
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, investmentDateField.getPreferredSize().getWidth()
+				+ investmentDateButton.getPreferredSize().getWidth() + widthPadding);
 
-		maturityDateField.setText(DateUtilities.parseDateToString(
-				fdVO.getMaturityDate(), FDMConstant.DATE_FORMAT));
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
-				maturityDateField.getPreferredSize().getWidth()
-						+ maturityDateButton.getPreferredSize().getWidth()
-						+ widthPadding);
+		maturityDateField.setText(DateUtilities.parseDateToString(fdVO.getMaturityDate(), FDMConstant.DATE_FORMAT));
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, maturityDateField.getPreferredSize().getWidth()
+				+ maturityDateButton.getPreferredSize().getWidth() + widthPadding);
 
-		statusComboBox.setSelectItemList(SelectItemConvertor
-				.populateStatusSelectItemList(FDMSCache.getInstance()
-						.getStatusVOList()));
-		statusComboBox.setSelectedItem(SelectItemConvertor
-				.populateStatusSelectItem(fdVO.getStatusVO()));
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, statusComboBox
-				.getPreferredSize().getWidth());
+		statusComboBox.setSelectItemList(
+				SelectItemConvertor.populateStatusSelectItemList(FDMSCache.getInstance().getStatusVOList()));
+		statusComboBox.setSelectedItem(SelectItemConvertor.populateStatusSelectItem(fdVO.getStatusVO()));
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, statusComboBox.getPreferredSize().getWidth());
 
 		remarkField.setText(fdVO.getRemark());
-		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, remarkField
-				.getPreferredSize().getWidth());
+		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, remarkField.getPreferredSize().getWidth());
 
 		applyRights();
 		arrangeComponents();
@@ -972,18 +780,15 @@ public class FdMainPanel extends BasePanel {
 		}
 
 		if (null != fdBankReferenceNumberField.getText()) {
-			fdVO.setFdBankReferenceNumber(Integer
-					.parseInt(fdBankReferenceNumberField.getText()));
+			fdVO.setFdBankReferenceNumber(Integer.parseInt(fdBankReferenceNumberField.getText()));
 		}
 
 		if (null != originalFdNumberField.getText()) {
-			fdVO.setOriginalFdNumber(Integer.parseInt(originalFdNumberField
-					.getText()));
+			fdVO.setOriginalFdNumber(Integer.parseInt(originalFdNumberField.getText()));
 		}
 
 		if (null != renewedFromFdNumberField.getText()) {
-			fdVO.setRenewedFrom(Integer.parseInt(renewedFromFdNumberField
-					.getText()));
+			fdVO.setRenewedFrom(Integer.parseInt(renewedFromFdNumberField.getText()));
 		}
 
 		if (null != renewedToFdNumberField.getText()) {
@@ -994,48 +799,39 @@ public class FdMainPanel extends BasePanel {
 
 		if (NumericUtilities.isInteger(bankNameComboBox.getSelectedValue())) {
 			BankVO bankVO = new BankVO();
-			bankVO.setBankId(Integer.parseInt(bankNameComboBox
-					.getSelectedValue()));
+			bankVO.setBankId(Integer.parseInt(bankNameComboBox.getSelectedValue()));
 			fdVO.setBankVO(bankVO);
 		}
 
 		if (NumericUtilities.isInteger(firstOwnerComboBox.getSelectedValue())) {
 			PersonVO firstOwner = new PersonVO();
-			firstOwner.setPersonId(Integer.parseInt(firstOwnerComboBox
-					.getSelectedValue()));
+			firstOwner.setPersonId(Integer.parseInt(firstOwnerComboBox.getSelectedValue()));
 			fdVO.setFirstOwnerVO(firstOwner);
 		}
 		if (NumericUtilities.isInteger(secondOwnerComboBox.getSelectedValue())) {
 			PersonVO secondOwner = new PersonVO();
-			secondOwner.setPersonId(Integer.parseInt(secondOwnerComboBox
-					.getSelectedValue()));
+			secondOwner.setPersonId(Integer.parseInt(secondOwnerComboBox.getSelectedValue()));
 			fdVO.setSecondOwnerVO(secondOwner);
 		}
 
 		if (NumericUtilities.isInteger(nomineeComboBox.getSelectedValue())) {
 			PersonVO nomineeVO = new PersonVO();
-			nomineeVO.setPersonId(Integer.parseInt(nomineeComboBox
-					.getSelectedValue()));
+			nomineeVO.setPersonId(Integer.parseInt(nomineeComboBox.getSelectedValue()));
 			fdVO.setNomineeVO(nomineeVO);
 		}
 
 		if (NumericUtilities.isAmount(investedAmountField.getText())) {
-			fdVO.setInvestedAmount(Float.parseFloat(investedAmountField
-					.getText()));
+			fdVO.setInvestedAmount(Float.parseFloat(investedAmountField.getText()));
 		}
 
 		if (NumericUtilities.isAmount(maturityAmountField.getText())) {
-			fdVO.setMaturityAmount(Float.parseFloat(maturityAmountField
-					.getText()));
+			fdVO.setMaturityAmount(Float.parseFloat(maturityAmountField.getText()));
 		}
 
-		fdVO.setInvestmentDate(DateUtilities.parseStringToDate(
-				investmentDateField.getText(), FDMConstant.DATE_FORMAT));
-		fdVO.setMaturityDate(DateUtilities.parseStringToDate(
-				maturityDateField.getText(), FDMConstant.DATE_FORMAT));
+		fdVO.setInvestmentDate(DateUtilities.parseStringToDate(investmentDateField.getText(), FDMConstant.DATE_FORMAT));
+		fdVO.setMaturityDate(DateUtilities.parseStringToDate(maturityDateField.getText(), FDMConstant.DATE_FORMAT));
 		fdVO.setRemark(remarkField.getText());
-		fdVO.setStatusVO(FDMSCache.getInstance().getStatusVOByCode(
-				statusComboBox.getSelectedValue()));
+		fdVO.setStatusVO(FDMSCache.getInstance().getStatusVOByCode(statusComboBox.getSelectedValue()));
 
 		fdPanelBean.setFdVO(fdVO);
 		return fdPanelBean;
@@ -1045,8 +841,7 @@ public class FdMainPanel extends BasePanel {
 	public boolean validatePanelData() {
 		boolean isSearchMode = isSearchMode();
 		boolean fdIdResult = fdIdValidator.validateOnSubmit();
-		boolean fdBankReferenceNumberResult = fdBankReferenceNumberValidator
-				.validateOnSubmit();
+		boolean fdBankReferenceNumberResult = fdBankReferenceNumberValidator.validateOnSubmit();
 		boolean fdNumberResult = fdNumberValidator.validateOnSubmit();
 		boolean bankNameResult = true;
 
@@ -1054,60 +849,45 @@ public class FdMainPanel extends BasePanel {
 		boolean ownerSimilarityResult = true;
 
 		if (!isSearchMode) {
-			bankNameResult = FDMSValidator.validateBaseComboBox(
-					bankNameComboBox, bankNameLabelError,
+			bankNameResult = FDMSValidator.validateBaseComboBox(bankNameComboBox, bankNameLabelError,
 					bankNameLabel.getText());
-			firstOwnerResult = FDMSValidator.validateBaseComboBox(
-					firstOwnerComboBox, firstOwnerLabelError,
+			firstOwnerResult = FDMSValidator.validateBaseComboBox(firstOwnerComboBox, firstOwnerLabelError,
 					firstOwnerLabel.getText());
 
 			if (firstOwnerResult) {
-				ownerSimilarityResult = FDMSValidator.validateSimilarOwner(
-						firstOwnerComboBox, firstOwnerLabelError,
-						firstOwnerLabel.getText(), secondOwnerComboBox,
-						secondOwnerLabelError, secondOwnerLabel.getText());
+				ownerSimilarityResult = FDMSValidator.validateSimilarOwner(firstOwnerComboBox, firstOwnerLabelError,
+						firstOwnerLabel.getText(), secondOwnerComboBox, secondOwnerLabelError,
+						secondOwnerLabel.getText());
 				if (ownerSimilarityResult) {
-					ownerSimilarityResult = FDMSValidator.validateSimilarOwner(
-							firstOwnerComboBox, firstOwnerLabelError,
-							firstOwnerLabel.getText(), nomineeComboBox,
-							nomineeLabelError, nomineeLabel.getText());
+					ownerSimilarityResult = FDMSValidator.validateSimilarOwner(firstOwnerComboBox, firstOwnerLabelError,
+							firstOwnerLabel.getText(), nomineeComboBox, nomineeLabelError, nomineeLabel.getText());
 					if (ownerSimilarityResult) {
-						ownerSimilarityResult = FDMSValidator
-								.validateSimilarOwner(secondOwnerComboBox,
-										secondOwnerLabelError,
-										secondOwnerLabel.getText(),
-										nomineeComboBox, nomineeLabelError,
-										nomineeLabel.getText());
+						ownerSimilarityResult = FDMSValidator.validateSimilarOwner(secondOwnerComboBox,
+								secondOwnerLabelError, secondOwnerLabel.getText(), nomineeComboBox, nomineeLabelError,
+								nomineeLabel.getText());
 					}
 				}
 			}
 		}
 
-		boolean investedAmountResult = investedAmountValidator
-				.validateOnSubmit();
+		boolean investedAmountResult = investedAmountValidator.validateOnSubmit();
 
-		boolean maturityAmountResult = maturityAmountValidator
-				.validateOnSubmit();
+		boolean maturityAmountResult = maturityAmountValidator.validateOnSubmit();
 
-		boolean investmentDateResult = investmentDateValidator
-				.validateOnSubmit();
+		boolean investmentDateResult = investmentDateValidator.validateOnSubmit();
 
 		boolean maturityDateResult = maturityDateValidator.validateOnSubmit();
 
 		boolean compareDateResult = true;
-		if (investmentDateResult && maturityDateResult
-				&& maturityDateValidator.isMandatory()
+		if (investmentDateResult && maturityDateResult && maturityDateValidator.isMandatory()
 				&& investmentDateValidator.isMandatory()) {
-			compareDateResult = FDMSValidator.compareStartAndEndDate(
-					investmentDateField, investmentDateLabelError,
-					investmentDateLabel.getText(), maturityDateField,
-					maturityDateLabelError, maturityAmountLabel.getText());
+			compareDateResult = FDMSValidator.compareStartAndEndDate(investmentDateField, investmentDateLabelError,
+					investmentDateLabel.getText(), maturityDateField, maturityDateLabelError,
+					maturityAmountLabel.getText());
 		}
-		return fdIdResult && fdBankReferenceNumberResult && fdNumberResult
-				&& bankNameResult && firstOwnerResult && investedAmountResult
-				&& maturityAmountResult && investmentDateResult
-				&& maturityDateResult && ownerSimilarityResult
-				&& compareDateResult;
+		return fdIdResult && fdBankReferenceNumberResult && fdNumberResult && bankNameResult && firstOwnerResult
+				&& investedAmountResult && maturityAmountResult && investmentDateResult && maturityDateResult
+				&& ownerSimilarityResult && compareDateResult;
 	}
 
 	public void applyRights() {
@@ -1140,8 +920,7 @@ public class FdMainPanel extends BasePanel {
 	private void applyRenewRights() {
 		setTitle(CommonConstants.HEADER_RENEW_FD);
 		ImageIcon renewIcon = BaseUtils.populateImage(ImageConstants.RENEW);
-		mainButton.setAllValues(renewIcon, new RenewFdActionListner(this),
-				CommonConstants.BUTTON_RENEW);
+		mainButton.setAllValues(renewIcon, new RenewFdActionListner(this), CommonConstants.BUTTON_RENEW);
 
 		fdIdField.setEnabled(false);
 		fdIdValidator.setMandatory(false);
@@ -1181,17 +960,13 @@ public class FdMainPanel extends BasePanel {
 	private void applyViewRights() {
 		setTitle(CommonConstants.HEADER_SHOW_FD);
 		ImageIcon editIcon = BaseUtils.populateImage(ImageConstants.EDIT);
-		mainButton.setAllValues(editIcon, new EditFdActionListner(this),
-				CommonConstants.BUTTON_EDIT);
+		mainButton.setAllValues(editIcon, new EditFdActionListner(this), CommonConstants.BUTTON_EDIT);
 
-		if ((FdStatusEnum.CURRENT.getCode().equalsIgnoreCase(fdVO.getStatusVO()
-				.getCode()))
-				&& (fdVO.getMaturityDate().compareTo(
-						Calendar.getInstance().getTime()) < 0)) {
+		if ((FdStatusEnum.CURRENT.getCode().equalsIgnoreCase(fdVO.getStatusVO().getCode()))
+				&& (fdVO.getMaturityDate().compareTo(Calendar.getInstance().getTime()) < 0)) {
 			buttonGridPanel.addButtonToList(renewButton);
 		}
-		if (FdStatusEnum.CURRENT.getCode().equalsIgnoreCase(
-				fdVO.getStatusVO().getCode())) {
+		if (FdStatusEnum.CURRENT.getCode().equalsIgnoreCase(fdVO.getStatusVO().getCode())) {
 			buttonGridPanel.addButtonToList(withdrawButton);
 		}
 
@@ -1234,8 +1009,7 @@ public class FdMainPanel extends BasePanel {
 	private void applySearchRights() {
 		setTitle(CommonConstants.HEADER_SEARCH_FD);
 		ImageIcon searchIcon = BaseUtils.populateImage(ImageConstants.SEARCH);
-		mainButton.setAllValues(searchIcon, new SearchFdActionListner(this),
-				CommonConstants.BUTTON_SEARCH);
+		mainButton.setAllValues(searchIcon, new SearchFdActionListner(this), CommonConstants.BUTTON_SEARCH);
 
 		fdIdField.setEnabled(true);
 		fdIdValidator.setMandatory(false);
@@ -1277,8 +1051,7 @@ public class FdMainPanel extends BasePanel {
 	private void applyEditRights() {
 		setTitle(CommonConstants.HEADER_EDIT_FD);
 		ImageIcon updateIcon = BaseUtils.populateImage(ImageConstants.UPDATE);
-		mainButton.setAllValues(updateIcon, new UpdateFdActionListner(this),
-				CommonConstants.BUTTON_UPDATE);
+		mainButton.setAllValues(updateIcon, new UpdateFdActionListner(this), CommonConstants.BUTTON_UPDATE);
 
 		fdIdField.setEnabled(false);
 		fdIdValidator.setMandatory(false);
@@ -1303,8 +1076,7 @@ public class FdMainPanel extends BasePanel {
 		maturityAmountField.setEnabled(true);
 		maturityAmountValidator.setMandatory(true);
 
-		if (FdStatusEnum.CURRENT.getCode().equalsIgnoreCase(
-				fdVO.getStatusVO().getCode())) {
+		if (FdStatusEnum.CURRENT.getCode().equalsIgnoreCase(fdVO.getStatusVO().getCode())) {
 			investmentDateButton.setEnabled(true);
 			maturityDateButton.setEnabled(true);
 		} else {
@@ -1326,8 +1098,7 @@ public class FdMainPanel extends BasePanel {
 	private void applyCreateRights() {
 		setTitle(CommonConstants.HEADER_ADD_FD);
 		ImageIcon addIcon = BaseUtils.populateImage(ImageConstants.ADD);
-		mainButton.setAllValues(addIcon, new AddFdActionListner(this),
-				CommonConstants.BUTTON_ADD);
+		mainButton.setAllValues(addIcon, new AddFdActionListner(this), CommonConstants.BUTTON_ADD);
 
 		fdIdField.setEnabled(false);
 		fdIdValidator.setMandatory(false);

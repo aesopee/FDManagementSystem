@@ -25,6 +25,7 @@ public class BankMainPage extends FdmsBasePage {
 
 	@Override
 	public void arrangeComponents() {
+		// This method is kept blank because it will never be called.
 	}
 
 	@Override
@@ -54,9 +55,11 @@ public class BankMainPage extends FdmsBasePage {
 
 	@Override
 	public void applyRights() {
+		// This method is kept blank because it will never be called.
 	}
 
 	@Override
 	public void prepareTabOutOrderList() {
+		// This method is kept blank because it will never be called.
 	}
 }

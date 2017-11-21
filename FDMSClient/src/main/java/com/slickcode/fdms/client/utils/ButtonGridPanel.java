@@ -3,7 +3,6 @@ package com.slickcode.fdms.client.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JPanel;
 
 import com.slickcode.baseframework.components.BaseButton;
@@ -43,8 +42,7 @@ public class ButtonGridPanel extends BasePanel {
 	public void addButtonToList(BaseButton baseButton) {
 		getBaseButtonList().add(baseButton);
 		rowHeight = BaseUtils.getMax(rowHeight,
-				null == baseButton.getIcon() ? baseButton.getHeight()
-						: baseButton.getIcon().getIconHeight());
+				null == baseButton.getIcon() ? baseButton.getHeight() : baseButton.getIcon().getIconHeight());
 		add(baseButton);
 	}
 
@@ -69,10 +67,9 @@ public class ButtonGridPanel extends BasePanel {
 		for (BaseButton baseButton : baseButtonList) {
 			fromLeft = baseDimension.getWidth() + widthPadding;
 
-			BaseUtils.setBound(baseButton, fromLeft, fromTop, BaseUtils.getMax(
-					0, baseButton.getPreferredSize().getWidth()), rowHeight,
-					baseButton.getPreferredSize().getWidth(), 0, baseDimension,
-					Alignment.CENTER);
+			BaseUtils.setBound(baseButton, fromLeft, fromTop,
+					BaseUtils.getMax(0, baseButton.getPreferredSize().getWidth()), rowHeight,
+					baseButton.getPreferredSize().getWidth(), 0, baseDimension);
 		}
 	}
 

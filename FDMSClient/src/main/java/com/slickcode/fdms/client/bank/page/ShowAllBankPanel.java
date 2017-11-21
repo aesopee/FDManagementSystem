@@ -3,7 +3,6 @@ package com.slickcode.fdms.client.bank.page;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
@@ -46,67 +45,49 @@ public class ShowAllBankPanel extends BasePanel {
 
 	private void populateBankTable() {
 		List<ColumnDataVO> columnDataVOList = new ArrayList<ColumnDataVO>();
-		ColumnDataVO bankIdColumnDataVO = new ColumnDataVO(
-				CommonConstants.LABEL_BANK_ID, 10, java.lang.String.class,
+		ColumnDataVO bankIdColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BANK_ID, 10, java.lang.String.class,
 				false, AlignmentEnum.CENTER);
 		columnDataVOList.add(bankIdColumnDataVO);
-		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(
-				CommonConstants.LABEL_BANK_NAME, 50, java.lang.String.class,
-				false, AlignmentEnum.RIGHT);
+		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BANK_NAME, 50,
+				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(bankNameColumnDataVO);
-		ColumnDataVO branchColumnDataVO = new ColumnDataVO(
-				CommonConstants.LABEL_BRANCH, 30, java.lang.String.class,
+		ColumnDataVO branchColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BRANCH, 30, java.lang.String.class,
 				false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(branchColumnDataVO);
-		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(
-				CommonConstants.BUTTON_EDIT, 5, javax.swing.ImageIcon.class,
-				true);
+		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_EDIT, 5,
+				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(editButtonColumnDataVO);
-		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(
-				CommonConstants.BUTTON_VIEW, 5, javax.swing.ImageIcon.class,
-				true);
+		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_VIEW, 5,
+				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(viewButtonColumnDataVO);
-		
-		panel = new PaginatedTablePanel(columnDataVOList, 10, PageDimension
-				.getInstance().getMainPanelWidth() - 30 - widthPadding-50, 200);
 
-		columnWidth = BaseUtils.getMax(columnWidth, panel.getPreferredSize()
-				.getWidth());
+		panel = new PaginatedTablePanel(columnDataVOList, 10,
+				PageDimension.getInstance().getMainPanelWidth() - 30 - widthPadding - 50, 200);
+
+		columnWidth = BaseUtils.getMax(columnWidth, panel.getPreferredSize().getWidth());
 		add(panel.createPanel());
 
 		ImageIcon editIcon = BaseUtils.populateImage(ImageConstants.EDIT);
-		BaseButton editButton = new BaseButton(editIcon,
-				new EditBankActionListner(panel), CommonConstants.BUTTON_EDIT);
+		BaseButton editButton = new BaseButton(editIcon, new EditBankActionListner(panel), CommonConstants.BUTTON_EDIT);
+		panel.getTable().getColumn(editButtonColumnDataVO.getHeader()).setCellRenderer(editButton);
 		panel.getTable().getColumn(editButtonColumnDataVO.getHeader())
-				.setCellRenderer(editButton);
-		panel.getTable()
-				.getColumn(editButtonColumnDataVO.getHeader())
-				.setCellEditor(
-						new BaseButtonEditor(new JCheckBox(), editButton));
+				.setCellEditor(new BaseButtonEditor(new JCheckBox(), editButton));
 
 		ImageIcon viewIcon = BaseUtils.populateImage(ImageConstants.VIEW);
-		BaseButton viewButton = new BaseButton(viewIcon,
-				new ShowShowAllBankActionListner(panel),
+		BaseButton viewButton = new BaseButton(viewIcon, new ShowShowAllBankActionListner(panel),
 				CommonConstants.BUTTON_VIEW);
+		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader()).setCellRenderer(viewButton);
 		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader())
-				.setCellRenderer(viewButton);
-		panel.getTable()
-				.getColumn(viewButtonColumnDataVO.getHeader())
-				.setCellEditor(
-						new BaseButtonEditor(new JCheckBox(), viewButton));
+				.setCellEditor(new BaseButtonEditor(new JCheckBox(), viewButton));
 
 	}
 
 	private void populateButtons() {
-		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding,
-				rowHeight);
+		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 
-		ImageIcon excelExportIcon = BaseUtils.populateImage(
-				ImageConstants.EXCEL_EXPORT);
-		this.excelExportButton = new BaseButton(excelExportIcon, null,
-				CommonConstants.BUTTON_EXCEL_EXPORT);
-		this.columnWidth = BaseUtils.getMax(this.columnWidth,
-				this.excelExportButton.getPreferredSize().getWidth());
+		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
+		this.excelExportButton = new BaseButton(excelExportIcon, null, CommonConstants.BUTTON_EXCEL_EXPORT);
+		this.columnWidth = BaseUtils.getMax(this.columnWidth, this.excelExportButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(this.excelExportButton);
 
 		add(buttonGridPanel.createPanel());
@@ -124,10 +105,8 @@ public class ShowAllBankPanel extends BasePanel {
 		fromTop = baseDimension.getHeight() + heightPadding;
 		fromLeft = fromLeft + widthPadding;
 
-		BaseUtils.setBound(panel, fromLeft, fromTop, columnWidth, panel
-				.getPreferredSize().height,
-				panel.getPreferredSize().getWidth(), 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(panel, fromLeft, fromTop, columnWidth, panel.getPreferredSize().height,
+				panel.getPreferredSize().getWidth(), 0, baseDimension);
 
 		/**
 		 * Button Row
@@ -135,11 +114,10 @@ public class ShowAllBankPanel extends BasePanel {
 		buttonGridPanel.arrangeComponents();
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop, BaseUtils
-				.getMax(0, buttonGridPanel.getPreferredSize().getWidth()),
-				rowHeight, buttonGridPanel.getPreferredSize().getWidth(),
-				buttonGridPanel.getPreferredSize().getHeight(), baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop,
+				BaseUtils.getMax(0, buttonGridPanel.getPreferredSize().getWidth()), rowHeight,
+				buttonGridPanel.getPreferredSize().getWidth(), buttonGridPanel.getPreferredSize().getHeight(),
+				baseDimension);
 	}
 
 	@Override
@@ -153,14 +131,11 @@ public class ShowAllBankPanel extends BasePanel {
 	public void loadPanelData() {
 		panel.setData(populateBankArray());
 		panel.loadPanelData();
-		columnWidth = BaseUtils.getMax(columnWidth, panel.getPreferredSize()
-				.getWidth());
-		
+		columnWidth = BaseUtils.getMax(columnWidth, panel.getPreferredSize().getWidth());
+
 		setTitle(CommonConstants.HEADER_SHOW_BANK);
-		ImageIcon excelExportIcon = BaseUtils.populateImage(
-				ImageConstants.EXCEL_EXPORT);
-		excelExportButton.setAllValues(excelExportIcon,
-				new ExcelExportBankActionListner(bankVOList),
+		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
+		excelExportButton.setAllValues(excelExportIcon, new ExcelExportBankActionListner(bankVOList),
 				CommonConstants.BUTTON_EXCEL_EXPORT);
 		arrangeComponents();
 		prepareTabOutOrderList();
@@ -171,8 +146,7 @@ public class ShowAllBankPanel extends BasePanel {
 		Object[][] data = new Object[size][];
 		for (int i = 0; i < size; i++) {
 			BankVO bankVO = bankVOList.get(i);
-			Object[] innerData = { bankVO.getBankId(), bankVO.getName(),
-					bankVO.getBranch(), null, null };
+			Object[] innerData = { bankVO.getBankId(), bankVO.getName(), bankVO.getBranch(), null, null };
 			data[i] = innerData;
 		}
 		return data;
@@ -208,7 +182,7 @@ public class ShowAllBankPanel extends BasePanel {
 	}
 
 	@Override
-	public void prepareTabOutOrderList() {		
+	public void prepareTabOutOrderList() {
 	}
 
 }

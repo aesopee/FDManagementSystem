@@ -3,7 +3,6 @@ package com.slickcode.fdms.client.fd.page;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
@@ -43,83 +42,60 @@ public class ShowAllFDPanel extends BasePanel {
 
 	private ButtonGridPanel buttonGridPanel;
 	private BaseButton excelExportButton;
-	
 
 	private void populateFDTable() {
 		List<ColumnDataVO> columnDataVOList = new ArrayList<ColumnDataVO>();
-		ColumnDataVO fdIdColumnDataVO = new ColumnDataVO(
-				CommonConstants.LABEL_FD_ID, 5, java.lang.Integer.class, false,
+		ColumnDataVO fdIdColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_FD_ID, 5, java.lang.Integer.class, false,
 				AlignmentEnum.CENTER);
 		columnDataVOList.add(fdIdColumnDataVO);
-		ColumnDataVO fdNumberColumnDataVO = new ColumnDataVO(
-				CommonConstants.LABEL_FD_NUMBER, 10, java.lang.String.class,
-				false, AlignmentEnum.CENTER);
+		ColumnDataVO fdNumberColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_FD_NUMBER, 10,
+				java.lang.String.class, false, AlignmentEnum.CENTER);
 		columnDataVOList.add(fdNumberColumnDataVO);
-		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(
-				CommonConstants.LABEL_BANK_NAME, 35, java.lang.String.class,
-				false, AlignmentEnum.RIGHT);
+		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BANK_NAME, 35,
+				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(bankNameColumnDataVO);
-		ColumnDataVO branchColumnDataVO = new ColumnDataVO(
-				CommonConstants.LABEL_BRANCH, 20, java.lang.String.class,
+		ColumnDataVO branchColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BRANCH, 20, java.lang.String.class,
 				false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(branchColumnDataVO);
-		ColumnDataVO maturityDateColumnDataVO = new ColumnDataVO(
-				CommonConstants.LABEL_MATURITY_DATE, 10,
+		ColumnDataVO maturityDateColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_MATURITY_DATE, 10,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(maturityDateColumnDataVO);
-		ColumnDataVO statusColumnDataVO = new ColumnDataVO(
-				CommonConstants.LABEL_STATUS, 10, java.lang.String.class,
+		ColumnDataVO statusColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_STATUS, 10, java.lang.String.class,
 				false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(statusColumnDataVO);
-		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(
-				CommonConstants.BUTTON_EDIT, 5, javax.swing.ImageIcon.class,
-				true);
+		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_EDIT, 5,
+				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(editButtonColumnDataVO);
-		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(
-				CommonConstants.BUTTON_VIEW, 5, javax.swing.ImageIcon.class,
-				true);
+		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_VIEW, 5,
+				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(viewButtonColumnDataVO);
 
-		panel = new PaginatedTablePanel(columnDataVOList, 10, PageDimension
-				.getInstance().getMainPanelWidth() - 30 - widthPadding - 50,
-				200);
+		panel = new PaginatedTablePanel(columnDataVOList, 10,
+				PageDimension.getInstance().getMainPanelWidth() - 30 - widthPadding - 50, 200);
 
-		columnWidth = BaseUtils.getMax(columnWidth, panel.getPreferredSize()
-				.getWidth());
+		columnWidth = BaseUtils.getMax(columnWidth, panel.getPreferredSize().getWidth());
 		add(panel.createPanel());
 
 		ImageIcon editIcon = BaseUtils.populateImage(ImageConstants.EDIT);
-		BaseButton editButton = new BaseButton(editIcon,
-				new EditFdActionListner(panel), CommonConstants.BUTTON_EDIT);
+		BaseButton editButton = new BaseButton(editIcon, new EditFdActionListner(panel), CommonConstants.BUTTON_EDIT);
+		panel.getTable().getColumn(editButtonColumnDataVO.getHeader()).setCellRenderer(editButton);
 		panel.getTable().getColumn(editButtonColumnDataVO.getHeader())
-				.setCellRenderer(editButton);
-		panel.getTable()
-				.getColumn(editButtonColumnDataVO.getHeader())
-				.setCellEditor(
-						new BaseButtonEditor(new JCheckBox(), editButton));
+				.setCellEditor(new BaseButtonEditor(new JCheckBox(), editButton));
 
 		ImageIcon viewIcon = BaseUtils.populateImage(ImageConstants.VIEW);
-		BaseButton viewButton = new BaseButton(viewIcon,
-				new ShowShowAllFdActionListner(panel),
+		BaseButton viewButton = new BaseButton(viewIcon, new ShowShowAllFdActionListner(panel),
 				CommonConstants.BUTTON_VIEW);
+		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader()).setCellRenderer(viewButton);
 		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader())
-				.setCellRenderer(viewButton);
-		panel.getTable()
-				.getColumn(viewButtonColumnDataVO.getHeader())
-				.setCellEditor(
-						new BaseButtonEditor(new JCheckBox(), viewButton));
+				.setCellEditor(new BaseButtonEditor(new JCheckBox(), viewButton));
 	}
 
 	private void populateButtons() {
-		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding,
-				rowHeight);
+		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 
-		ImageIcon excelExportIcon = BaseUtils.populateImage(
-				ImageConstants.EXCEL_EXPORT);
-		this.excelExportButton = new BaseButton(excelExportIcon, null,
-				CommonConstants.BUTTON_EXCEL_EXPORT);
-		this.columnWidth = BaseUtils.getMax(this.columnWidth,
-				this.excelExportButton.getPreferredSize().getWidth());
+		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
+		this.excelExportButton = new BaseButton(excelExportIcon, null, CommonConstants.BUTTON_EXCEL_EXPORT);
+		this.columnWidth = BaseUtils.getMax(this.columnWidth, this.excelExportButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(this.excelExportButton);
 
 		add(buttonGridPanel.createPanel());
@@ -130,10 +106,8 @@ public class ShowAllFDPanel extends BasePanel {
 		panel.setData(populateFDArray());
 		panel.loadPanelData();
 
-		ImageIcon excelExportIcon = BaseUtils.populateImage(
-				ImageConstants.EXCEL_EXPORT);
-		excelExportButton.setAllValues(excelExportIcon,
-				new ExcelExportFdActionListner(fdVOList),
+		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
+		excelExportButton.setAllValues(excelExportIcon, new ExcelExportFdActionListner(fdVOList),
 				CommonConstants.BUTTON_EXCEL_EXPORT);
 		arrangeComponents();
 		prepareTabOutOrderList();
@@ -146,13 +120,10 @@ public class ShowAllFDPanel extends BasePanel {
 
 		for (int i = 0; i < size; i++) {
 			FdVO fdVO = fdVOList.get(i);
-			Object[] innerData = {
-					fdVO.getFdId(),
-					fdVO.getFdNumber(),
-					fdVO.getBankVO().getName(),
+			Object[] innerData = { fdVO.getFdId(), fdVO.getFdNumber(), fdVO.getBankVO().getName(),
 					fdVO.getBankVO().getBranch(),
-					DateUtilities.parseDateToString(fdVO.getMaturityDate(),
-							"dd-MMM-YYYY"), fdVO.getStatusVO().getNarrative(), null, null };
+					DateUtilities.parseDateToString(fdVO.getMaturityDate(), "dd-MMM-YYYY"),
+					fdVO.getStatusVO().getNarrative(), null, null };
 			data[i] = innerData;
 		}
 		return data;
@@ -170,10 +141,8 @@ public class ShowAllFDPanel extends BasePanel {
 		fromTop = baseDimension.getHeight() + heightPadding;
 		fromLeft = fromLeft + widthPadding;
 
-		BaseUtils.setBound(panel, fromLeft, fromTop, columnWidth, panel
-				.getPreferredSize().height,
-				panel.getPreferredSize().getWidth(), 0, baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(panel, fromLeft, fromTop, columnWidth, panel.getPreferredSize().height,
+				panel.getPreferredSize().getWidth(), 0, baseDimension);
 
 		/**
 		 * Button Row
@@ -181,11 +150,10 @@ public class ShowAllFDPanel extends BasePanel {
 		buttonGridPanel.arrangeComponents();
 		fromLeft = widthPadding;
 		fromTop = baseDimension.getHeight() + heightPadding;
-		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop, BaseUtils
-				.getMax(0, buttonGridPanel.getPreferredSize().getWidth()),
-				rowHeight, buttonGridPanel.getPreferredSize().getWidth(),
-				buttonGridPanel.getPreferredSize().getHeight(), baseDimension,
-				Alignment.CENTER);
+		BaseUtils.setBound(buttonGridPanel, fromLeft, fromTop,
+				BaseUtils.getMax(0, buttonGridPanel.getPreferredSize().getWidth()), rowHeight,
+				buttonGridPanel.getPreferredSize().getWidth(), buttonGridPanel.getPreferredSize().getHeight(),
+				baseDimension);
 
 		baseDimension.setHeight(baseDimension.getHeight() + heightPadding + 20);
 		baseDimension.setWidth(baseDimension.getWidth() + widthPadding);
