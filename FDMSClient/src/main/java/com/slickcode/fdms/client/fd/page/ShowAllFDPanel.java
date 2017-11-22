@@ -44,7 +44,7 @@ public class ShowAllFDPanel extends BasePanel {
 	private BaseButton excelExportButton;
 
 	private void populateFDTable() {
-		List<ColumnDataVO> columnDataVOList = new ArrayList<ColumnDataVO>();
+		List<ColumnDataVO> columnDataVOList = new ArrayList<>();
 		ColumnDataVO fdIdColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_FD_ID, 5, java.lang.Integer.class, false,
 				AlignmentEnum.CENTER);
 		columnDataVOList.add(fdIdColumnDataVO);

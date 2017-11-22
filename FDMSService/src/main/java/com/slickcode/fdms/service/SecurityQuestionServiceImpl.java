@@ -17,15 +17,15 @@ public class SecurityQuestionServiceImpl implements ISecurityQuestionService {
 	@Autowired
 	@Qualifier("securityQuestionDaoImpl")
 	private ISecurityQuestionDao dao;
-	
+
 	@Override
 	public List<SecurityQuestionVO> fetchAll() {
 		List<SecurityQuestionDO> doList = dao.fetchAll();
-		if(null == doList) {
-			return null;
+		if (null == doList) {
+			return new ArrayList<>();
 		}
-		List<SecurityQuestionVO> voList = new ArrayList<SecurityQuestionVO>();
-		for(SecurityQuestionDO questionDO : doList) {
+		List<SecurityQuestionVO> voList = new ArrayList<>();
+		for (SecurityQuestionDO questionDO : doList) {
 			voList.add(SecurityQuestionConversionUtils.convertToVO(questionDO));
 		}
 		return voList;

@@ -43,7 +43,7 @@ public class ShowAllPersonPanel extends BasePanel {
 	private BaseButton excelExportButton;
 
 	private void populatePersonTable() {
-		List<ColumnDataVO> columnDataVOList = new ArrayList<ColumnDataVO>();
+		List<ColumnDataVO> columnDataVOList = new ArrayList<>();
 		ColumnDataVO personIdColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_PERSON_ID, 10,
 				java.lang.Integer.class, false, AlignmentEnum.CENTER);
 		columnDataVOList.add(personIdColumnDataVO);
@@ -165,10 +165,12 @@ public class ShowAllPersonPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override
 	public void prepareTabOutOrderList() {
+		return;
 	}
 
 	/**

@@ -22,9 +22,9 @@ public class StatusServiceImpl implements IStatusService {
 	public List<StatusVO> fetchAll() {
 		List<StatusDO> doList = dao.fetchAll();
 		if (null == doList) {
-			return null;
+			return new ArrayList<>();
 		}
-		List<StatusVO> voList = new ArrayList<StatusVO>();
+		List<StatusVO> voList = new ArrayList<>();
 		for (StatusDO statusDO : doList) {
 			voList.add(StatusConversionUtils.convertToVO(statusDO));
 		}

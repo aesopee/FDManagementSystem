@@ -25,17 +25,16 @@ public class BankServiceImpl implements IBankService {
 		BankResult result = new BankResult();
 		List<String> errorList = null;
 		boolean success = false;
-		BankDO BankDO = BankConversionUtils.convertToDO(bankVO);
+		BankDO bankDO = BankConversionUtils.convertToDO(bankVO);
 
-		List<BankDO> BankDOList = dao.fetchByCriteria(BankDO, true);
+		List<BankDO> bankDOList = dao.fetchByCriteria(bankDO, true);
 
-		if ((null == BankDOList) || (BankDOList.size() != 1)) {
-			Integer bankId = dao.create(BankDO);
+		if ((null == bankDOList) || (bankDOList.size() != 1)) {
+			Integer bankId = dao.create(bankDO);
 			if ((null == bankId) || (bankId == 0)) {
 				success = false;
-				errorList = new ArrayList<String>();
-				errorList
-						.add("Cannot create Bank. Please contact System Administrator.");
+				errorList = new ArrayList<>();
+				errorList.add("Cannot create Bank. Please contact System Administrator.");
 			} else {
 				success = true;
 				bankVO.setBankId(bankId);
@@ -43,7 +42,7 @@ public class BankServiceImpl implements IBankService {
 			}
 		} else {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("This Bank already exists");
 		}
 		result.setErrorList(errorList);
@@ -61,9 +60,8 @@ public class BankServiceImpl implements IBankService {
 
 		List<BankDO> bankDOList = dao.fetchByCriteria(bankDO, true);
 
-		if ((null == bankDOList) || (bankDOList.size() == 0)) {
+		if ((null == bankDOList) || (bankDOList.isEmpty())) {
 			bankDO.setBankId(bankVO.getBankId());
-			bankDOList = dao.fetchByCriteria(bankDO, true);
 
 			boolean updateResult = dao.update(bankDO);
 			if (updateResult) {
@@ -71,20 +69,17 @@ public class BankServiceImpl implements IBankService {
 				result.setBankVO(bankVO);
 			} else {
 				success = false;
-				errorList = new ArrayList<String>();
-				errorList
-						.add("Error while updating details. Please contact System administrator.");
+				errorList = new ArrayList<>();
+				errorList.add("Error while updating details. Please contact System administrator.");
 			}
-		} else if ((bankDOList.size() == 1)
-				&& bankDOList.get(0).getBankId().equals(bankVO.getBankId())) {
+		} else if ((bankDOList.size() == 1) && bankDOList.get(0).getBankId().equals(bankVO.getBankId())) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("You have not updated any of the details.");
 		} else {
 			success = false;
-			errorList = new ArrayList<String>();
-			errorList
-					.add("Bank with same deatils exists. Please check and try again.");
+			errorList = new ArrayList<>();
+			errorList.add("Bank with same deatils exists. Please check and try again.");
 		}
 		result.setErrorList(errorList);
 		result.setSuccess(success);
@@ -103,9 +98,8 @@ public class BankServiceImpl implements IBankService {
 		List<BankDO> bankDOList = dao.fetchByCriteria(bankDO, true);
 		if ((null == bankDOList) || (bankDOList.size() != 1)) {
 			success = false;
-			errorList = new ArrayList<String>();
-			errorList
-					.add("Error while fetching details. Please contact System Administrator.");
+			errorList = new ArrayList<>();
+			errorList.add("Error while fetching details. Please contact System Administrator.");
 		} else {
 			success = true;
 			result.setBankVO(BankConversionUtils.convertToVO(bankDOList.get(0)));
@@ -131,16 +125,15 @@ public class BankServiceImpl implements IBankService {
 		boolean success = false;
 		List<String> errorList = null;
 
-		List<BankDO> bankDOList = dao.fetchByCriteria(
-				BankConversionUtils.convertToDO(bankVO), isExactSearch);
+		List<BankDO> bankDOList = dao.fetchByCriteria(BankConversionUtils.convertToDO(bankVO), isExactSearch);
 
-		if ((null == bankDOList) || (bankDOList.size() == 0)) {
+		if ((null == bankDOList) || (bankDOList.isEmpty())) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("No result available.");
 		} else {
 			success = true;
-			List<BankVO> bankVOList = new ArrayList<BankVO>();
+			List<BankVO> bankVOList = new ArrayList<>();
 
 			for (BankDO bankDO : bankDOList) {
 				bankVOList.add(BankConversionUtils.convertToVO(bankDO));

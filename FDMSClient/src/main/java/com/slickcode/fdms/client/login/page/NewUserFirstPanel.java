@@ -41,17 +41,17 @@ public class NewUserFirstPanel extends BasePanel {
 	private BaseLabel personIdLabel;
 	private BaseTextField personIdField;
 	private BaseLabel personIdLabelError;
-	private NumericValidator personIdValidator;
+	private transient NumericValidator personIdValidator;
 
 	private BaseLabel firstNameLabel;
 	private BaseTextField firstNameField;
 	private BaseLabel firstNameLabelError;
-	private NonEmtryValidator firstNameValidator;
+	private transient NonEmtryValidator firstNameValidator;
 
 	private BaseLabel lastNameLabel;
 	private BaseTextField lastNameField;
 	private BaseLabel lastNameLabelError;
-	private NonEmtryValidator lastNameValidator;
+	private transient NonEmtryValidator lastNameValidator;
 
 	private BaseButton nextButton;
 	private BaseButton cancelButton;
@@ -253,11 +253,12 @@ public class NewUserFirstPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override
 	public void prepareTabOutOrderList() {
-		List<Component> componentList = new ArrayList<Component>();
+		List<Component> componentList = new ArrayList<>();
 		componentList.add(personIdField);
 		componentList.add(firstNameField);
 		componentList.add(lastNameField);

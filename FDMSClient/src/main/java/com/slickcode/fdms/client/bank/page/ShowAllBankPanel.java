@@ -44,7 +44,7 @@ public class ShowAllBankPanel extends BasePanel {
 	private List<BankVO> bankVOList;
 
 	private void populateBankTable() {
-		List<ColumnDataVO> columnDataVOList = new ArrayList<ColumnDataVO>();
+		List<ColumnDataVO> columnDataVOList = new ArrayList<>();
 		ColumnDataVO bankIdColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BANK_ID, 10, java.lang.String.class,
 				false, AlignmentEnum.CENTER);
 		columnDataVOList.add(bankIdColumnDataVO);

@@ -383,7 +383,7 @@ public class BankMainPanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
-		List<Component> components = new ArrayList<Component>();
+		List<Component> components = new ArrayList<>();
 		components.add(bankIdField);
 		components.add(bankNameField);
 		components.add(branchField);

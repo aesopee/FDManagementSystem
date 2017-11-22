@@ -4,6 +4,9 @@ import com.slickcode.fdms.common.vo.PersonVO;
 import com.slickcode.fdms.service.domain.PersonDO;
 
 public class PersonConversionUtils {
+	private PersonConversionUtils() {
+
+	}
 
 	public static PersonVO convertToVO(PersonDO personDO) {
 		if (null == personDO) {

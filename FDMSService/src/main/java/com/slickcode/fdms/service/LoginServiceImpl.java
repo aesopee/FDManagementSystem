@@ -38,17 +38,17 @@ public class LoginServiceImpl implements ILoginService {
 		loginVO.setUserName(userName);
 		List<LoginDO> loginDOList = loginDao.fetchByCriteria(
 				LoginConversionUtils.convertToDO(loginVO), true);
-		if ((null == loginDOList) || (loginDOList.size() == 0)) {
+		if ((null == loginDOList) || (loginDOList.isEmpty())) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("Invalid username.");
 		} else {
 			loginVO.setPassword(password);
 			loginDOList = loginDao.fetchByCriteria(
 					LoginConversionUtils.convertToDO(loginVO), true);
-			if ((null == loginDOList) || (loginDOList.size() == 0)) {
+			if ((null == loginDOList) || (loginDOList.isEmpty())) {
 				success = false;
-				errorList = new ArrayList<String>();
+				errorList = new ArrayList<>();
 				errorList.add("Username and password don't match.");
 			} else {
 				success = true;
@@ -77,7 +77,7 @@ public class LoginServiceImpl implements ILoginService {
 
 			if ((null == loginId) || (loginId == 0)) {
 				success = false;
-				errorList = new ArrayList<String>();
+				errorList = new ArrayList<>();
 				errorList.add("Error in creating user.");
 			} else {
 				success = true;
@@ -86,7 +86,7 @@ public class LoginServiceImpl implements ILoginService {
 			}
 		} else {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList
 					.add("Username already exists. Please use another username.");
 		}
@@ -105,7 +105,7 @@ public class LoginServiceImpl implements ILoginService {
 
 		if ((null == personDOList) || (personDOList.size() != 1)) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("No such user exists. Please verify and try again.");
 		} else {
 			LoginDO loginDO = new LoginDO();
@@ -121,7 +121,7 @@ public class LoginServiceImpl implements ILoginService {
 				result.setLoginVO(loginVO);
 			} else {
 				success = false;
-				errorList = new ArrayList<String>();
+				errorList = new ArrayList<>();
 				errorList
 						.add("User already exists. Please contact adminnistrator to give your username and password.");
 			}
@@ -141,7 +141,7 @@ public class LoginServiceImpl implements ILoginService {
 
 		if ((null == personDOList) || (personDOList.size() != 1)) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("Invalid Person Id. Please verify and try again.");
 		} else {
 			LoginDO loginDO = LoginConversionUtils.convertToDO(loginVO);
@@ -151,7 +151,7 @@ public class LoginServiceImpl implements ILoginService {
 
 			if ((null == loginDOList) || (loginDOList.size() != 1)) {
 				success = false;
-				errorList = new ArrayList<String>();
+				errorList = new ArrayList<>();
 				errorList.add("Username and Person Id don't match");
 			} else {
 				success = true;
@@ -176,7 +176,7 @@ public class LoginServiceImpl implements ILoginService {
 
 		if ((null == loginDOList) || (loginDOList.size() != 1)) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("Invalid Security Answer.");
 		} else {
 			success = true;
@@ -200,7 +200,7 @@ public class LoginServiceImpl implements ILoginService {
 
 		if ((null == loginDOList) || (loginDOList.size() != 1)) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("No such user exists.");
 		} else {
 			loginDO = loginDOList.get(0);
@@ -211,7 +211,7 @@ public class LoginServiceImpl implements ILoginService {
 				success = true;
 			} else {
 				success = false;
-				errorList = new ArrayList<String>();
+				errorList = new ArrayList<>();
 				errorList
 						.add("Issue in updating password. Kindly contact System Administrator.");
 			}

@@ -1,6 +1,9 @@
 package com.slickcode.fdms.client.constants;
 
 public class CommonConstants {
+	private CommonConstants() {
+
+	}
 
 	/**
 	 * Header Labels

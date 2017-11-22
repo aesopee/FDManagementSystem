@@ -25,6 +25,7 @@ public class ShowAllPersonPage extends FdmsBasePage {
 
 	@Override
 	public void arrangeComponents() {
+		return;
 	}
 
 	@Override
@@ -54,9 +55,11 @@ public class ShowAllPersonPage extends FdmsBasePage {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override
 	public void prepareTabOutOrderList() {
+		return;
 	}
 }

@@ -19,7 +19,7 @@ import com.slickcode.fdms.service.serviceobject.BankListResult;
 import com.slickcode.fdms.service.serviceobject.PersonListResult;
 
 public class FDMSCache {
-	private static FDMSCache FDMS_CACHE;
+	private static final FDMSCache FDMS_CACHE = new FDMSCache();
 	private List<SecurityQuestionVO> securityQuestionVOList;
 	private List<StatusVO> statusVOList;
 	private List<PersonVO> personVOList;
@@ -33,17 +33,13 @@ public class FDMSCache {
 	}
 
 	public static FDMSCache getInstance() {
-		if (null == FDMS_CACHE) {
-			FDMS_CACHE = new FDMSCache();
-		}
 		return FDMS_CACHE;
 	}
 
 	public List<SecurityQuestionVO> getSecurityQuestionVOList() {
-		if (null == securityQuestionVOList) {
-			ISecurityQuestionService service = (SecurityQuestionServiceImpl) SpringContextLoader
-					.getInstance().loadContext()
-					.getBean("securityQuestionServiceImpl");
+		if ((null == securityQuestionVOList) || (securityQuestionVOList.isEmpty())) {
+			ISecurityQuestionService service = (SecurityQuestionServiceImpl) SpringContextLoader.getInstance()
+					.loadContext().getBean("securityQuestionServiceImpl");
 			securityQuestionVOList = service.fetchAll();
 		}
 		return securityQuestionVOList;
@@ -61,9 +57,9 @@ public class FDMSCache {
 	}
 
 	public List<StatusVO> getStatusVOList() {
-		if (null == statusVOList) {
-			IStatusService service = (StatusServiceImpl) SpringContextLoader
-					.getInstance().loadContext().getBean("statusServiceImpl");
+		if ((null == statusVOList) || (statusVOList.isEmpty())) {
+			IStatusService service = (StatusServiceImpl) SpringContextLoader.getInstance().loadContext()
+					.getBean("statusServiceImpl");
 			statusVOList = service.fetchAll();
 		}
 		return statusVOList;
@@ -82,8 +78,8 @@ public class FDMSCache {
 
 	public List<PersonVO> getPersonVOList() {
 		if (null == personVOList) {
-			IPersonService personService = (PersonServiceImpl) SpringContextLoader
-					.getInstance().loadContext().getBean("personServiceImpl");
+			IPersonService personService = (PersonServiceImpl) SpringContextLoader.getInstance().loadContext()
+					.getBean("personServiceImpl");
 			PersonListResult result = personService.fetchByCriteria(null);
 			if (result.isSuccess()) {
 				personVOList = result.getPersonVOList();
@@ -108,8 +104,8 @@ public class FDMSCache {
 	public List<BankVO> getBankVOList() {
 		if (null == bankVOList) {
 
-			IBankService service = (BankServiceImpl) SpringContextLoader
-					.getInstance().loadContext().getBean("bankServiceImpl");
+			IBankService service = (BankServiceImpl) SpringContextLoader.getInstance().loadContext()
+					.getBean("bankServiceImpl");
 			BankListResult result = service.fetchByCriteria(null);
 			if (result.isSuccess()) {
 				bankVOList = result.getBankVOList();

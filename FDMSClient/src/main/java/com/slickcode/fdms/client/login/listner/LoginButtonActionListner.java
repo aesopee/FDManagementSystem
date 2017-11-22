@@ -79,7 +79,7 @@ public class LoginButtonActionListner extends FdmsActionListner {
 		FdListResult result = fdService.fetchByCriteria(fdVO);
 		currentFdVOList = result.getFdVOList();
 		if (null == currentFdVOList) {
-			currentFdVOList = new ArrayList<FdVO>();
+			currentFdVOList = new ArrayList<>();
 		}
 	}
 
@@ -87,7 +87,7 @@ public class LoginButtonActionListner extends FdmsActionListner {
 		FdListResult result = fdService.fetchMaturedFds();
 		maturedFdVOList = result.getFdVOList();
 		if (null == maturedFdVOList) {
-			maturedFdVOList = new ArrayList<FdVO>();
+			maturedFdVOList = new ArrayList<>();
 		}
 	}
 
@@ -95,7 +95,7 @@ public class LoginButtonActionListner extends FdmsActionListner {
 		FdListResult result = fdService.fetchFdsMaturingInNextWeek();
 		nextWeekFdVOList = result.getFdVOList();
 		if (null == nextWeekFdVOList) {
-			nextWeekFdVOList = new ArrayList<FdVO>();
+			nextWeekFdVOList = new ArrayList<>();
 		}
 	}
 }

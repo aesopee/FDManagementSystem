@@ -4,6 +4,9 @@ import com.slickcode.fdms.common.vo.BankVO;
 import com.slickcode.fdms.service.domain.BankDO;
 
 public class BankConversionUtils {
+	private BankConversionUtils() {
+
+	}
 
 	public static BankVO convertToVO(BankDO bankDO) {
 		if (null == bankDO) {

@@ -11,20 +11,20 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.slickcode.fdms.service.domain.SecurityQuestionDO;
+
 @Component("securityQuestionDaoImpl")
 public class SecurityQuestionDaoImpl implements ISecurityQuestionDao {
-	
+
 	@Autowired
 	@Qualifier("sessionFactory")
 	private SessionFactory sessionFactory;
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<SecurityQuestionDO> fetchAll() {
-//		Session session = HibernateUtils.getSessionFactory().openSession();
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
-		List<SecurityQuestionDO> list= null;
+		List<SecurityQuestionDO> list = null;
 		try {
 			tx = session.beginTransaction();
 			list = session.createQuery("FROM SecurityQuestionDO").list();

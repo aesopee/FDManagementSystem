@@ -16,11 +16,11 @@ import com.slickcode.fdms.utils.PersonConversionUtils;
 
 @Component("personServiceImpl")
 public class PersonServiceImpl implements IPersonService {
-	
+
 	@Autowired
 	@Qualifier("personDaoImpl")
 	private IPersonDao dao;
-	
+
 	@Override
 	public PersonResult create(PersonVO personVO) {
 		PersonResult result = new PersonResult();
@@ -34,9 +34,8 @@ public class PersonServiceImpl implements IPersonService {
 			Integer personId = dao.create(personDO);
 			if ((null == personId) || (personId == 0)) {
 				success = false;
-				errorList = new ArrayList<String>();
-				errorList
-						.add("Cannot create Person. Please contact System Administrator.");
+				errorList = new ArrayList<>();
+				errorList.add("Cannot create Person. Please contact System Administrator.");
 			} else {
 				success = true;
 				personVO.setPersonId(personId);
@@ -44,7 +43,7 @@ public class PersonServiceImpl implements IPersonService {
 			}
 		} else {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("This person already exists");
 		}
 		result.setErrorList(errorList);
@@ -62,9 +61,8 @@ public class PersonServiceImpl implements IPersonService {
 
 		List<PersonDO> personDOList = dao.fetchByCriteria(personDO, true);
 
-		if ((null == personDOList) || (personDOList.size() == 0)) {
+		if ((null == personDOList) || (personDOList.isEmpty())) {
 			personDO.setPersonId(personVO.getPersonId());
-			personDOList = dao.fetchByCriteria(personDO, true);
 
 			boolean updateResult = dao.update(personDO);
 			if (updateResult) {
@@ -72,21 +70,17 @@ public class PersonServiceImpl implements IPersonService {
 				result.setPersonVO(personVO);
 			} else {
 				success = false;
-				errorList = new ArrayList<String>();
-				errorList
-						.add("Error while updating details. Please contact System administrator.");
+				errorList = new ArrayList<>();
+				errorList.add("Error while updating details. Please contact System administrator.");
 			}
-		} else if ((personDOList.size() == 1)
-				&& personDOList.get(0).getPersonId()
-						.equals(personVO.getPersonId())) {
+		} else if ((personDOList.size() == 1) && personDOList.get(0).getPersonId().equals(personVO.getPersonId())) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("You have not updated any of the details.");
 		} else {
 			success = false;
-			errorList = new ArrayList<String>();
-			errorList
-					.add("Person with same deatils exists. Please check and try again.");
+			errorList = new ArrayList<>();
+			errorList.add("Person with same deatils exists. Please check and try again.");
 		}
 		result.setErrorList(errorList);
 		result.setSuccess(success);
@@ -105,13 +99,11 @@ public class PersonServiceImpl implements IPersonService {
 		List<PersonDO> personDOList = dao.fetchByCriteria(personDO, true);
 		if ((null == personDOList) || (personDOList.size() != 1)) {
 			success = false;
-			errorList = new ArrayList<String>();
-			errorList
-					.add("Error while fetching details. Please contact System Administrator.");
+			errorList = new ArrayList<>();
+			errorList.add("Error while fetching details. Please contact System Administrator.");
 		} else {
 			success = true;
-			result.setPersonVO(PersonConversionUtils.convertToVO(personDOList
-					.get(0)));
+			result.setPersonVO(PersonConversionUtils.convertToVO(personDOList.get(0)));
 		}
 
 		result.setSuccess(success);
@@ -129,22 +121,20 @@ public class PersonServiceImpl implements IPersonService {
 		return fetchByCriteria(personVO, false);
 	}
 
-	private PersonListResult fetchByCriteria(PersonVO personVO,
-			boolean isExactSearch) {
+	private PersonListResult fetchByCriteria(PersonVO personVO, boolean isExactSearch) {
 		PersonListResult result = new PersonListResult();
 		boolean success = false;
 		List<String> errorList = null;
 
-		List<PersonDO> personDOList = dao.fetchByCriteria(
-				PersonConversionUtils.convertToDO(personVO), isExactSearch);
+		List<PersonDO> personDOList = dao.fetchByCriteria(PersonConversionUtils.convertToDO(personVO), isExactSearch);
 
-		if ((null == personDOList) || (personDOList.size() == 0)) {
+		if ((null == personDOList) || (personDOList.isEmpty())) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("No result available.");
 		} else {
 			success = true;
-			List<PersonVO> personVOList = new ArrayList<PersonVO>();
+			List<PersonVO> personVOList = new ArrayList<>();
 
 			for (PersonDO personDO : personDOList) {
 				personVOList.add(PersonConversionUtils.convertToVO(personDO));

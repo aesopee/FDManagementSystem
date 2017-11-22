@@ -48,22 +48,22 @@ public class PersonMainPanel extends BasePanel {
 	private BaseLabel personIdLabel;
 	private BaseTextField personIdField;
 	private BaseLabel personIdLabelError;
-	private NumericValidator personIdValidator;
+	private transient NumericValidator personIdValidator;
 
 	private BaseLabel firstNameLabel;
 	private BaseTextField firstNameField;
 	private BaseLabel firstNameLabelError;
-	private NonEmtryValidator firstNameValidator;
+	private transient NonEmtryValidator firstNameValidator;
 
 	private BaseLabel middleNameLabel;
 	private BaseTextField middleNameField;
 	private BaseLabel middleNameLabelError;
-	private NonEmtryValidator middleNameValidator;
+	private transient NonEmtryValidator middleNameValidator;
 
 	private BaseLabel lastNameLabel;
 	private BaseTextField lastNameField;
 	private BaseLabel lastNameLabelError;
-	private NonEmtryValidator lastNameValidator;
+	private transient NonEmtryValidator lastNameValidator;
 
 	private BaseButton mainButton;
 	private BaseButton copyButton;
@@ -273,16 +273,16 @@ public class PersonMainPanel extends BasePanel {
 	@Override
 	public IPanelBean getPanelDataOnSubmit() {
 		PersonPanelBean personPanelBean = new PersonPanelBean();
-		PersonVO personVO = new PersonVO();
+		PersonVO panelPersonVO = new PersonVO();
 		if (!StringUtilities.isEmpty(personIdField.getText())) {
-			personVO.setPersonId(Integer.parseInt(personIdField.getText()));
+			panelPersonVO.setPersonId(Integer.parseInt(personIdField.getText()));
 		}
 
-		personVO.setFirstName(firstNameField.getText());
-		personVO.setMiddleName(middleNameField.getText());
-		personVO.setLastName(lastNameField.getText());
+		panelPersonVO.setFirstName(firstNameField.getText());
+		panelPersonVO.setMiddleName(middleNameField.getText());
+		panelPersonVO.setLastName(lastNameField.getText());
 
-		personPanelBean.setPersonVO(personVO);
+		personPanelBean.setPersonVO(panelPersonVO);
 		return personPanelBean;
 	}
 
@@ -360,7 +360,7 @@ public class PersonMainPanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
-		List<Component> componentList = new ArrayList<Component>();
+		List<Component> componentList = new ArrayList<>();
 		componentList.add(personIdField);
 		componentList.add(firstNameField);
 		componentList.add(middleNameField);

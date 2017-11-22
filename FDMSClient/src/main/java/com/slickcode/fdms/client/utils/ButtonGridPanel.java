@@ -30,7 +30,7 @@ public class ButtonGridPanel extends BasePanel {
 
 	public List<BaseButton> getBaseButtonList() {
 		if (null == baseButtonList) {
-			baseButtonList = new ArrayList<BaseButton>();
+			baseButtonList = new ArrayList<>();
 		}
 		return baseButtonList;
 	}
@@ -53,11 +53,12 @@ public class ButtonGridPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override
 	public void arrangeComponents() {
-		if ((null == baseButtonList) || baseButtonList.size() == 0) {
+		if ((null == baseButtonList) || baseButtonList.isEmpty()) {
 			return;
 		}
 		int fromLeft = baseDimension.getWidth();
@@ -98,5 +99,6 @@ public class ButtonGridPanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
+		return;
 	}
 }

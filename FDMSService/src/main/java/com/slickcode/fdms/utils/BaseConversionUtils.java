@@ -6,6 +6,9 @@ import com.slickcode.fdms.common.vo.BaseVO;
 import com.slickcode.fdms.service.domain.BaseDO;
 
 public class BaseConversionUtils {
+	private BaseConversionUtils() {
+
+	}
 
 	public static BaseVO convertToVO(BaseDO baseDO, BaseVO baseVO) {
 		if (null == baseDO) {

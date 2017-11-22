@@ -20,9 +20,8 @@ public class SpringContextLoader {
 
 	public final ApplicationContext loadContext() {
 		if (null == applicationContext) {
-			applicationContext = new ClassPathXmlApplicationContext(
-					new String[] { "application-context-client.xml",
-							"application-context-service.xml" });
+			applicationContext = new ClassPathXmlApplicationContext("application-context-client.xml",
+					"application-context-service.xml");
 		}
 		return applicationContext;
 	}

@@ -1,6 +1,11 @@
 package com.slickcode.fdms.client.constants;
 
 public class ImageConstants {
+
+	private ImageConstants() {
+
+	}
+
 	public static final String FIXED_DEPOSITS = "images/header/fixed_deposits_header.jpg";
 	public static final String ADD = "images/buttons/add.png";
 	public static final String EDIT = "images/buttons/edit.png";

@@ -50,7 +50,7 @@ public class StatusDaoImpl implements IStatusDao {
 			HibernateUtils.addRestrictionToCriteria(criteria, "code", code,
 					true);
 			List<StatusDO> statusDOList = criteria.list();
-			if ((null == statusDOList) || (statusDOList.size() == 0)) {
+			if ((null == statusDOList) || (statusDOList.isEmpty())) {
 				return null;
 			} else {
 				return statusDOList.get(0);

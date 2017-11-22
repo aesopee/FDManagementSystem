@@ -44,12 +44,12 @@ public class LoginPanel extends BasePanel {
 	private BaseLabel userNameLabel;
 	private BaseTextField userNameField;
 	private BaseLabel userNameLabelError;
-	private NonEmtryValidator userNameValidator;
+	private transient NonEmtryValidator userNameValidator;
 
 	private BaseLabel passwordLabel;
 	private BasePasswordField passwordField;
 	private BaseLabel passwordLabelError;
-	private NonEmtryValidator passwordValidator;
+	private transient NonEmtryValidator passwordValidator;
 
 	private BaseButton loginButton;
 	private BaseButton newUserButton;
@@ -193,11 +193,12 @@ public class LoginPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override
 	public void prepareTabOutOrderList() {
-		List<Component> components = new ArrayList<Component>();
+		List<Component> components = new ArrayList<>();
 		components.add(userNameField);
 		components.add(passwordField);
 		components.add(loginButton);

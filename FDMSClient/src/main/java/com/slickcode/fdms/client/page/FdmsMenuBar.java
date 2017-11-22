@@ -60,11 +60,9 @@ public class FdmsMenuBar extends JMenuBar {
 	}
 
 	private void populateFileMenu() {
-		JMenu fileMenu = MenuUtils.populateJMenu(CommonConstants.MENU_FILE,
-				KeyEvent.VK_F);
+		JMenu fileMenu = MenuUtils.populateJMenu(CommonConstants.MENU_FILE, KeyEvent.VK_F);
 
-		JMenuItem exit = MenuUtils.populateJMenuItem(CommonConstants.MENU_EXIT,
-				null, KeyEvent.VK_E, KeyEvent.VK_E);
+		JMenuItem exit = MenuUtils.populateJMenuItem(CommonConstants.MENU_EXIT, null, KeyEvent.VK_E, KeyEvent.VK_E);
 
 		exit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,21 +75,17 @@ public class FdmsMenuBar extends JMenuBar {
 	}
 
 	private void populateBankMenu() {
-		JMenu menu = MenuUtils.populateJMenu(CommonConstants.MENU_BANK_HOME,
-				KeyEvent.VK_B);
+		JMenu menu = MenuUtils.populateJMenu(CommonConstants.MENU_BANK_HOME, KeyEvent.VK_B);
 
-		JMenuItem add = MenuUtils.populateJMenuItem(CommonConstants.MENU_ADD,
-				null, KeyEvent.VK_B, KeyEvent.VK_A);
+		JMenuItem add = MenuUtils.populateJMenuItem(CommonConstants.MENU_ADD, null, KeyEvent.VK_B, KeyEvent.VK_A);
 		add.addActionListener(new InitiateAddBankActionListner());
 		menu.add(add);
 
-		JMenuItem search = MenuUtils.populateJMenuItem(
-				CommonConstants.MENU_SEARCH, null, null, KeyEvent.VK_S);
+		JMenuItem search = MenuUtils.populateJMenuItem(CommonConstants.MENU_SEARCH, null, null, KeyEvent.VK_S);
 		search.addActionListener(new InitiateSearchBankActionListner());
 		menu.add(search);
 
-		JMenuItem showAll = MenuUtils.populateJMenuItem(
-				CommonConstants.MENU_SHOW_ALL, null, null, KeyEvent.VK_O);
+		JMenuItem showAll = MenuUtils.populateJMenuItem(CommonConstants.MENU_SHOW_ALL, null, null, KeyEvent.VK_O);
 		showAll.addActionListener(new InitiateShowAllBankActionListner());
 		menu.add(showAll);
 
@@ -99,21 +93,17 @@ public class FdmsMenuBar extends JMenuBar {
 	}
 
 	private void populatePersonMenu() {
-		JMenu menu = MenuUtils.populateJMenu(CommonConstants.MENU_PERSON_HOME,
-				KeyEvent.VK_P);
+		JMenu menu = MenuUtils.populateJMenu(CommonConstants.MENU_PERSON_HOME, KeyEvent.VK_P);
 
-		JMenuItem add = MenuUtils.populateJMenuItem(CommonConstants.MENU_ADD,
-				null, KeyEvent.VK_P, KeyEvent.VK_A);
+		JMenuItem add = MenuUtils.populateJMenuItem(CommonConstants.MENU_ADD, null, KeyEvent.VK_P, KeyEvent.VK_A);
 		add.addActionListener(new InitiateAddPersonActionListner());
 		menu.add(add);
 
-		JMenuItem search = MenuUtils.populateJMenuItem(
-				CommonConstants.MENU_SEARCH, null, null, KeyEvent.VK_S);
+		JMenuItem search = MenuUtils.populateJMenuItem(CommonConstants.MENU_SEARCH, null, null, KeyEvent.VK_S);
 		search.addActionListener(new InitiateSearchPersonActionListner());
 		menu.add(search);
 
-		JMenuItem showAll = MenuUtils.populateJMenuItem(
-				CommonConstants.MENU_SHOW_ALL, null, null, KeyEvent.VK_O);
+		JMenuItem showAll = MenuUtils.populateJMenuItem(CommonConstants.MENU_SHOW_ALL, null, null, KeyEvent.VK_O);
 		showAll.addActionListener(new InitiateShowAllPersonActionListner());
 		menu.add(showAll);
 
@@ -121,51 +111,41 @@ public class FdmsMenuBar extends JMenuBar {
 	}
 
 	private void populateFDMenu() {
-		JMenu menu = MenuUtils.populateJMenu(CommonConstants.MENU_FD_HOME,
-				KeyEvent.VK_D);
+		JMenu menu = MenuUtils.populateJMenu(CommonConstants.MENU_FD_HOME, KeyEvent.VK_D);
 
-		JMenuItem add = MenuUtils.populateJMenuItem(CommonConstants.MENU_ADD,
-				null, KeyEvent.VK_N, KeyEvent.VK_A);
+		JMenuItem add = MenuUtils.populateJMenuItem(CommonConstants.MENU_ADD, null, KeyEvent.VK_N, KeyEvent.VK_A);
 		add.addActionListener(new InitiateAddFdActionListner());
 		menu.add(add);
 
-		JMenuItem search = MenuUtils
-				.populateJMenuItem(CommonConstants.MENU_SEARCH, null,
-						KeyEvent.VK_F, KeyEvent.VK_S);
+		JMenuItem search = MenuUtils.populateJMenuItem(CommonConstants.MENU_SEARCH, null, KeyEvent.VK_F, KeyEvent.VK_S);
 		search.addActionListener(new InitiateSearchFdActionListner());
 		menu.add(search);
 
-		JMenuItem showAll = MenuUtils.populateJMenuItem(
-				CommonConstants.MENU_SHOW_ALL, null, KeyEvent.VK_A,
+		JMenuItem showAll = MenuUtils.populateJMenuItem(CommonConstants.MENU_SHOW_ALL, null, KeyEvent.VK_A,
 				KeyEvent.VK_O);
 		showAll.addActionListener(new InitiateShowAllFdActionListner());
 		menu.add(showAll);
 
-		JMenuItem maturedFds = MenuUtils.populateJMenuItem(
-				CommonConstants.MENU_MATURED_FDS, null, KeyEvent.VK_M,
+		JMenuItem maturedFds = MenuUtils.populateJMenuItem(CommonConstants.MENU_MATURED_FDS, null, KeyEvent.VK_M,
 				KeyEvent.VK_M);
 		maturedFds.addActionListener(new InitiateMaturedFDsActionListner());
 		menu.add(maturedFds);
 
-		JMenuItem FdsInNextWeek = MenuUtils.populateJMenuItem(
-				CommonConstants.MENU_FDS_IN_NEXT_WEEK, null, KeyEvent.VK_W,
-				KeyEvent.VK_W);
-		FdsInNextWeek
-				.addActionListener(new InitiateNextWeekMaturingFDsActionListner());
-		menu.add(FdsInNextWeek);
+		JMenuItem fdsInNextWeek = MenuUtils.populateJMenuItem(CommonConstants.MENU_FDS_IN_NEXT_WEEK, null,
+				KeyEvent.VK_W, KeyEvent.VK_W);
+		fdsInNextWeek.addActionListener(new InitiateNextWeekMaturingFDsActionListner());
+		menu.add(fdsInNextWeek);
 
 		add(menu);
 	}
 
 	private void populateHelpMenu() {
-		JMenu help = MenuUtils.populateJMenu(CommonConstants.MENU_HELP,
-				KeyEvent.VK_H);
+		JMenu help = MenuUtils.populateJMenu(CommonConstants.MENU_HELP, KeyEvent.VK_H);
 
-		JMenuItem about = MenuUtils.populateJMenuItem(
-				CommonConstants.MENU_ABOUT, null, null, KeyEvent.VK_A);
+		JMenuItem about = MenuUtils.populateJMenuItem(CommonConstants.MENU_ABOUT, null, null, KeyEvent.VK_A);
 		about.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-
+				return;
 			}
 		});
 		help.add(about);
@@ -174,13 +154,10 @@ public class FdmsMenuBar extends JMenuBar {
 	}
 
 	private void populateUserDetails(PersonVO personVO) {
-		JMenu userDetails = MenuUtils.populateJMenu(
-				"Welcome " + personVO.getFirstName() + " "
-						+ personVO.getLastName(), KeyEvent.VK_W);
+		JMenu userDetails = MenuUtils.populateJMenu("Welcome " + personVO.getFirstName() + " " + personVO.getLastName(),
+				KeyEvent.VK_W);
 
-		JMenuItem logout = MenuUtils
-				.populateJMenuItem(CommonConstants.MENU_LOGOUT, null,
-						KeyEvent.VK_L, KeyEvent.VK_L);
+		JMenuItem logout = MenuUtils.populateJMenuItem(CommonConstants.MENU_LOGOUT, null, KeyEvent.VK_L, KeyEvent.VK_L);
 		logout.addActionListener(new LogoutButtonHeaderMenuActionListner());
 		userDetails.add(logout);
 

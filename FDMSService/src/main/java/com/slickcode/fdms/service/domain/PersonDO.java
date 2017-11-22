@@ -45,10 +45,6 @@ public class PersonDO extends BaseDO {
 	@OneToOne(mappedBy = "personDO")
 	private LoginDO loginDO;
 
-	public PersonDO() {
-
-	}
-
 	/**
 	 * @return the personId
 	 */

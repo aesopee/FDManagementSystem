@@ -4,6 +4,9 @@ import com.slickcode.fdms.common.vo.FdVO;
 import com.slickcode.fdms.service.domain.FdDO;
 
 public class FDConversionUtils {
+	private FDConversionUtils() {
+
+	}
 
 	public static FdVO convertToVO(FdDO fddo) {
 		if (null == fddo) {

@@ -194,7 +194,7 @@ public class ForgotPasswordFirstPanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
-		List<Component> components = new ArrayList<Component>();
+		List<Component> components = new ArrayList<>();
 		components.add(personIdField);
 		components.add(userNameField);
 		components.add(nextButton);

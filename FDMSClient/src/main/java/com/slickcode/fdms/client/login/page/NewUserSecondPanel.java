@@ -60,22 +60,22 @@ public class NewUserSecondPanel extends BasePanel {
 	private BaseLabel securityAnswerLabel;
 	private BaseTextField securityAnswerField;
 	private BaseLabel securityAnswerLabelError;
-	private NonEmtryValidator securityAnswerValidator;
+	private transient NonEmtryValidator securityAnswerValidator;
 
 	private BaseLabel userNameLabel;
 	private BaseTextField userNameField;
 	private BaseLabel userNameLabelError;
-	private NonEmtryValidator userNameValidator;
+	private transient NonEmtryValidator userNameValidator;
 
 	private BaseLabel passwordLabel;
 	private BasePasswordField passwordField;
 	private BaseLabel passwordLabelError;
-	private NonEmtryValidator passwordValidator;
+	private transient NonEmtryValidator passwordValidator;
 
 	private BaseLabel confirmPasswordLabel;
 	private BasePasswordField confirmPasswordField;
 	private BaseLabel confirmPasswordLabelError;
-	private NonEmtryValidator confirmPasswordValidator;
+	private transient NonEmtryValidator confirmPasswordValidator;
 
 	private BaseButton signUpButton;
 	private BaseButton cancelButton;
@@ -346,7 +346,6 @@ public class NewUserSecondPanel extends BasePanel {
 		populatePassword();
 		populateConfirmPassword();
 		addButtonGrid();
-
 		return this;
 	}
 
@@ -387,16 +386,16 @@ public class NewUserSecondPanel extends BasePanel {
 		personVO.setFirstName(firstNameValue.getText());
 		personVO.setLastName(lastNameValue.getText());
 
-		LoginVO loginVO = new LoginVO();
-		loginVO.setPersonVO(personVO);
-		loginVO.setUserName(userNameField.getText());
-		loginVO.setPassword(passwordField.getText());
-		loginVO.setSecurityQuestion(
+		LoginVO panelLoginVO = new LoginVO();
+		panelLoginVO.setPersonVO(personVO);
+		panelLoginVO.setUserName(userNameField.getText());
+		panelLoginVO.setPassword(passwordField.getText());
+		panelLoginVO.setSecurityQuestion(
 				FDMSCache.getInstance().getSecurityQuestionVOByCode(securityQuestionComboBox.getSelectedValue()));
-		loginVO.setSecurityAnswer(securityAnswerField.getText());
+		panelLoginVO.setSecurityAnswer(securityAnswerField.getText());
 
 		LoginPanelBean bean = new LoginPanelBean();
-		bean.setLoginVO(loginVO);
+		bean.setLoginVO(panelLoginVO);
 		return bean;
 	}
 
@@ -420,11 +419,12 @@ public class NewUserSecondPanel extends BasePanel {
 
 	@Override
 	public void applyRights() {
+		return;
 	}
 
 	@Override
 	public void prepareTabOutOrderList() {
-		List<Component> componentList = new ArrayList<Component>();
+		List<Component> componentList = new ArrayList<>();
 		componentList.add(securityQuestionComboBox);
 		componentList.add(securityAnswerField);
 		componentList.add(userNameField);

@@ -245,7 +245,7 @@ public class FdMainPanel extends BasePanel {
 		bankNameLabel.setLabelFor(bankNameComboBox);
 		add(bankNameLabel);
 
-		bankNameComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
+		bankNameComboBox = new BaseComboBox<>(ComponentEnum.VALUE);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, bankNameComboBox.getPreferredSize().getWidth());
 		add(bankNameComboBox);
 
@@ -260,7 +260,7 @@ public class FdMainPanel extends BasePanel {
 		firstOwnerLabel.setLabelFor(firstOwnerComboBox);
 		add(firstOwnerLabel);
 
-		firstOwnerComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
+		firstOwnerComboBox = new BaseComboBox<>(ComponentEnum.VALUE);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, firstOwnerComboBox.getPreferredSize().getWidth());
 		add(firstOwnerComboBox);
 
@@ -275,7 +275,7 @@ public class FdMainPanel extends BasePanel {
 		secondOwnerLabel.setLabelFor(secondOwnerComboBox);
 		add(secondOwnerLabel);
 
-		secondOwnerComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
+		secondOwnerComboBox = new BaseComboBox<>(ComponentEnum.VALUE);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, secondOwnerComboBox.getPreferredSize().getWidth());
 		add(secondOwnerComboBox);
 
@@ -290,7 +290,7 @@ public class FdMainPanel extends BasePanel {
 		nomineeLabel.setLabelFor(nomineeComboBox);
 		add(nomineeLabel);
 
-		nomineeComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
+		nomineeComboBox = new BaseComboBox<>(ComponentEnum.VALUE);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, nomineeComboBox.getPreferredSize().getWidth());
 		add(nomineeComboBox);
 
@@ -409,7 +409,7 @@ public class FdMainPanel extends BasePanel {
 		statusLabel.setLabelFor(statusComboBox);
 		add(statusLabel);
 
-		statusComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
+		statusComboBox = new BaseComboBox<>(ComponentEnum.VALUE);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, statusComboBox.getPreferredSize().getWidth());
 		statusComboBox.setEnabled(false);
 		add(statusComboBox);
@@ -614,7 +614,7 @@ public class FdMainPanel extends BasePanel {
 		fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(investmentDateLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
-		List<Component> componentList = new ArrayList<Component>();
+		List<Component> componentList = new ArrayList<>();
 		componentList.add(investmentDateField);
 		componentList.add(investmentDateButton);
 
@@ -633,7 +633,7 @@ public class FdMainPanel extends BasePanel {
 		fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(maturityDateLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
-		componentList = new ArrayList<Component>();
+		componentList = new ArrayList<>();
 		componentList.add(maturityDateField);
 		componentList.add(maturityDateButton);
 
@@ -774,66 +774,68 @@ public class FdMainPanel extends BasePanel {
 	@Override
 	public IPanelBean getPanelDataOnSubmit() {
 		FdPanelBean fdPanelBean = new FdPanelBean();
-		FdVO fdVO = new FdVO();
+		FdVO panelFdVO = new FdVO();
 		if (null != fdIdField.getText()) {
-			fdVO.setFdId(Integer.parseInt(fdIdField.getText()));
+			panelFdVO.setFdId(Integer.parseInt(fdIdField.getText()));
 		}
 
 		if (null != fdBankReferenceNumberField.getText()) {
-			fdVO.setFdBankReferenceNumber(Integer.parseInt(fdBankReferenceNumberField.getText()));
+			panelFdVO.setFdBankReferenceNumber(Integer.parseInt(fdBankReferenceNumberField.getText()));
 		}
 
 		if (null != originalFdNumberField.getText()) {
-			fdVO.setOriginalFdNumber(Integer.parseInt(originalFdNumberField.getText()));
+			panelFdVO.setOriginalFdNumber(Integer.parseInt(originalFdNumberField.getText()));
 		}
 
 		if (null != renewedFromFdNumberField.getText()) {
-			fdVO.setRenewedFrom(Integer.parseInt(renewedFromFdNumberField.getText()));
+			panelFdVO.setRenewedFrom(Integer.parseInt(renewedFromFdNumberField.getText()));
 		}
 
 		if (null != renewedToFdNumberField.getText()) {
-			fdVO.setRenewedTo(Integer.parseInt(renewedToFdNumberField.getText()));
+			panelFdVO.setRenewedTo(Integer.parseInt(renewedToFdNumberField.getText()));
 		}
 
-		fdVO.setFdNumber(fdNumberField.getText());
+		panelFdVO.setFdNumber(fdNumberField.getText());
 
 		if (NumericUtilities.isInteger(bankNameComboBox.getSelectedValue())) {
 			BankVO bankVO = new BankVO();
 			bankVO.setBankId(Integer.parseInt(bankNameComboBox.getSelectedValue()));
-			fdVO.setBankVO(bankVO);
+			panelFdVO.setBankVO(bankVO);
 		}
 
 		if (NumericUtilities.isInteger(firstOwnerComboBox.getSelectedValue())) {
 			PersonVO firstOwner = new PersonVO();
 			firstOwner.setPersonId(Integer.parseInt(firstOwnerComboBox.getSelectedValue()));
-			fdVO.setFirstOwnerVO(firstOwner);
+			panelFdVO.setFirstOwnerVO(firstOwner);
 		}
 		if (NumericUtilities.isInteger(secondOwnerComboBox.getSelectedValue())) {
 			PersonVO secondOwner = new PersonVO();
 			secondOwner.setPersonId(Integer.parseInt(secondOwnerComboBox.getSelectedValue()));
-			fdVO.setSecondOwnerVO(secondOwner);
+			panelFdVO.setSecondOwnerVO(secondOwner);
 		}
 
 		if (NumericUtilities.isInteger(nomineeComboBox.getSelectedValue())) {
 			PersonVO nomineeVO = new PersonVO();
 			nomineeVO.setPersonId(Integer.parseInt(nomineeComboBox.getSelectedValue()));
-			fdVO.setNomineeVO(nomineeVO);
+			panelFdVO.setNomineeVO(nomineeVO);
 		}
 
 		if (NumericUtilities.isAmount(investedAmountField.getText())) {
-			fdVO.setInvestedAmount(Float.parseFloat(investedAmountField.getText()));
+			panelFdVO.setInvestedAmount(Float.parseFloat(investedAmountField.getText()));
 		}
 
 		if (NumericUtilities.isAmount(maturityAmountField.getText())) {
-			fdVO.setMaturityAmount(Float.parseFloat(maturityAmountField.getText()));
+			panelFdVO.setMaturityAmount(Float.parseFloat(maturityAmountField.getText()));
 		}
 
-		fdVO.setInvestmentDate(DateUtilities.parseStringToDate(investmentDateField.getText(), FDMConstant.DATE_FORMAT));
-		fdVO.setMaturityDate(DateUtilities.parseStringToDate(maturityDateField.getText(), FDMConstant.DATE_FORMAT));
-		fdVO.setRemark(remarkField.getText());
-		fdVO.setStatusVO(FDMSCache.getInstance().getStatusVOByCode(statusComboBox.getSelectedValue()));
+		panelFdVO.setInvestmentDate(
+				DateUtilities.parseStringToDate(investmentDateField.getText(), FDMConstant.DATE_FORMAT));
+		panelFdVO
+				.setMaturityDate(DateUtilities.parseStringToDate(maturityDateField.getText(), FDMConstant.DATE_FORMAT));
+		panelFdVO.setRemark(remarkField.getText());
+		panelFdVO.setStatusVO(FDMSCache.getInstance().getStatusVOByCode(statusComboBox.getSelectedValue()));
 
-		fdPanelBean.setFdVO(fdVO);
+		fdPanelBean.setFdVO(panelFdVO);
 		return fdPanelBean;
 	}
 
@@ -1139,7 +1141,7 @@ public class FdMainPanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
-		List<Component> components = new ArrayList<Component>();
+		List<Component> components = new ArrayList<>();
 		components.add(fdNumberField);
 		components.add(fdIdField);
 		components.add(fdBankReferenceNumberField);

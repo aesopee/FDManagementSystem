@@ -4,6 +4,9 @@ import com.slickcode.fdms.common.vo.LoginVO;
 import com.slickcode.fdms.service.domain.LoginDO;
 
 public class LoginConversionUtils {
+	private LoginConversionUtils() {
+
+	}
 
 	public static LoginVO convertToVO(LoginDO loginDO) {
 		LoginVO loginVO = new LoginVO();
@@ -13,7 +16,7 @@ public class LoginConversionUtils {
 		loginVO.setSecurityAnswer(loginDO.getSecurityAnswer());
 		loginVO.setSecurityQuestion(SecurityQuestionConversionUtils.convertToVO(loginDO.getSecurityQuestionDO()));
 		loginVO.setUserName(loginDO.getUserName());
-		
+
 		return loginVO;
 	}
 
@@ -25,7 +28,7 @@ public class LoginConversionUtils {
 		loginDO.setSecurityAnswer(loginVO.getSecurityAnswer());
 		loginDO.setSecurityQuestionDO(SecurityQuestionConversionUtils.convertToDO(loginVO.getSecurityQuestion()));
 		loginDO.setUserName(loginVO.getUserName());
-		
+
 		return loginDO;
 	}
 

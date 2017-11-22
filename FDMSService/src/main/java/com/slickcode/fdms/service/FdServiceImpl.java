@@ -44,14 +44,12 @@ public class FdServiceImpl implements IFdService {
 		Integer fdId = dao.create(fdDO);
 		if ((null == fdId) || (fdId == 0)) {
 			success = false;
-			errorList = new ArrayList<String>();
-			errorList
-					.add("Cannot create FD. Please contact System Administrator.");
+			errorList = new ArrayList<>();
+			errorList.add("Cannot create FD. Please contact System Administrator.");
 		} else {
 			fdVO.setFdId(fdId);
 			fdVO = fetchById(fdVO).getFdVO();
-			if (null == fdVO.getOriginalFdNumber()
-					|| fdVO.getOriginalFdNumber() == 0) {
+			if (null == fdVO.getOriginalFdNumber() || fdVO.getOriginalFdNumber() == 0) {
 				fdVO.setOriginalFdNumber(fdId);
 				fdVO = update(fdVO).getFdVO();
 			}
@@ -75,9 +73,8 @@ public class FdServiceImpl implements IFdService {
 			result.setFdVO(fdVO);
 		} else {
 			success = false;
-			errorList = new ArrayList<String>();
-			errorList
-					.add("Error while updating details. Please contact System administrator.");
+			errorList = new ArrayList<>();
+			errorList.add("Error while updating details. Please contact System administrator.");
 		}
 
 		result.setErrorList(errorList);
@@ -97,9 +94,8 @@ public class FdServiceImpl implements IFdService {
 		List<FdDO> bankDOList = dao.fetchByCriteria(fdDO, true);
 		if ((null == bankDOList) || (bankDOList.size() != 1)) {
 			success = false;
-			errorList = new ArrayList<String>();
-			errorList
-					.add("Error while fetching details. Please contact System Administrator.");
+			errorList = new ArrayList<>();
+			errorList.add("Error while fetching details. Please contact System Administrator.");
 		} else {
 			success = true;
 			result.setFdVO(FDConversionUtils.convertToVO(bankDOList.get(0)));
@@ -125,16 +121,15 @@ public class FdServiceImpl implements IFdService {
 		boolean success = false;
 		List<String> errorList = null;
 
-		List<FdDO> fdDOList = dao.fetchByCriteria(
-				FDConversionUtils.convertToDO(fdVO), isExactSearch);
+		List<FdDO> fdDOList = dao.fetchByCriteria(FDConversionUtils.convertToDO(fdVO), isExactSearch);
 
-		if ((null == fdDOList) || (fdDOList.size() == 0)) {
+		if ((null == fdDOList) || (fdDOList.isEmpty())) {
 			success = false;
-			errorList = new ArrayList<String>();
+			errorList = new ArrayList<>();
 			errorList.add("No result available.");
 		} else {
 			success = true;
-			List<FdVO> fdVOList = new ArrayList<FdVO>();
+			List<FdVO> fdVOList = new ArrayList<>();
 
 			for (FdDO fdDO : fdDOList) {
 				fdVOList.add(FDConversionUtils.convertToVO(fdDO));
@@ -152,8 +147,7 @@ public class FdServiceImpl implements IFdService {
 		FdResult fdResult = fetchById(fdVO);
 		if (fdResult.isSuccess()) {
 			FdVO fetchedFdVO = fdResult.getFdVO();
-			fetchedFdVO.setStatusVO(statusService
-					.fetchByCode(FdStatusEnum.WITHDRAWN.getCode()));
+			fetchedFdVO.setStatusVO(statusService.fetchByCode(FdStatusEnum.WITHDRAWN.getCode()));
 			fdResult = update(fetchedFdVO);
 		}
 		return fdResult;
@@ -170,10 +164,8 @@ public class FdServiceImpl implements IFdService {
 			if (fdListResult.isSuccess()) {
 				if (fdListResult.getFdVOList().size() == 1) {
 					fdVoOld = fdListResult.getFdVOList().get(0);
-					fdVoOld.setStatusVO(statusService
-							.fetchByCode(FdStatusEnum.RENEWED.getCode()));
-					fdVoOld.setRenewedTo(fdResult.getFdVO()
-							.getFdBankReferenceNumber());
+					fdVoOld.setStatusVO(statusService.fetchByCode(FdStatusEnum.RENEWED.getCode()));
+					fdVoOld.setRenewedTo(fdResult.getFdVO().getFdBankReferenceNumber());
 
 					FdResult fdResultOld = update(fdVoOld);
 
@@ -182,14 +174,11 @@ public class FdServiceImpl implements IFdService {
 					}
 
 				} else if (fdListResult.getFdVOList().size() > 1) {
-					List<String> errorList = new ArrayList<String>();
-					errorList
-							.add("Multiple records found to renew FD Number : "
-									+ fdVoOld.getFdBankReferenceNumber());
+					List<String> errorList = new ArrayList<>();
+					errorList.add("Multiple records found to renew FD Number : " + fdVoOld.getFdBankReferenceNumber());
 				} else {
-					List<String> errorList = new ArrayList<String>();
-					errorList.add("No record found to revew FD Number : "
-							+ fdVoOld.getFdBankReferenceNumber());
+					List<String> errorList = new ArrayList<>();
+					errorList.add("No record found to revew FD Number : " + fdVoOld.getFdBankReferenceNumber());
 				}
 			} else {
 				fdResult.setErrorList(fdListResult.getErrorList());
@@ -206,7 +195,7 @@ public class FdServiceImpl implements IFdService {
 		refFdVO.setBankVO(fdVO.getBankVO());
 		FdListResult result = fetchByCriteria(refFdVO);
 		if (result.isSuccess()) {
-			List<FdVO> fdVOList = new ArrayList<FdVO>();
+			List<FdVO> fdVOList = new ArrayList<>();
 			fdVOList.addAll(result.getFdVOList());
 			result.setFdVOList(fdVOList);
 		}
@@ -217,12 +206,11 @@ public class FdServiceImpl implements IFdService {
 	public FdListResult fetchMaturedFds() {
 		Date startDate = null;
 		Date endDate = Calendar.getInstance().getTime();
-		List<FdDO> fdDOList = dao.fetchByMaturityDateRangeAndStatus(startDate,
-				endDate, StatusConversionUtils.convertToDO(statusService
-						.fetchByCode(FdStatusEnum.CURRENT.getCode())));
+		List<FdDO> fdDOList = dao.fetchByMaturityDateRangeAndStatus(startDate, endDate,
+				StatusConversionUtils.convertToDO(statusService.fetchByCode(FdStatusEnum.CURRENT.getCode())));
 
 		FdListResult result = new FdListResult();
-		List<FdVO> fdVOList = new ArrayList<FdVO>();
+		List<FdVO> fdVOList = new ArrayList<>();
 		for (FdDO fdDO : fdDOList) {
 			fdVOList.add(FDConversionUtils.convertToVO(fdDO));
 		}
@@ -237,12 +225,11 @@ public class FdServiceImpl implements IFdService {
 		Calendar endCalendar = Calendar.getInstance();
 		endCalendar.add(Calendar.DATE, 7);
 		Date endDate = endCalendar.getTime();
-		List<FdDO> fdDOList = dao.fetchByMaturityDateRangeAndStatus(startDate,
-				endDate, StatusConversionUtils.convertToDO(statusService
-						.fetchByCode(FdStatusEnum.CURRENT.getCode())));
+		List<FdDO> fdDOList = dao.fetchByMaturityDateRangeAndStatus(startDate, endDate,
+				StatusConversionUtils.convertToDO(statusService.fetchByCode(FdStatusEnum.CURRENT.getCode())));
 
 		FdListResult result = new FdListResult();
-		List<FdVO> fdVOList = new ArrayList<FdVO>();
+		List<FdVO> fdVOList = new ArrayList<>();
 		for (FdDO fdDO : fdDOList) {
 			fdVOList.add(FDConversionUtils.convertToVO(fdDO));
 		}

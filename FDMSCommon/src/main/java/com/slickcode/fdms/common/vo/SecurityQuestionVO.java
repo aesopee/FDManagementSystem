@@ -1,4 +1,11 @@
 package com.slickcode.fdms.common.vo;
 
-public class SecurityQuestionVO extends StaticDataVO {
+import java.io.Serializable;
+
+public class SecurityQuestionVO extends StaticDataVO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1001156910624745048L;
 }

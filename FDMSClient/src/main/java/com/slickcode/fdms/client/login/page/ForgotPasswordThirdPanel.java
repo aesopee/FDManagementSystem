@@ -228,16 +228,16 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	public IPanelBean getPanelDataOnSubmit() {
 		LoginPanelBean bean = new LoginPanelBean();
 
-		LoginVO loginVO = new LoginVO();
-		loginVO.setUserName(userNameValue.getText());
-		loginVO.setPassword(passwordField.getText());
+		LoginVO panelLoginVO = new LoginVO();
+		panelLoginVO.setUserName(userNameValue.getText());
+		panelLoginVO.setPassword(passwordField.getText());
 
 		PersonVO personVO = new PersonVO();
 		personVO.setPersonId(Integer.parseInt(personIdValue.getText()));
 
-		loginVO.setPersonVO(personVO);
+		panelLoginVO.setPersonVO(personVO);
 
-		bean.setLoginVO(loginVO);
+		bean.setLoginVO(panelLoginVO);
 		return bean;
 	}
 
@@ -260,7 +260,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
-		List<Component> components = new ArrayList<Component>();
+		List<Component> components = new ArrayList<>();
 		components.add(passwordField);
 		components.add(confirmPasswordField);
 		components.add(changePasswordButton);

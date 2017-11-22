@@ -79,7 +79,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 		securityQuestionLabel.setLabelFor(securityQuestionComboBox);
 		add(securityQuestionLabel);
 
-		securityQuestionComboBox = new BaseComboBox<SelectItem>(ComponentEnum.VALUE);
+		securityQuestionComboBox = new BaseComboBox<>(ComponentEnum.VALUE);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, securityQuestionComboBox.getPreferredSize().getWidth());
 		add(securityQuestionComboBox);
 
@@ -228,23 +228,22 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 	public IPanelBean getPanelDataOnSubmit() {
 		LoginPanelBean bean = new LoginPanelBean();
 
-		LoginVO loginVO = new LoginVO();
-		loginVO.setUserName(userNameValue.getText());
-		loginVO.setSecurityAnswer(securityAnswerField.getText());
+		LoginVO panelLoginVO = new LoginVO();
+		panelLoginVO.setUserName(userNameValue.getText());
+		panelLoginVO.setSecurityAnswer(securityAnswerField.getText());
 
 		PersonVO personVO = new PersonVO();
 		personVO.setPersonId(Integer.parseInt(personIdValue.getText()));
 
-		loginVO.setPersonVO(personVO);
+		panelLoginVO.setPersonVO(personVO);
 
-		bean.setLoginVO(loginVO);
+		bean.setLoginVO(panelLoginVO);
 		return bean;
 	}
 
 	@Override
 	public boolean validatePanelData() {
-		boolean securityAnswerResult = securityAnswerValidator.validateOnSubmit();
-		return securityAnswerResult;
+		return securityAnswerValidator.validateOnSubmit();
 	}
 
 	@Override
@@ -254,7 +253,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 
 	@Override
 	public void prepareTabOutOrderList() {
-		List<Component> components = new ArrayList<Component>();
+		List<Component> components = new ArrayList<>();
 		components.add(securityQuestionComboBox);
 		components.add(securityAnswerField);
 		components.add(nextButton);
