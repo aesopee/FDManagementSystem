@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.slickcode.baseframework.panel.BasePanel;
 import com.slickcode.fdms.client.cache.FDMSCache;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.home.page.HomePage;
 import com.slickcode.fdms.client.listner.FdmsActionListner;
 import com.slickcode.fdms.client.page.MainPage;
@@ -44,9 +44,9 @@ public class LoginButtonActionListner extends FdmsActionListner {
 		MainPage.getInstance().changeMenuBar(true, personVO);
 		MainPage.getInstance().showPanel(
 				new HomePage(currentFdVOList, maturedFdVOList,
-						nextWeekFdVOList, CommonConstants.HEADER_ACTIVE_FDS,
-						CommonConstants.HEADER_MATURED_FD,
-						CommonConstants.HEADER_MATURED_IN_NEXT_WEEK_FD));
+						nextWeekFdVOList, HeaderConstants.ACTIVE_FDS,
+						HeaderConstants.MATURED_FD,
+						HeaderConstants.MATURED_IN_NEXT_WEEK_FD));
 	}
 
 	@Override

@@ -23,7 +23,9 @@ import com.slickcode.fdms.client.bank.listner.FetchBankRelatedActionListner;
 import com.slickcode.fdms.client.bank.listner.SearchBankActionListner;
 import com.slickcode.fdms.client.bank.listner.UpdateBankActionListner;
 import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
+import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.login.listner.GoToHomePageListner;
 import com.slickcode.fdms.client.utils.ButtonGridPanel;
 import com.slickcode.fdms.client.utils.ScreenMode;
@@ -108,14 +110,11 @@ public class BankMainPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = this.baseDimension.getWidth();
-		int fromTop = this.baseDimension.getHeight();
-
 		/**
 		 * Bank Id Row
 		 */
-		fromLeft = this.widthPadding;
-		fromTop = this.baseDimension.getHeight() + this.heightPadding;
+		int fromLeft = this.widthPadding;
+		int fromTop = this.baseDimension.getHeight() + this.heightPadding;
 		BaseUtils.setBound(this.bankIdLabel, fromLeft, fromTop,
 				this.firstColumnWidth, this.rowHeight, 0, 0,
 				this.baseDimension);
@@ -129,7 +128,7 @@ public class BankMainPanel extends BasePanel {
 		BaseUtils.setBound(this.bankIdLabelError, fromLeft, fromTop,
 				this.thirdColumnWidth, this.rowHeight, 0, 0,
 				this.baseDimension);
-
+		
 		/**
 		 * Bank Name Row
 		 */
@@ -193,7 +192,7 @@ public class BankMainPanel extends BasePanel {
 	 * 
 	 */
 	private void populateBranch() {
-		this.branchLabel = new BaseLabel(CommonConstants.LABEL_BRANCH,
+		this.branchLabel = new BaseLabel(LabelConstants.LABEL_BRANCH,
 				ComponentEnum.LABEL);
 		this.firstColumnWidth = BaseUtils.getMax(this.firstColumnWidth,
 				this.branchLabel.getPreferredSize().getWidth());
@@ -219,7 +218,7 @@ public class BankMainPanel extends BasePanel {
 	 * 
 	 */
 	private void populateBankName() {
-		bankNameLabel = new BaseLabel(CommonConstants.LABEL_BANK_NAME,
+		bankNameLabel = new BaseLabel(LabelConstants.LABEL_BANK_NAME,
 				ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, bankNameLabel
 				.getPreferredSize().getWidth());
@@ -245,7 +244,7 @@ public class BankMainPanel extends BasePanel {
 	 * 
 	 */
 	private void populateBankId() {
-		bankIdLabel = new BaseLabel(CommonConstants.LABEL_BANK_ID,
+		bankIdLabel = new BaseLabel(LabelConstants.LABEL_BANK_ID,
 				ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, bankIdLabel
 				.getPreferredSize().getWidth());
@@ -288,16 +287,16 @@ public class BankMainPanel extends BasePanel {
 
 	@Override
 	public IPanelBean getPanelDataOnSubmit() {
-		BankVO bankVO = new BankVO();
-		bankVO.setName(bankNameField.getText());
-		bankVO.setBranch(branchField.getText());
+		BankVO panelBankVO = new BankVO();
+		panelBankVO.setName(bankNameField.getText());
+		panelBankVO.setBranch(branchField.getText());
 
 		if (null != bankIdField.getText()) {
-			bankVO.setBankId(Integer.parseInt(bankIdField.getText()));
+			panelBankVO.setBankId(Integer.parseInt(bankIdField.getText()));
 		}
 
 		BankPanelBean bankPanelBean = new BankPanelBean();
-		bankPanelBean.setBankVO(bankVO);
+		bankPanelBean.setBankVO(panelBankVO);
 
 		return bankPanelBean;
 	}
@@ -319,7 +318,7 @@ public class BankMainPanel extends BasePanel {
 			bankNameValidator.setMandatory(true);
 			branchField.setEditable(true);
 			branchValidator.setMandatory(true);
-			setTitle(CommonConstants.HEADER_ADD_BANK);
+			setTitle(HeaderConstants.ADD_BANK);
 			ImageIcon addIcon = BaseUtils.populateImage(
 					ImageConstants.ADD);
 			mainButton.setAllValues(addIcon,
@@ -333,7 +332,7 @@ public class BankMainPanel extends BasePanel {
 			bankNameValidator.setMandatory(true);
 			branchField.setEditable(true);
 			branchValidator.setMandatory(true);
-			setTitle(CommonConstants.HEADER_EDIT_BANK);
+			setTitle(HeaderConstants.EDIT_BANK);
 			ImageIcon updateIcon = BaseUtils.populateImage(
 					ImageConstants.UPDATE);
 			mainButton.setAllValues(updateIcon,
@@ -348,7 +347,7 @@ public class BankMainPanel extends BasePanel {
 			bankNameValidator.setMandatory(false);
 			branchField.setEditable(true);
 			branchValidator.setMandatory(false);
-			setTitle(CommonConstants.HEADER_SEARCH_BANK);
+			setTitle(HeaderConstants.SEARCH_BANK);
 			ImageIcon searchIcon = BaseUtils.populateImage(
 					ImageConstants.SEARCH);
 			mainButton.setAllValues(searchIcon,
@@ -363,7 +362,7 @@ public class BankMainPanel extends BasePanel {
 			bankNameValidator.setMandatory(false);
 			branchField.setEditable(false);
 			branchValidator.setMandatory(false);
-			setTitle(CommonConstants.HEADER_SHOW_BANK);
+			setTitle(HeaderConstants.SHOW_BANK);
 			ImageIcon editIcon = BaseUtils.populateImage(
 					ImageConstants.EDIT);
 			mainButton.setAllValues(editIcon,

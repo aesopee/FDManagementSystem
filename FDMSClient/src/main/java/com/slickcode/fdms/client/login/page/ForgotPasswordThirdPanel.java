@@ -16,7 +16,9 @@ import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.baseframework.utils.ComponentEnum;
 import com.slickcode.basevalidatorframework.NonEmtryValidator;
 import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
+import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.login.listner.ChangePasswordButtonActionListner;
 import com.slickcode.fdms.client.login.listner.GoToLoginPageActionListner;
 import com.slickcode.fdms.client.utils.ButtonGridPanel;
@@ -62,7 +64,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	private LoginVO loginVO;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(CommonConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
+		personIdLabel = new BaseLabel(LabelConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel.getPreferredSize().getWidth());
 		personIdLabel.setLabelFor(personIdValue);
 		add(personIdLabel);
@@ -73,7 +75,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	}
 
 	private void populateUserName() {
-		userNameLabel = new BaseLabel(CommonConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
+		userNameLabel = new BaseLabel(LabelConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel.getPreferredSize().getWidth());
 		userNameLabel.setLabelFor(userNameValue);
 		add(userNameLabel);
@@ -84,7 +86,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	}
 
 	private void populatePassword() {
-		passwordLabel = new BaseLabel(CommonConstants.LABEL_PSWD, ComponentEnum.LABEL);
+		passwordLabel = new BaseLabel(LabelConstants.LABEL_PSWD, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, passwordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(passwordField);
 		add(passwordLabel);
@@ -102,7 +104,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	}
 
 	private void populateConfirmPassword() {
-		confirmPasswordLabel = new BaseLabel(CommonConstants.LABEL_CONFIRM_PSWD, ComponentEnum.LABEL);
+		confirmPasswordLabel = new BaseLabel(LabelConstants.LABEL_CONFIRM_PSWD, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, confirmPasswordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(confirmPasswordField);
 		add(confirmPasswordLabel);
@@ -219,7 +221,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, userNameValue.getPreferredSize().getWidth());
 
 		arrangeComponents();
-		setTitle(CommonConstants.HEADER_FORGOT_PSWD);
+		setTitle(HeaderConstants.FORGOT_PSWD);
 		prepareTabOutOrderList();
 	}
 

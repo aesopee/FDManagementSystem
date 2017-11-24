@@ -3,7 +3,7 @@ package com.slickcode.fdms.client.fd.listner;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.fd.page.ShowAllFdPage;
 import com.slickcode.fdms.client.listner.FdmsActionListner;
 import com.slickcode.fdms.client.page.MainPage;
@@ -23,7 +23,7 @@ public class InitiateNextWeekMaturingFDsActionListner extends FdmsActionListner 
 
 	@Override
 	public void onSuccess() {
-		MainPage.getInstance().showPanel(new ShowAllFdPage(nextWeekFdVOList,CommonConstants.HEADER_MATURED_IN_NEXT_WEEK_FD));
+		MainPage.getInstance().showPanel(new ShowAllFdPage(nextWeekFdVOList,HeaderConstants.MATURED_IN_NEXT_WEEK_FD));
 	}
 
 	@Override

@@ -20,7 +20,9 @@ import com.slickcode.fdms.client.bank.listner.EditBankActionListner;
 import com.slickcode.fdms.client.bank.listner.ExcelExportBankActionListner;
 import com.slickcode.fdms.client.bank.listner.ShowShowAllBankActionListner;
 import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
+import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.utils.ButtonGridPanel;
 import com.slickcode.fdms.common.vo.BankVO;
 
@@ -45,13 +47,13 @@ public class ShowAllBankPanel extends BasePanel {
 
 	private void populateBankTable() {
 		List<ColumnDataVO> columnDataVOList = new ArrayList<>();
-		ColumnDataVO bankIdColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BANK_ID, 10, java.lang.String.class,
+		ColumnDataVO bankIdColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BANK_ID, 10, java.lang.String.class,
 				false, AlignmentEnum.CENTER);
 		columnDataVOList.add(bankIdColumnDataVO);
-		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BANK_NAME, 50,
+		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BANK_NAME, 50,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(bankNameColumnDataVO);
-		ColumnDataVO branchColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BRANCH, 30, java.lang.String.class,
+		ColumnDataVO branchColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BRANCH, 30, java.lang.String.class,
 				false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(branchColumnDataVO);
 		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_EDIT, 5,
@@ -95,14 +97,11 @@ public class ShowAllBankPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
-
 		/**
 		 * Table
 		 */
-		fromLeft = widthPadding;
-		fromTop = baseDimension.getHeight() + heightPadding;
+		int fromLeft = widthPadding;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		fromLeft = fromLeft + widthPadding;
 
 		BaseUtils.setBound(panel, fromLeft, fromTop, columnWidth, panel.getPreferredSize().height,
@@ -133,7 +132,7 @@ public class ShowAllBankPanel extends BasePanel {
 		panel.loadPanelData();
 		columnWidth = BaseUtils.getMax(columnWidth, panel.getPreferredSize().getWidth());
 
-		setTitle(CommonConstants.HEADER_SHOW_BANK);
+		setTitle(HeaderConstants.SHOW_BANK);
 		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
 		excelExportButton.setAllValues(excelExportIcon, new ExcelExportBankActionListner(bankVOList),
 				CommonConstants.BUTTON_EXCEL_EXPORT);

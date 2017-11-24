@@ -17,7 +17,9 @@ import com.slickcode.baseframework.table.PaginatedTablePanel;
 import com.slickcode.baseframework.utils.AlignmentEnum;
 import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
+import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.person.listner.EditPersonActionListner;
 import com.slickcode.fdms.client.person.listner.ExcelExportPersonActionListner;
 import com.slickcode.fdms.client.person.listner.ShowShowAllPersonActionListner;
@@ -44,13 +46,13 @@ public class ShowAllPersonPanel extends BasePanel {
 
 	private void populatePersonTable() {
 		List<ColumnDataVO> columnDataVOList = new ArrayList<>();
-		ColumnDataVO personIdColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_PERSON_ID, 10,
+		ColumnDataVO personIdColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_PERSON_ID, 10,
 				java.lang.Integer.class, false, AlignmentEnum.CENTER);
 		columnDataVOList.add(personIdColumnDataVO);
-		ColumnDataVO firstNameColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_FIRST_NAME, 40,
+		ColumnDataVO firstNameColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_FIRST_NAME, 40,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(firstNameColumnDataVO);
-		ColumnDataVO lastNameColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_LAST_NAME, 40,
+		ColumnDataVO lastNameColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_LAST_NAME, 40,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(lastNameColumnDataVO);
 		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_EDIT, 5,
@@ -132,7 +134,7 @@ public class ShowAllPersonPanel extends BasePanel {
 		panel.setData(populatePersonArray());
 		panel.loadPanelData();
 
-		setTitle(CommonConstants.HEADER_SHOW_PERSON);
+		setTitle(HeaderConstants.SHOW_PERSON);
 
 		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
 		excelExportButton.setAllValues(excelExportIcon, new ExcelExportPersonActionListner(personVOList),

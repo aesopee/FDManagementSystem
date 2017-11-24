@@ -3,12 +3,12 @@ package com.slickcode.fdms.client.bank.listner;
 import java.util.ArrayList;
 import java.util.List;
 
-import jxl.write.WritableSheet;
-import jxl.write.WriteException;
-
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.listner.ExcelExportActionListner;
 import com.slickcode.fdms.common.vo.BankVO;
+
+import jxl.write.WritableSheet;
+import jxl.write.WriteException;
 
 public class ExcelExportBankActionListner extends ExcelExportActionListner {
 
@@ -32,9 +32,9 @@ public class ExcelExportBankActionListner extends ExcelExportActionListner {
 
 	public List<String> populateHeaderList() {
 		List<String> headerList = new ArrayList<>();
-		headerList.add(CommonConstants.LABEL_BANK_ID);
-		headerList.add(CommonConstants.LABEL_BANK_NAME);
-		headerList.add(CommonConstants.LABEL_BRANCH);
+		headerList.add(LabelConstants.LABEL_BANK_ID);
+		headerList.add(LabelConstants.LABEL_BANK_NAME);
+		headerList.add(LabelConstants.LABEL_BRANCH);
 		return headerList;
 	}
 

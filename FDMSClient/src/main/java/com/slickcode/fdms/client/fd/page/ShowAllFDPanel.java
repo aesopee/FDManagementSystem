@@ -19,6 +19,7 @@ import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.basevalidatorframework.DateUtilities;
 import com.slickcode.fdms.client.constants.CommonConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
+import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.fd.listner.EditFdActionListner;
 import com.slickcode.fdms.client.fd.listner.ExcelExportFdActionListner;
 import com.slickcode.fdms.client.fd.listner.ShowShowAllFdActionListner;
@@ -45,22 +46,22 @@ public class ShowAllFDPanel extends BasePanel {
 
 	private void populateFDTable() {
 		List<ColumnDataVO> columnDataVOList = new ArrayList<>();
-		ColumnDataVO fdIdColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_FD_ID, 5, java.lang.Integer.class, false,
+		ColumnDataVO fdIdColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_FD_ID, 5, java.lang.Integer.class, false,
 				AlignmentEnum.CENTER);
 		columnDataVOList.add(fdIdColumnDataVO);
-		ColumnDataVO fdNumberColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_FD_NUMBER, 10,
+		ColumnDataVO fdNumberColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_FD_NUMBER, 10,
 				java.lang.String.class, false, AlignmentEnum.CENTER);
 		columnDataVOList.add(fdNumberColumnDataVO);
-		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BANK_NAME, 35,
+		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BANK_NAME, 35,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(bankNameColumnDataVO);
-		ColumnDataVO branchColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_BRANCH, 20, java.lang.String.class,
+		ColumnDataVO branchColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BRANCH, 20, java.lang.String.class,
 				false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(branchColumnDataVO);
-		ColumnDataVO maturityDateColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_MATURITY_DATE, 10,
+		ColumnDataVO maturityDateColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_MATURITY_DATE, 10,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(maturityDateColumnDataVO);
-		ColumnDataVO statusColumnDataVO = new ColumnDataVO(CommonConstants.LABEL_STATUS, 10, java.lang.String.class,
+		ColumnDataVO statusColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_STATUS, 10, java.lang.String.class,
 				false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(statusColumnDataVO);
 		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_EDIT, 5,

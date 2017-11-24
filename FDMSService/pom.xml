@@ -46,53 +46,37 @@
 			<groupId>com.slickcode.fdmanagementsystem</groupId>
 			<artifactId>FDMSCommon</artifactId>
 		</dependency>
-
-		<!-- Hibernate core -->
-		<!-- <dependency> <groupId>hibernate</groupId> <artifactId>hibernate3</artifactId> 
-			</dependency> -->
-
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 		</dependency>
-		
 		<dependency>
-		<groupId>org.slf4j</groupId>
-		<artifactId>slf4j-log4j12</artifactId>
-	</dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
 		<!-- Hibernate annotation -->
 		<dependency>
 			<groupId>hibernate-annotations</groupId>
 			<artifactId>hibernate-annotations</artifactId>
 		</dependency>
-
-		<!-- dependency>
-			<groupId>hibernate-commons-annotations</groupId>
-			<artifactId>hibernate-commons-annotations</artifactId>
-		</dependency-->
-
 		<!-- Hibernate library dependecy start -->
 		<dependency>
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 		</dependency>
 		<!-- Hibernate library dependecy end -->
-
 		<dependency>
 			<groupId>javax.transaction</groupId>
 			<artifactId>jta</artifactId>
@@ -102,12 +86,6 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-commons-annotations -->
-		<!-- dependency>
-				<groupId>hibernate-commons-annotations</groupId>
-				<artifactId>hibernate-commons-annotations</artifactId>
-		</dependency-->
-		<!-- https://mvnrepository.com/artifact/org.hibernate/ejb3-persistence -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>ejb3-persistence</artifactId>

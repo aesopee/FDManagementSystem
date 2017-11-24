@@ -19,7 +19,9 @@ import com.slickcode.baseframework.utils.ComponentEnum;
 import com.slickcode.basevalidatorframework.NonEmtryValidator;
 import com.slickcode.fdms.client.cache.FDMSCache;
 import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
+import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.login.listner.GoToForgotPasswordPageThirdActionListner;
 import com.slickcode.fdms.client.login.listner.GoToLoginPageActionListner;
 import com.slickcode.fdms.client.utils.ButtonGridPanel;
@@ -63,7 +65,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 	private LoginVO loginVO;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(CommonConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
+		personIdLabel = new BaseLabel(LabelConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel.getPreferredSize().getWidth());
 		personIdLabel.setLabelFor(personIdValue);
 		add(personIdLabel);
@@ -74,7 +76,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 	}
 
 	private void populateSecurityQuestion() {
-		securityQuestionLabel = new BaseLabel(CommonConstants.LABEL_SECURITY_QUESTION, ComponentEnum.LABEL);
+		securityQuestionLabel = new BaseLabel(LabelConstants.LABEL_SECURITY_QUESTION, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, securityQuestionLabel.getPreferredSize().getWidth());
 		securityQuestionLabel.setLabelFor(securityQuestionComboBox);
 		add(securityQuestionLabel);
@@ -86,7 +88,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 	}
 
 	private void populateSecurityAnswer() {
-		securityAnswerLabel = new BaseLabel(CommonConstants.LABEL_SECURITY_ANSWER, ComponentEnum.LABEL);
+		securityAnswerLabel = new BaseLabel(LabelConstants.LABEL_SECURITY_ANSWER, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, securityAnswerLabel.getPreferredSize().getWidth());
 		securityAnswerLabel.setLabelFor(securityAnswerField);
 		add(securityAnswerLabel);
@@ -99,13 +101,13 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, securityAnswerLabelError.getPreferredSize().getWidth());
 		add(securityAnswerLabelError);
 
-		securityAnswerValidator = new NonEmtryValidator(CommonConstants.LABEL_SECURITY_ANSWER, securityAnswerField,
+		securityAnswerValidator = new NonEmtryValidator(LabelConstants.LABEL_SECURITY_ANSWER, securityAnswerField,
 				securityAnswerLabelError, true);
 		securityAnswerField.getDocument().addDocumentListener(securityAnswerValidator);
 	}
 
 	private void populateUserName() {
-		userNameLabel = new BaseLabel(CommonConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
+		userNameLabel = new BaseLabel(LabelConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel.getPreferredSize().getWidth());
 		userNameLabel.setLabelFor(userNameValue);
 		add(userNameLabel);
@@ -220,7 +222,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 		securityQuestionComboBox.setEditable(false);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, securityQuestionComboBox.getPreferredSize().getWidth());
 
-		setTitle(CommonConstants.HEADER_FORGOT_PSWD);
+		setTitle(HeaderConstants.FORGOT_PSWD);
 		prepareTabOutOrderList();
 	}
 

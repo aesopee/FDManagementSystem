@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.util.List;
 
 import com.slickcode.baseframework.panel.BasePanel;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.fd.page.ShowAllFdPage;
 import com.slickcode.fdms.client.listner.FdmsActionListner;
 import com.slickcode.fdms.client.page.MainPage;
@@ -30,7 +30,7 @@ public class FetchBankRelatedActionListner extends FdmsActionListner {
 
 	@Override
 	public void onSuccess() {
-		MainPage.getInstance().showPanel(new ShowAllFdPage(fdVOList,CommonConstants.HEADER_FDS_RELATED_TO_BANK+SelectItemConvertor.populateBankSelectItem(bankVO).getLabel()));
+		MainPage.getInstance().showPanel(new ShowAllFdPage(fdVOList,HeaderConstants.FDS_RELATED_TO_BANK+SelectItemConvertor.populateBankSelectItem(bankVO).getLabel()));
 	}
 
 	@Override

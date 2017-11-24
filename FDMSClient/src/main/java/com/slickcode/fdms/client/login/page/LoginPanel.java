@@ -18,7 +18,9 @@ import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.baseframework.utils.ComponentEnum;
 import com.slickcode.basevalidatorframework.NonEmtryValidator;
 import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
+import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.login.listner.GoToForgotPasswordPageFirstActionListner;
 import com.slickcode.fdms.client.login.listner.GoToNewUserPageFirstActionListner;
 import com.slickcode.fdms.client.login.listner.LoginButtonActionListner;
@@ -57,7 +59,7 @@ public class LoginPanel extends BasePanel {
 	private ButtonGridPanel buttonGridPanel;
 
 	private void populateUserName() {
-		userNameLabel = new BaseLabel(CommonConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
+		userNameLabel = new BaseLabel(LabelConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel.getPreferredSize().getWidth());
 		userNameLabel.setLabelFor(userNameField);
 		add(userNameLabel);
@@ -70,13 +72,13 @@ public class LoginPanel extends BasePanel {
 		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, userNameLabelError.getPreferredSize().getWidth());
 		add(userNameLabelError);
 
-		userNameValidator = new NonEmtryValidator(CommonConstants.LABEL_USER_NAME, userNameField, userNameLabelError,
+		userNameValidator = new NonEmtryValidator(LabelConstants.LABEL_USER_NAME, userNameField, userNameLabelError,
 				true);
 		userNameField.getDocument().addDocumentListener(userNameValidator);
 	}
 
 	private void populatePassword() {
-		passwordLabel = new BaseLabel(CommonConstants.LABEL_PSWD, ComponentEnum.LABEL);
+		passwordLabel = new BaseLabel(LabelConstants.LABEL_PSWD, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, passwordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(passwordField);
 		add(passwordLabel);
@@ -89,7 +91,7 @@ public class LoginPanel extends BasePanel {
 		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, passwordLabelError.getPreferredSize().getWidth());
 		add(passwordLabelError);
 
-		passwordValidator = new NonEmtryValidator(CommonConstants.LABEL_PSWD, passwordField, passwordLabelError, true);
+		passwordValidator = new NonEmtryValidator(LabelConstants.LABEL_PSWD, passwordField, passwordLabelError, true);
 		passwordField.getDocument().addDocumentListener(passwordValidator);
 	}
 
@@ -104,7 +106,7 @@ public class LoginPanel extends BasePanel {
 		buttonGridPanel.addButtonToList(newUserButton);
 
 		ImageIcon loginIcon = BaseUtils.populateImage(ImageConstants.LOGIN);
-		loginButton = new BaseButton(loginIcon, new LoginButtonActionListner(this), CommonConstants.BUTTON_LOGIN);
+		loginButton = new BaseButton(loginIcon, new LoginButtonActionListner(this), CommonConstants.Button.BUTTON_LOGIN);
 		buttonGridPanel.addButtonToList(loginButton);
 
 		ImageIcon forgotIcon = BaseUtils.populateImage(ImageConstants.FORGOT_PSWD);
@@ -169,7 +171,7 @@ public class LoginPanel extends BasePanel {
 	@Override
 	public void loadPanelData() {
 		arrangeComponents();
-		setTitle(CommonConstants.HEADER_LOGIN);
+		setTitle(HeaderConstants.LOGIN);
 		prepareTabOutOrderList();
 	}
 

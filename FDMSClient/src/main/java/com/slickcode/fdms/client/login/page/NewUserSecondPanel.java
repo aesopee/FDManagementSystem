@@ -20,7 +20,9 @@ import com.slickcode.baseframework.utils.ComponentEnum;
 import com.slickcode.basevalidatorframework.NonEmtryValidator;
 import com.slickcode.fdms.client.cache.FDMSCache;
 import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
+import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.login.listner.GoToLoginPageActionListner;
 import com.slickcode.fdms.client.login.listner.SignUpButtonActionListner;
 import com.slickcode.fdms.client.utils.ButtonGridPanel;
@@ -84,7 +86,7 @@ public class NewUserSecondPanel extends BasePanel {
 	private LoginVO loginVO;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(CommonConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
+		personIdLabel = new BaseLabel(LabelConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel.getPreferredSize().getWidth());
 		personIdLabel.setLabelFor(personIdValue);
 		add(personIdLabel);
@@ -95,7 +97,7 @@ public class NewUserSecondPanel extends BasePanel {
 	}
 
 	private void populateFirstName() {
-		firstNameLabel = new BaseLabel(CommonConstants.LABEL_FIRST_NAME, ComponentEnum.LABEL);
+		firstNameLabel = new BaseLabel(LabelConstants.LABEL_FIRST_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstNameLabel.getPreferredSize().getWidth());
 		firstNameLabel.setLabelFor(firstNameValue);
 		add(firstNameLabel);
@@ -106,7 +108,7 @@ public class NewUserSecondPanel extends BasePanel {
 	}
 
 	private void populateLastName() {
-		lastNameLabel = new BaseLabel(CommonConstants.LABEL_LAST_NAME, ComponentEnum.LABEL);
+		lastNameLabel = new BaseLabel(LabelConstants.LABEL_LAST_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, lastNameLabel.getPreferredSize().getWidth());
 		lastNameLabel.setLabelFor(lastNameValue);
 		add(lastNameLabel);
@@ -117,7 +119,7 @@ public class NewUserSecondPanel extends BasePanel {
 	}
 
 	private void populateSecurityQuestion() {
-		securityQuestionLabel = new BaseLabel(CommonConstants.LABEL_SECURITY_QUESTION, ComponentEnum.LABEL);
+		securityQuestionLabel = new BaseLabel(LabelConstants.LABEL_SECURITY_QUESTION, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, securityQuestionLabel.getPreferredSize().getWidth());
 		securityQuestionLabel.setLabelFor(securityQuestionComboBox);
 		add(securityQuestionLabel);
@@ -132,7 +134,7 @@ public class NewUserSecondPanel extends BasePanel {
 	}
 
 	private void populateSecurityAnswer() {
-		securityAnswerLabel = new BaseLabel(CommonConstants.LABEL_SECURITY_ANSWER, ComponentEnum.LABEL);
+		securityAnswerLabel = new BaseLabel(LabelConstants.LABEL_SECURITY_ANSWER, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, securityAnswerLabel.getPreferredSize().getWidth());
 		securityAnswerLabel.setLabelFor(securityAnswerField);
 		add(securityAnswerLabel);
@@ -145,13 +147,13 @@ public class NewUserSecondPanel extends BasePanel {
 		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, securityAnswerLabelError.getPreferredSize().getWidth());
 		add(securityAnswerLabelError);
 
-		securityAnswerValidator = new NonEmtryValidator(CommonConstants.LABEL_SECURITY_ANSWER, securityAnswerField,
+		securityAnswerValidator = new NonEmtryValidator(LabelConstants.LABEL_SECURITY_ANSWER, securityAnswerField,
 				securityAnswerLabelError, true);
 		securityAnswerField.getDocument().addDocumentListener(securityAnswerValidator);
 	}
 
 	private void populateUserName() {
-		userNameLabel = new BaseLabel(CommonConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
+		userNameLabel = new BaseLabel(LabelConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel.getPreferredSize().getWidth());
 		userNameLabel.setLabelFor(userNameField);
 		add(userNameLabel);
@@ -169,7 +171,7 @@ public class NewUserSecondPanel extends BasePanel {
 	}
 
 	private void populatePassword() {
-		passwordLabel = new BaseLabel(CommonConstants.LABEL_PSWD, ComponentEnum.LABEL);
+		passwordLabel = new BaseLabel(LabelConstants.LABEL_PSWD, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, passwordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(passwordField);
 		add(passwordLabel);
@@ -187,7 +189,7 @@ public class NewUserSecondPanel extends BasePanel {
 	}
 
 	private void populateConfirmPassword() {
-		confirmPasswordLabel = new BaseLabel(CommonConstants.LABEL_CONFIRM_PSWD, ComponentEnum.LABEL);
+		confirmPasswordLabel = new BaseLabel(LabelConstants.LABEL_CONFIRM_PSWD, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, confirmPasswordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(confirmPasswordField);
 		add(confirmPasswordLabel);
@@ -373,7 +375,7 @@ public class NewUserSecondPanel extends BasePanel {
 		confirmPasswordField.setText(loginVO.getPassword());
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, confirmPasswordField.getPreferredSize().getWidth());
 
-		setTitle(CommonConstants.HEADER_NEW_USER);
+		setTitle(HeaderConstants.NEW_USER);
 		arrangeComponents();
 		prepareTabOutOrderList();
 	}
