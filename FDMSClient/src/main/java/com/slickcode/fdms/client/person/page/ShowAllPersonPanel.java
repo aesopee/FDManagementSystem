@@ -16,7 +16,7 @@ import com.slickcode.baseframework.panel.BasePanel;
 import com.slickcode.baseframework.table.PaginatedTablePanel;
 import com.slickcode.baseframework.utils.AlignmentEnum;
 import com.slickcode.baseframework.utils.BaseUtils;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
@@ -46,19 +46,19 @@ public class ShowAllPersonPanel extends BasePanel {
 
 	private void populatePersonTable() {
 		List<ColumnDataVO> columnDataVOList = new ArrayList<>();
-		ColumnDataVO personIdColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_PERSON_ID, 10,
+		ColumnDataVO personIdColumnDataVO = new ColumnDataVO(LabelConstants.PERSON_ID, 10,
 				java.lang.Integer.class, false, AlignmentEnum.CENTER);
 		columnDataVOList.add(personIdColumnDataVO);
-		ColumnDataVO firstNameColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_FIRST_NAME, 40,
+		ColumnDataVO firstNameColumnDataVO = new ColumnDataVO(LabelConstants.FIRST_NAME, 40,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(firstNameColumnDataVO);
-		ColumnDataVO lastNameColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_LAST_NAME, 40,
+		ColumnDataVO lastNameColumnDataVO = new ColumnDataVO(LabelConstants.LAST_NAME, 40,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(lastNameColumnDataVO);
-		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_EDIT, 5,
+		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(ButtonConstants.EDIT, 5,
 				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(editButtonColumnDataVO);
-		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_VIEW, 5,
+		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(ButtonConstants.VIEW, 5,
 				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(viewButtonColumnDataVO);
 
@@ -71,14 +71,14 @@ public class ShowAllPersonPanel extends BasePanel {
 
 		ImageIcon editIcon = BaseUtils.populateImage(ImageConstants.EDIT);
 		BaseButton editButton = new BaseButton(editIcon, new EditPersonActionListner(panel),
-				CommonConstants.BUTTON_EDIT);
+				ButtonConstants.EDIT);
 		panel.getTable().getColumn(editButtonColumnDataVO.getHeader()).setCellRenderer(editButton);
 		panel.getTable().getColumn(editButtonColumnDataVO.getHeader())
 				.setCellEditor(new BaseButtonEditor(new JCheckBox(), editButton));
 
 		ImageIcon viewIcon = BaseUtils.populateImage(ImageConstants.VIEW);
 		BaseButton viewButton = new BaseButton(viewIcon, new ShowShowAllPersonActionListner(panel),
-				CommonConstants.BUTTON_VIEW);
+				ButtonConstants.VIEW);
 		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader()).setCellRenderer(viewButton);
 		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader())
 				.setCellEditor(new BaseButtonEditor(new JCheckBox(), viewButton));
@@ -88,7 +88,7 @@ public class ShowAllPersonPanel extends BasePanel {
 		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 
 		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
-		this.excelExportButton = new BaseButton(excelExportIcon, null, CommonConstants.BUTTON_EXCEL_EXPORT);
+		this.excelExportButton = new BaseButton(excelExportIcon, null, ButtonConstants.EXCEL_EXPORT);
 		this.columnWidth = BaseUtils.getMax(this.columnWidth, this.excelExportButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(this.excelExportButton);
 
@@ -97,15 +97,11 @@ public class ShowAllPersonPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
-
 		/**
 		 * Table
 		 */
-		fromLeft = widthPadding;
-		fromTop = baseDimension.getHeight() + heightPadding;
-		fromLeft = fromLeft + widthPadding;
+		int fromLeft = widthPadding*2;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 
 		BaseUtils.setBound(panel, fromLeft, fromTop, columnWidth, panel.getPreferredSize().height,
 				panel.getPreferredSize().getWidth(), 0, baseDimension);
@@ -138,7 +134,7 @@ public class ShowAllPersonPanel extends BasePanel {
 
 		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
 		excelExportButton.setAllValues(excelExportIcon, new ExcelExportPersonActionListner(personVOList),
-				CommonConstants.BUTTON_EXCEL_EXPORT);
+				ButtonConstants.EXCEL_EXPORT);
 		arrangeComponents();
 		prepareTabOutOrderList();
 	}

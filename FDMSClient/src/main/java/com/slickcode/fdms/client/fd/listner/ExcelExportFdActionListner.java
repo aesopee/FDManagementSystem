@@ -36,12 +36,12 @@ public class ExcelExportFdActionListner extends ExcelExportActionListner {
 
 	public List<String> populateHeaderList() {
 		List<String> headerList = new ArrayList<>();
-		headerList.add(LabelConstants.LABEL_FD_ID);
-		headerList.add(LabelConstants.LABEL_FD_NUMBER);
-		headerList.add(LabelConstants.LABEL_BANK_NAME);
-		headerList.add(LabelConstants.LABEL_BRANCH);
-		headerList.add(LabelConstants.LABEL_MATURITY_DATE);
-		headerList.add(LabelConstants.LABEL_STATUS);
+		headerList.add(LabelConstants.FD_ID);
+		headerList.add(LabelConstants.FD_NUMBER);
+		headerList.add(LabelConstants.BANK_NAME);
+		headerList.add(LabelConstants.BRANCH);
+		headerList.add(LabelConstants.MATURITY_DATE);
+		headerList.add(LabelConstants.STATUS);
 		return headerList;
 	}
 

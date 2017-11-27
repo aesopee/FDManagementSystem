@@ -3,7 +3,6 @@ package com.slickcode.fdms.client.person.listner;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.slickcode.fdms.client.constants.CommonConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.listner.ExcelExportActionListner;
 import com.slickcode.fdms.common.vo.PersonVO;
@@ -34,10 +33,10 @@ public class ExcelExportPersonActionListner extends ExcelExportActionListner {
 
 	public List<String> populateHeaderList() {
 		List<String> headerList = new ArrayList<>();
-		headerList.add(LabelConstants.LABEL_PERSON_ID);
-		headerList.add(LabelConstants.LABEL_FIRST_NAME);
-		headerList.add(LabelConstants.LABEL_MIDDLE_NAME);
-		headerList.add(LabelConstants.LABEL_LAST_NAME);
+		headerList.add(LabelConstants.PERSON_ID);
+		headerList.add(LabelConstants.FIRST_NAME);
+		headerList.add(LabelConstants.MIDDLE_NAME);
+		headerList.add(LabelConstants.LAST_NAME);
 		return headerList;
 	}
 

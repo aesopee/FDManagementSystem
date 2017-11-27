@@ -32,9 +32,9 @@ public class ExcelExportBankActionListner extends ExcelExportActionListner {
 
 	public List<String> populateHeaderList() {
 		List<String> headerList = new ArrayList<>();
-		headerList.add(LabelConstants.LABEL_BANK_ID);
-		headerList.add(LabelConstants.LABEL_BANK_NAME);
-		headerList.add(LabelConstants.LABEL_BRANCH);
+		headerList.add(LabelConstants.BANK_ID);
+		headerList.add(LabelConstants.BANK_NAME);
+		headerList.add(LabelConstants.BRANCH);
 		return headerList;
 	}
 

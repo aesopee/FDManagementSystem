@@ -22,7 +22,7 @@ import com.slickcode.fdms.client.bank.listner.EditBankActionListner;
 import com.slickcode.fdms.client.bank.listner.FetchBankRelatedActionListner;
 import com.slickcode.fdms.client.bank.listner.SearchBankActionListner;
 import com.slickcode.fdms.client.bank.listner.UpdateBankActionListner;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
@@ -77,7 +77,7 @@ public class BankMainPanel extends BasePanel {
 		ImageIcon cancelIcon = BaseUtils.populateImage(
 				ImageConstants.CANCEL);
 		this.cancelButton = new BaseButton(cancelIcon,
-				new GoToHomePageListner(this), CommonConstants.BUTTON_CANCEL);
+				new GoToHomePageListner(this), ButtonConstants.CANCEL);
 		this.firstColumnWidth = BaseUtils.getMax(this.firstColumnWidth,
 				this.cancelButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(this.cancelButton);
@@ -85,7 +85,7 @@ public class BankMainPanel extends BasePanel {
 		ImageIcon searchIcon = BaseUtils.populateImage(
 				ImageConstants.SEARCH);
 		this.mainButton = new BaseButton(searchIcon, null,
-				CommonConstants.BUTTON_SEARCH);
+				ButtonConstants.SEARCH);
 		this.secondColumnWidth = BaseUtils.getMax(this.secondColumnWidth,
 				this.mainButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(this.mainButton);
@@ -93,7 +93,7 @@ public class BankMainPanel extends BasePanel {
 		ImageIcon copyIcon = BaseUtils.populateImage(
 				ImageConstants.COPY);
 		copyButton = new BaseButton(copyIcon,
-				new CopyBankActionListner(this), CommonConstants.BUTTON_COPY);
+				new CopyBankActionListner(this), ButtonConstants.COPY);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, copyButton
 				.getPreferredSize().getWidth());
 
@@ -101,7 +101,7 @@ public class BankMainPanel extends BasePanel {
 				ImageConstants.RELATED_FDS);
 		relatedFdsButton = new BaseButton(relatedFdsIcon,
 				new FetchBankRelatedActionListner(this),
-				CommonConstants.BUTTON_RELATED_FDS);
+				ButtonConstants.RELATED_FDS);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth,
 				relatedFdsButton.getPreferredSize().getWidth());
 
@@ -192,7 +192,7 @@ public class BankMainPanel extends BasePanel {
 	 * 
 	 */
 	private void populateBranch() {
-		this.branchLabel = new BaseLabel(LabelConstants.LABEL_BRANCH,
+		this.branchLabel = new BaseLabel(LabelConstants.BRANCH,
 				ComponentEnum.LABEL);
 		this.firstColumnWidth = BaseUtils.getMax(this.firstColumnWidth,
 				this.branchLabel.getPreferredSize().getWidth());
@@ -218,7 +218,7 @@ public class BankMainPanel extends BasePanel {
 	 * 
 	 */
 	private void populateBankName() {
-		bankNameLabel = new BaseLabel(LabelConstants.LABEL_BANK_NAME,
+		bankNameLabel = new BaseLabel(LabelConstants.BANK_NAME,
 				ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, bankNameLabel
 				.getPreferredSize().getWidth());
@@ -244,7 +244,7 @@ public class BankMainPanel extends BasePanel {
 	 * 
 	 */
 	private void populateBankId() {
-		bankIdLabel = new BaseLabel(LabelConstants.LABEL_BANK_ID,
+		bankIdLabel = new BaseLabel(LabelConstants.BANK_ID,
 				ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, bankIdLabel
 				.getPreferredSize().getWidth());
@@ -322,7 +322,7 @@ public class BankMainPanel extends BasePanel {
 			ImageIcon addIcon = BaseUtils.populateImage(
 					ImageConstants.ADD);
 			mainButton.setAllValues(addIcon,
-					new AddBankActionListner(this), CommonConstants.BUTTON_ADD);
+					new AddBankActionListner(this), ButtonConstants.ADD);
 			break;
 
 		case EDIT:
@@ -337,7 +337,7 @@ public class BankMainPanel extends BasePanel {
 					ImageConstants.UPDATE);
 			mainButton.setAllValues(updateIcon,
 					new UpdateBankActionListner(this),
-					CommonConstants.BUTTON_UPDATE);
+					ButtonConstants.UPDATE);
 			break;
 
 		case SEARCH:
@@ -352,7 +352,7 @@ public class BankMainPanel extends BasePanel {
 					ImageConstants.SEARCH);
 			mainButton.setAllValues(searchIcon,
 					new SearchBankActionListner(this),
-					CommonConstants.BUTTON_SEARCH);
+					ButtonConstants.SEARCH);
 			break;
 
 		case VIEW:
@@ -367,7 +367,7 @@ public class BankMainPanel extends BasePanel {
 					ImageConstants.EDIT);
 			mainButton.setAllValues(editIcon,
 					new EditBankActionListner(this),
-					CommonConstants.BUTTON_EDIT);
+					ButtonConstants.EDIT);
 			buttonGridPanel.addButtonToList(copyButton);
 			buttonGridPanel.addButtonToList(relatedFdsButton);
 			break;

@@ -19,7 +19,7 @@ import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.fdms.client.bank.listner.EditBankActionListner;
 import com.slickcode.fdms.client.bank.listner.ExcelExportBankActionListner;
 import com.slickcode.fdms.client.bank.listner.ShowShowAllBankActionListner;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
@@ -47,19 +47,19 @@ public class ShowAllBankPanel extends BasePanel {
 
 	private void populateBankTable() {
 		List<ColumnDataVO> columnDataVOList = new ArrayList<>();
-		ColumnDataVO bankIdColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BANK_ID, 10, java.lang.String.class,
+		ColumnDataVO bankIdColumnDataVO = new ColumnDataVO(LabelConstants.BANK_ID, 10, java.lang.String.class,
 				false, AlignmentEnum.CENTER);
 		columnDataVOList.add(bankIdColumnDataVO);
-		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BANK_NAME, 50,
+		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(LabelConstants.BANK_NAME, 50,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(bankNameColumnDataVO);
-		ColumnDataVO branchColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BRANCH, 30, java.lang.String.class,
+		ColumnDataVO branchColumnDataVO = new ColumnDataVO(LabelConstants.BRANCH, 30, java.lang.String.class,
 				false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(branchColumnDataVO);
-		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_EDIT, 5,
+		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(ButtonConstants.EDIT, 5,
 				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(editButtonColumnDataVO);
-		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_VIEW, 5,
+		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(ButtonConstants.VIEW, 5,
 				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(viewButtonColumnDataVO);
 
@@ -70,14 +70,14 @@ public class ShowAllBankPanel extends BasePanel {
 		add(panel.createPanel());
 
 		ImageIcon editIcon = BaseUtils.populateImage(ImageConstants.EDIT);
-		BaseButton editButton = new BaseButton(editIcon, new EditBankActionListner(panel), CommonConstants.BUTTON_EDIT);
+		BaseButton editButton = new BaseButton(editIcon, new EditBankActionListner(panel), ButtonConstants.EDIT);
 		panel.getTable().getColumn(editButtonColumnDataVO.getHeader()).setCellRenderer(editButton);
 		panel.getTable().getColumn(editButtonColumnDataVO.getHeader())
 				.setCellEditor(new BaseButtonEditor(new JCheckBox(), editButton));
 
 		ImageIcon viewIcon = BaseUtils.populateImage(ImageConstants.VIEW);
 		BaseButton viewButton = new BaseButton(viewIcon, new ShowShowAllBankActionListner(panel),
-				CommonConstants.BUTTON_VIEW);
+				ButtonConstants.VIEW);
 		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader()).setCellRenderer(viewButton);
 		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader())
 				.setCellEditor(new BaseButtonEditor(new JCheckBox(), viewButton));
@@ -88,7 +88,7 @@ public class ShowAllBankPanel extends BasePanel {
 		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 
 		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
-		this.excelExportButton = new BaseButton(excelExportIcon, null, CommonConstants.BUTTON_EXCEL_EXPORT);
+		this.excelExportButton = new BaseButton(excelExportIcon, null, ButtonConstants.EXCEL_EXPORT);
 		this.columnWidth = BaseUtils.getMax(this.columnWidth, this.excelExportButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(this.excelExportButton);
 
@@ -135,7 +135,7 @@ public class ShowAllBankPanel extends BasePanel {
 		setTitle(HeaderConstants.SHOW_BANK);
 		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
 		excelExportButton.setAllValues(excelExportIcon, new ExcelExportBankActionListner(bankVOList),
-				CommonConstants.BUTTON_EXCEL_EXPORT);
+				ButtonConstants.EXCEL_EXPORT);
 		arrangeComponents();
 		prepareTabOutOrderList();
 	}

@@ -17,7 +17,7 @@ import com.slickcode.baseframework.table.PaginatedTablePanel;
 import com.slickcode.baseframework.utils.AlignmentEnum;
 import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.basevalidatorframework.DateUtilities;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
 import com.slickcode.fdms.client.fd.listner.EditFdActionListner;
@@ -46,28 +46,28 @@ public class ShowAllFDPanel extends BasePanel {
 
 	private void populateFDTable() {
 		List<ColumnDataVO> columnDataVOList = new ArrayList<>();
-		ColumnDataVO fdIdColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_FD_ID, 5, java.lang.Integer.class, false,
+		ColumnDataVO fdIdColumnDataVO = new ColumnDataVO(LabelConstants.FD_ID, 5, java.lang.Integer.class, false,
 				AlignmentEnum.CENTER);
 		columnDataVOList.add(fdIdColumnDataVO);
-		ColumnDataVO fdNumberColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_FD_NUMBER, 10,
+		ColumnDataVO fdNumberColumnDataVO = new ColumnDataVO(LabelConstants.FD_NUMBER, 10,
 				java.lang.String.class, false, AlignmentEnum.CENTER);
 		columnDataVOList.add(fdNumberColumnDataVO);
-		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BANK_NAME, 35,
+		ColumnDataVO bankNameColumnDataVO = new ColumnDataVO(LabelConstants.BANK_NAME, 35,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(bankNameColumnDataVO);
-		ColumnDataVO branchColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_BRANCH, 20, java.lang.String.class,
+		ColumnDataVO branchColumnDataVO = new ColumnDataVO(LabelConstants.BRANCH, 20, java.lang.String.class,
 				false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(branchColumnDataVO);
-		ColumnDataVO maturityDateColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_MATURITY_DATE, 10,
+		ColumnDataVO maturityDateColumnDataVO = new ColumnDataVO(LabelConstants.MATURITY_DATE, 10,
 				java.lang.String.class, false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(maturityDateColumnDataVO);
-		ColumnDataVO statusColumnDataVO = new ColumnDataVO(LabelConstants.LABEL_STATUS, 10, java.lang.String.class,
+		ColumnDataVO statusColumnDataVO = new ColumnDataVO(LabelConstants.STATUS, 10, java.lang.String.class,
 				false, AlignmentEnum.RIGHT);
 		columnDataVOList.add(statusColumnDataVO);
-		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_EDIT, 5,
+		ColumnDataVO editButtonColumnDataVO = new ColumnDataVO(ButtonConstants.EDIT, 5,
 				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(editButtonColumnDataVO);
-		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(CommonConstants.BUTTON_VIEW, 5,
+		ColumnDataVO viewButtonColumnDataVO = new ColumnDataVO(ButtonConstants.VIEW, 5,
 				javax.swing.ImageIcon.class, true);
 		columnDataVOList.add(viewButtonColumnDataVO);
 
@@ -78,14 +78,14 @@ public class ShowAllFDPanel extends BasePanel {
 		add(panel.createPanel());
 
 		ImageIcon editIcon = BaseUtils.populateImage(ImageConstants.EDIT);
-		BaseButton editButton = new BaseButton(editIcon, new EditFdActionListner(panel), CommonConstants.BUTTON_EDIT);
+		BaseButton editButton = new BaseButton(editIcon, new EditFdActionListner(panel), ButtonConstants.EDIT);
 		panel.getTable().getColumn(editButtonColumnDataVO.getHeader()).setCellRenderer(editButton);
 		panel.getTable().getColumn(editButtonColumnDataVO.getHeader())
 				.setCellEditor(new BaseButtonEditor(new JCheckBox(), editButton));
 
 		ImageIcon viewIcon = BaseUtils.populateImage(ImageConstants.VIEW);
 		BaseButton viewButton = new BaseButton(viewIcon, new ShowShowAllFdActionListner(panel),
-				CommonConstants.BUTTON_VIEW);
+				ButtonConstants.VIEW);
 		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader()).setCellRenderer(viewButton);
 		panel.getTable().getColumn(viewButtonColumnDataVO.getHeader())
 				.setCellEditor(new BaseButtonEditor(new JCheckBox(), viewButton));
@@ -95,7 +95,7 @@ public class ShowAllFDPanel extends BasePanel {
 		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 
 		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
-		this.excelExportButton = new BaseButton(excelExportIcon, null, CommonConstants.BUTTON_EXCEL_EXPORT);
+		this.excelExportButton = new BaseButton(excelExportIcon, null, ButtonConstants.EXCEL_EXPORT);
 		this.columnWidth = BaseUtils.getMax(this.columnWidth, this.excelExportButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(this.excelExportButton);
 
@@ -109,7 +109,7 @@ public class ShowAllFDPanel extends BasePanel {
 
 		ImageIcon excelExportIcon = BaseUtils.populateImage(ImageConstants.EXCEL_EXPORT);
 		excelExportButton.setAllValues(excelExportIcon, new ExcelExportFdActionListner(fdVOList),
-				CommonConstants.BUTTON_EXCEL_EXPORT);
+				ButtonConstants.EXCEL_EXPORT);
 		arrangeComponents();
 		prepareTabOutOrderList();
 	}
@@ -132,14 +132,12 @@ public class ShowAllFDPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
 
 		/**
 		 * Table
 		 */
-		fromLeft = widthPadding * 3;
-		fromTop = baseDimension.getHeight() + heightPadding;
+		int fromLeft = widthPadding * 3;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		fromLeft = fromLeft + widthPadding;
 
 		BaseUtils.setBound(panel, fromLeft, fromTop, columnWidth, panel.getPreferredSize().height,

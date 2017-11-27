@@ -61,12 +61,10 @@ public class ButtonGridPanel extends BasePanel {
 		if ((null == baseButtonList) || baseButtonList.isEmpty()) {
 			return;
 		}
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
-
-		fromTop = baseDimension.getHeight() + heightPadding;
+		
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		for (BaseButton baseButton : baseButtonList) {
-			fromLeft = baseDimension.getWidth() + widthPadding;
+			int fromLeft = baseDimension.getWidth() + widthPadding;
 
 			BaseUtils.setBound(baseButton, fromLeft, fromTop,
 					BaseUtils.getMax(0, baseButton.getPreferredSize().getWidth()), rowHeight,

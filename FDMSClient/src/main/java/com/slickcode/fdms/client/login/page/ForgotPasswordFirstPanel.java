@@ -16,7 +16,7 @@ import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.baseframework.utils.ComponentEnum;
 import com.slickcode.basevalidatorframework.NonEmtryValidator;
 import com.slickcode.basevalidatorframework.NumericValidator;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
@@ -56,7 +56,7 @@ public class ForgotPasswordFirstPanel extends BasePanel {
 	private ButtonGridPanel buttonGridPanel;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(LabelConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
+		personIdLabel = new BaseLabel(LabelConstants.PERSON_ID, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel.getPreferredSize().getWidth());
 		personIdLabel.setLabelFor(personIdField);
 		add(personIdLabel);
@@ -69,13 +69,12 @@ public class ForgotPasswordFirstPanel extends BasePanel {
 		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, personIdLabelError.getPreferredSize().getWidth());
 		add(personIdLabelError);
 
-		personIdValidator = new NumericValidator(LabelConstants.LABEL_PERSON_ID, personIdField, personIdLabelError,
-				true);
+		personIdValidator = new NumericValidator(LabelConstants.PERSON_ID, personIdField, personIdLabelError, true);
 		personIdField.getDocument().addDocumentListener(personIdValidator);
 	}
 
 	private void populateUserName() {
-		userNameLabel = new BaseLabel(LabelConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
+		userNameLabel = new BaseLabel(LabelConstants.USER_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel.getPreferredSize().getWidth());
 		userNameLabel.setLabelFor(userNameField);
 		add(userNameLabel);
@@ -89,8 +88,7 @@ public class ForgotPasswordFirstPanel extends BasePanel {
 		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, userNameLabelError.getPreferredSize().getWidth());
 		add(userNameLabelError);
 
-		userNameValidator = new NonEmtryValidator(LabelConstants.LABEL_USER_NAME, userNameField, userNameLabelError,
-				true);
+		userNameValidator = new NonEmtryValidator(LabelConstants.USER_NAME, userNameField, userNameLabelError, true);
 		userNameField.getDocument().addDocumentListener(userNameValidator);
 	}
 
@@ -98,12 +96,12 @@ public class ForgotPasswordFirstPanel extends BasePanel {
 		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, 50);
 
 		ImageIcon cancelIcon = BaseUtils.populateImage(ImageConstants.CANCEL);
-		cancelButton = new BaseButton(cancelIcon, new GoToLoginPageActionListner(), CommonConstants.BUTTON_CANCEL);
+		cancelButton = new BaseButton(cancelIcon, new GoToLoginPageActionListner(), ButtonConstants.CANCEL);
 		buttonGridPanel.addButtonToList(cancelButton);
 
 		ImageIcon nextIcon = BaseUtils.populateImage(ImageConstants.NEXT);
 		nextButton = new BaseButton(nextIcon, new GoToForgotPasswordPageSecondActionListner(this),
-				CommonConstants.BUTTON_NEXT);
+				ButtonConstants.NEXT);
 		buttonGridPanel.addButtonToList(nextButton);
 
 		add(buttonGridPanel.createPanel());
@@ -111,14 +109,11 @@ public class ForgotPasswordFirstPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
-
 		/**
 		 * Person Id Row
 		 */
-		fromLeft = widthPadding;
-		fromTop = baseDimension.getHeight() + heightPadding;
+		int fromLeft = widthPadding;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;

@@ -25,7 +25,7 @@ import com.slickcode.basevalidatorframework.NonEmtryValidator;
 import com.slickcode.basevalidatorframework.NumericUtilities;
 import com.slickcode.basevalidatorframework.NumericValidator;
 import com.slickcode.fdms.client.cache.FDMSCache;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
@@ -146,7 +146,7 @@ public class FdMainPanel extends BasePanel {
 	private ScreenMode screenMode;
 
 	private void populateFDId() {
-		fdIdLabel = new BaseLabel(LabelConstants.LABEL_FD_ID, ComponentEnum.LABEL);
+		fdIdLabel = new BaseLabel(LabelConstants.FD_ID, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, fdIdLabel.getPreferredSize().getWidth());
 		fdIdLabel.setLabelFor(fdIdField);
 		add(fdIdLabel);
@@ -164,7 +164,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateFdBankReferenceNumber() {
-		fdBankReferenceNumberLabel = new BaseLabel(LabelConstants.LABEL_FD_BANK_REFERENCE_NUMBAI, ComponentEnum.LABEL);
+		fdBankReferenceNumberLabel = new BaseLabel(LabelConstants.FD_BANK_REFERENCE_ID, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, fdBankReferenceNumberLabel.getPreferredSize().getWidth());
 		fdBankReferenceNumberLabel.setLabelFor(fdBankReferenceNumberField);
 		add(fdBankReferenceNumberLabel);
@@ -185,7 +185,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateFDNumber() {
-		fdNumberLabel = new BaseLabel(LabelConstants.LABEL_FD_NUMBER, ComponentEnum.LABEL);
+		fdNumberLabel = new BaseLabel(LabelConstants.FD_NUMBER, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, fdNumberLabel.getPreferredSize().getWidth());
 		fdNumberLabel.setLabelFor(fdNumberField);
 		add(fdNumberLabel);
@@ -203,7 +203,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateRenewedToFDNumber() {
-		renewedToFdNumberLabel = new BaseLabel(LabelConstants.LABEL_RENEWED_TO_FD_NUMBER, ComponentEnum.LABEL);
+		renewedToFdNumberLabel = new BaseLabel(LabelConstants.RENEWED_TO_FD_NUMBER, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, renewedToFdNumberLabel.getPreferredSize().getWidth());
 		renewedToFdNumberLabel.setLabelFor(renewedToFdNumberField);
 		add(renewedToFdNumberLabel);
@@ -216,7 +216,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateRenewedFromFDNumber() {
-		renewedFromFdNumberLabel = new BaseLabel(LabelConstants.LABEL_RENEWED_FROM_FD_NUMBER, ComponentEnum.LABEL);
+		renewedFromFdNumberLabel = new BaseLabel(LabelConstants.RENEWED_FROM_FD_NUMBER, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, renewedFromFdNumberLabel.getPreferredSize().getWidth());
 		renewedFromFdNumberLabel.setLabelFor(renewedFromFdNumberField);
 		add(renewedFromFdNumberLabel);
@@ -229,7 +229,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateOriginalFDNumber() {
-		originalFdNumberLabel = new BaseLabel(LabelConstants.LABEL_ORIGINAL_FD_NUMBER, ComponentEnum.LABEL);
+		originalFdNumberLabel = new BaseLabel(LabelConstants.ORIGINAL_FD_NUMBER, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, originalFdNumberLabel.getPreferredSize().getWidth());
 		originalFdNumberLabel.setLabelFor(originalFdNumberField);
 		add(originalFdNumberLabel);
@@ -242,7 +242,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateBankName() {
-		bankNameLabel = new BaseLabel(LabelConstants.LABEL_BANK_NAME, ComponentEnum.LABEL);
+		bankNameLabel = new BaseLabel(LabelConstants.BANK_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, bankNameLabel.getPreferredSize().getWidth());
 		bankNameLabel.setLabelFor(bankNameComboBox);
 		add(bankNameLabel);
@@ -257,7 +257,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateFirstOwnerName() {
-		firstOwnerLabel = new BaseLabel(LabelConstants.LABEL_FIRST_OWNER, ComponentEnum.LABEL);
+		firstOwnerLabel = new BaseLabel(LabelConstants.FIRST_OWNER, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstOwnerLabel.getPreferredSize().getWidth());
 		firstOwnerLabel.setLabelFor(firstOwnerComboBox);
 		add(firstOwnerLabel);
@@ -272,7 +272,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateSecondOwner() {
-		secondOwnerLabel = new BaseLabel(LabelConstants.LABEL_SECOND_OWNER, ComponentEnum.LABEL);
+		secondOwnerLabel = new BaseLabel(LabelConstants.SECOND_OWNER, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, secondOwnerLabel.getPreferredSize().getWidth());
 		secondOwnerLabel.setLabelFor(secondOwnerComboBox);
 		add(secondOwnerLabel);
@@ -287,7 +287,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateNominee() {
-		nomineeLabel = new BaseLabel(LabelConstants.LABEL_NOMINEE, ComponentEnum.LABEL);
+		nomineeLabel = new BaseLabel(LabelConstants.NOMINEE, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, nomineeLabel.getPreferredSize().getWidth());
 		nomineeLabel.setLabelFor(nomineeComboBox);
 		add(nomineeLabel);
@@ -302,7 +302,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateInvestedAmount() {
-		investedAmountLabel = new BaseLabel(LabelConstants.LABEL_INVESTED_AMOUNT, ComponentEnum.LABEL);
+		investedAmountLabel = new BaseLabel(LabelConstants.INVESTED_AMOUNT, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, investedAmountLabel.getPreferredSize().getWidth());
 		investedAmountLabel.setLabelFor(investedAmountField);
 		add(investedAmountLabel);
@@ -321,7 +321,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateMaturityAmount() {
-		maturityAmountLabel = new BaseLabel(LabelConstants.LABEL_MATURITY_AMOUNT, ComponentEnum.LABEL);
+		maturityAmountLabel = new BaseLabel(LabelConstants.MATURITY_AMOUNT, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, maturityAmountLabel.getPreferredSize().getWidth());
 		maturityAmountLabel.setLabelFor(maturityAmountField);
 		add(maturityAmountLabel);
@@ -340,7 +340,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateInvestmentDate() {
-		investmentDateLabel = new BaseLabel(LabelConstants.LABEL_INVESTMENT_DATE, ComponentEnum.LABEL);
+		investmentDateLabel = new BaseLabel(LabelConstants.INVESTMENT_DATE, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, investmentDateLabel.getPreferredSize().getWidth());
 		investmentDateLabel.setLabelFor(investmentDateField);
 		add(investmentDateLabel);
@@ -351,7 +351,7 @@ public class FdMainPanel extends BasePanel {
 
 		ImageIcon calendarIcon = BaseUtils.populateImage(ImageConstants.CALENDAR, 50, 50);
 		investmentDateButton = new BaseButton(calendarIcon,
-				new DatePickerListner(MainPage.getInstance(), investmentDateField), CommonConstants.BUTTON_PICK_DATE);
+				new DatePickerListner(MainPage.getInstance(), investmentDateField), ButtonConstants.PICK_DATE);
 		add(investmentDateButton);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, investmentDateField.getPreferredSize().getWidth()
 				+ investmentDateButton.getPreferredSize().getWidth() + widthPadding);
@@ -366,7 +366,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateMaturityDate() {
-		maturityDateLabel = new BaseLabel(LabelConstants.LABEL_MATURITY_DATE, ComponentEnum.LABEL);
+		maturityDateLabel = new BaseLabel(LabelConstants.MATURITY_DATE, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, maturityDateLabel.getPreferredSize().getWidth());
 		maturityDateLabel.setLabelFor(maturityDateField);
 		add(maturityDateLabel);
@@ -376,7 +376,7 @@ public class FdMainPanel extends BasePanel {
 		add(maturityDateField);
 		ImageIcon calendarIcon = BaseUtils.populateImage(ImageConstants.CALENDAR, 50, 50);
 		maturityDateButton = new BaseButton(calendarIcon,
-				new DatePickerListner(MainPage.getInstance(), maturityDateField), CommonConstants.BUTTON_PICK_DATE);
+				new DatePickerListner(MainPage.getInstance(), maturityDateField), ButtonConstants.PICK_DATE);
 		add(maturityDateButton);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, maturityDateField.getPreferredSize().getWidth()
 				+ maturityDateButton.getPreferredSize().getWidth() + widthPadding);
@@ -391,7 +391,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateRemark() {
-		remarkLabel = new BaseLabel(LabelConstants.LABEL_REMARK, ComponentEnum.LABEL);
+		remarkLabel = new BaseLabel(LabelConstants.REMARK, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, remarkLabel.getPreferredSize().getWidth());
 		remarkLabel.setLabelFor(remarkField);
 		add(remarkLabel);
@@ -406,7 +406,7 @@ public class FdMainPanel extends BasePanel {
 	}
 
 	private void populateStatus() {
-		statusLabel = new BaseLabel(LabelConstants.LABEL_STATUS, ComponentEnum.LABEL);
+		statusLabel = new BaseLabel(LabelConstants.STATUS, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, statusLabel.getPreferredSize().getWidth());
 		statusLabel.setLabelFor(statusComboBox);
 		add(statusLabel);
@@ -421,29 +421,28 @@ public class FdMainPanel extends BasePanel {
 		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 
 		ImageIcon cancelIcon = BaseUtils.populateImage(ImageConstants.CANCEL);
-		cancelButton = new BaseButton(cancelIcon, new GoToHomePageListner(this), CommonConstants.BUTTON_CANCEL);
+		cancelButton = new BaseButton(cancelIcon, new GoToHomePageListner(this), ButtonConstants.CANCEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(cancelButton);
 
 		ImageIcon updateIcon = BaseUtils.populateImage(ImageConstants.UPDATE);
-		mainButton = new BaseButton(updateIcon, null, CommonConstants.BUTTON_UPDATE);
+		mainButton = new BaseButton(updateIcon, null, ButtonConstants.UPDATE);
 		buttonGridPanel.addButtonToList(mainButton);
 
 		ImageIcon copyIcon = BaseUtils.populateImage(ImageConstants.COPY);
-		copyButton = new BaseButton(copyIcon, new CopyFdActionListner(this), CommonConstants.BUTTON_COPY);
+		copyButton = new BaseButton(copyIcon, new CopyFdActionListner(this), ButtonConstants.COPY);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, copyButton.getPreferredSize().getWidth());
 
 		ImageIcon renewIcon = BaseUtils.populateImage(ImageConstants.RENEW);
-		renewButton = new BaseButton(renewIcon, new InitiateRenewFdActionListner(this), CommonConstants.BUTTON_RENEW);
+		renewButton = new BaseButton(renewIcon, new InitiateRenewFdActionListner(this), ButtonConstants.RENEW);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, renewButton.getPreferredSize().getWidth());
 
 		ImageIcon withdrawIcon = BaseUtils.populateImage(ImageConstants.WITHDRAW);
-		withdrawButton = new BaseButton(withdrawIcon, new WithdrawFdActionListner(this),
-				CommonConstants.BUTTON_WITHDRAW);
+		withdrawButton = new BaseButton(withdrawIcon, new WithdrawFdActionListner(this), ButtonConstants.WITHDRAW);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, withdrawButton.getPreferredSize().getWidth());
 
 		ImageIcon trackIcon = BaseUtils.populateImage(ImageConstants.TRACK);
-		trackFdButton = new BaseButton(trackIcon, new TrackFdActionListner(this), CommonConstants.BUTTON_TRACK);
+		trackFdButton = new BaseButton(trackIcon, new TrackFdActionListner(this), ButtonConstants.TRACK);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, trackFdButton.getPreferredSize().getWidth());
 
 		add(buttonGridPanel.createPanel());
@@ -451,14 +450,12 @@ public class FdMainPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
 
 		/**
 		 * FD Id Row
 		 */
-		fromLeft = widthPadding;
-		fromTop = baseDimension.getHeight() + heightPadding;
+		int fromLeft = widthPadding;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(fdIdLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
@@ -924,7 +921,7 @@ public class FdMainPanel extends BasePanel {
 	private void applyRenewRights() {
 		setTitle(HeaderConstants.RENEW_FD);
 		ImageIcon renewIcon = BaseUtils.populateImage(ImageConstants.RENEW);
-		mainButton.setAllValues(renewIcon, new RenewFdActionListner(this), CommonConstants.BUTTON_RENEW);
+		mainButton.setAllValues(renewIcon, new RenewFdActionListner(this), ButtonConstants.RENEW);
 
 		fdIdField.setEnabled(false);
 		fdIdValidator.setMandatory(false);
@@ -964,7 +961,7 @@ public class FdMainPanel extends BasePanel {
 	private void applyViewRights() {
 		setTitle(HeaderConstants.SHOW_FD);
 		ImageIcon editIcon = BaseUtils.populateImage(ImageConstants.EDIT);
-		mainButton.setAllValues(editIcon, new EditFdActionListner(this), CommonConstants.BUTTON_EDIT);
+		mainButton.setAllValues(editIcon, new EditFdActionListner(this), ButtonConstants.EDIT);
 
 		if ((FdStatusEnum.CURRENT.getCode().equalsIgnoreCase(fdVO.getStatusVO().getCode()))
 				&& (fdVO.getMaturityDate().compareTo(Calendar.getInstance().getTime()) < 0)) {
@@ -1013,7 +1010,7 @@ public class FdMainPanel extends BasePanel {
 	private void applySearchRights() {
 		setTitle(HeaderConstants.SEARCH_FD);
 		ImageIcon searchIcon = BaseUtils.populateImage(ImageConstants.SEARCH);
-		mainButton.setAllValues(searchIcon, new SearchFdActionListner(this), CommonConstants.BUTTON_SEARCH);
+		mainButton.setAllValues(searchIcon, new SearchFdActionListner(this), ButtonConstants.SEARCH);
 
 		fdIdField.setEnabled(true);
 		fdIdValidator.setMandatory(false);
@@ -1055,7 +1052,7 @@ public class FdMainPanel extends BasePanel {
 	private void applyEditRights() {
 		setTitle(HeaderConstants.EDIT_FD);
 		ImageIcon updateIcon = BaseUtils.populateImage(ImageConstants.UPDATE);
-		mainButton.setAllValues(updateIcon, new UpdateFdActionListner(this), CommonConstants.BUTTON_UPDATE);
+		mainButton.setAllValues(updateIcon, new UpdateFdActionListner(this), ButtonConstants.UPDATE);
 
 		fdIdField.setEnabled(false);
 		fdIdValidator.setMandatory(false);
@@ -1102,7 +1099,7 @@ public class FdMainPanel extends BasePanel {
 	private void applyCreateRights() {
 		setTitle(HeaderConstants.ADD_FD);
 		ImageIcon addIcon = BaseUtils.populateImage(ImageConstants.ADD);
-		mainButton.setAllValues(addIcon, new AddFdActionListner(this), CommonConstants.BUTTON_ADD);
+		mainButton.setAllValues(addIcon, new AddFdActionListner(this), ButtonConstants.ADD);
 
 		fdIdField.setEnabled(false);
 		fdIdValidator.setMandatory(false);

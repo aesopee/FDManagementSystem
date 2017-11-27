@@ -16,7 +16,7 @@ import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.baseframework.utils.ComponentEnum;
 import com.slickcode.basevalidatorframework.NonEmtryValidator;
 import com.slickcode.basevalidatorframework.NumericValidator;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
@@ -60,7 +60,7 @@ public class NewUserFirstPanel extends BasePanel {
 	private ButtonGridPanel buttonGridPanel;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(LabelConstants.LABEL_PERSON_ID,
+		personIdLabel = new BaseLabel(LabelConstants.PERSON_ID,
 				ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel
 				.getPreferredSize().getWidth());
@@ -83,7 +83,7 @@ public class NewUserFirstPanel extends BasePanel {
 	}
 
 	private void populateFirstName() {
-		firstNameLabel = new BaseLabel(LabelConstants.LABEL_FIRST_NAME,
+		firstNameLabel = new BaseLabel(LabelConstants.FIRST_NAME,
 				ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstNameLabel
 				.getPreferredSize().getWidth());
@@ -101,13 +101,13 @@ public class NewUserFirstPanel extends BasePanel {
 		add(firstNameLabelError);
 
 		firstNameValidator = new NonEmtryValidator(
-				LabelConstants.LABEL_FIRST_NAME, firstNameField,
+				LabelConstants.FIRST_NAME, firstNameField,
 				firstNameLabelError, true);
 		firstNameField.getDocument().addDocumentListener(firstNameValidator);
 	}
 
 	private void populateLastName() {
-		lastNameLabel = new BaseLabel(LabelConstants.LABEL_LAST_NAME,
+		lastNameLabel = new BaseLabel(LabelConstants.LAST_NAME,
 				ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, lastNameLabel
 				.getPreferredSize().getWidth());
@@ -125,7 +125,7 @@ public class NewUserFirstPanel extends BasePanel {
 		add(lastNameLabelError);
 
 		lastNameValidator = new NonEmtryValidator(
-				LabelConstants.LABEL_LAST_NAME, lastNameField,
+				LabelConstants.LAST_NAME, lastNameField,
 				lastNameLabelError, true);
 		lastNameField.getDocument().addDocumentListener(lastNameValidator);
 	}
@@ -136,7 +136,7 @@ public class NewUserFirstPanel extends BasePanel {
 		ImageIcon cancelIcon = BaseUtils.populateImage(
 				ImageConstants.CANCEL);
 		cancelButton = new BaseButton(cancelIcon,
-				new GoToLoginPageActionListner(), CommonConstants.BUTTON_CANCEL);
+				new GoToLoginPageActionListner(), ButtonConstants.CANCEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton
 				.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(cancelButton);
@@ -144,7 +144,7 @@ public class NewUserFirstPanel extends BasePanel {
 		ImageIcon nextIcon = BaseUtils.populateImage(ImageConstants.NEXT);
 		nextButton = new BaseButton(nextIcon,
 				new GoToNewUserPageSecondActionListner(this),
-				CommonConstants.BUTTON_NEXT);
+				ButtonConstants.NEXT);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, nextButton
 				.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(nextButton);
@@ -153,14 +153,11 @@ public class NewUserFirstPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
-
 		/**
 		 * Person Id Row
 		 */
-		fromLeft = widthPadding;
-		fromTop = baseDimension.getHeight() + heightPadding;
+		int fromLeft = widthPadding;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth,
 				rowHeight, 0, 0, baseDimension);
 

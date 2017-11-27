@@ -17,7 +17,7 @@ import com.slickcode.baseframework.utils.ComponentEnum;
 import com.slickcode.baseframework.utils.StringUtilities;
 import com.slickcode.basevalidatorframework.NonEmtryValidator;
 import com.slickcode.basevalidatorframework.NumericValidator;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
@@ -77,7 +77,7 @@ public class PersonMainPanel extends BasePanel {
 	private ScreenMode screenMode;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(LabelConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
+		personIdLabel = new BaseLabel(LabelConstants.PERSON_ID, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel.getPreferredSize().getWidth());
 		personIdLabel.setLabelFor(personIdField);
 		add(personIdLabel);
@@ -95,7 +95,7 @@ public class PersonMainPanel extends BasePanel {
 	}
 
 	private void populateFirstName() {
-		firstNameLabel = new BaseLabel(LabelConstants.LABEL_FIRST_NAME, ComponentEnum.LABEL);
+		firstNameLabel = new BaseLabel(LabelConstants.FIRST_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, firstNameLabel.getPreferredSize().getWidth());
 		firstNameLabel.setLabelFor(firstNameField);
 		add(firstNameLabel);
@@ -113,7 +113,7 @@ public class PersonMainPanel extends BasePanel {
 	}
 
 	private void populateMiddleName() {
-		middleNameLabel = new BaseLabel(LabelConstants.LABEL_MIDDLE_NAME, ComponentEnum.LABEL);
+		middleNameLabel = new BaseLabel(LabelConstants.MIDDLE_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, middleNameLabel.getPreferredSize().getWidth());
 		middleNameLabel.setLabelFor(middleNameField);
 		add(middleNameLabel);
@@ -132,7 +132,7 @@ public class PersonMainPanel extends BasePanel {
 	}
 
 	private void populateLastName() {
-		lastNameLabel = new BaseLabel(LabelConstants.LABEL_LAST_NAME, ComponentEnum.LABEL);
+		lastNameLabel = new BaseLabel(LabelConstants.LAST_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, lastNameLabel.getPreferredSize().getWidth());
 		lastNameLabel.setLabelFor(lastNameField);
 		add(lastNameLabel);
@@ -152,22 +152,22 @@ public class PersonMainPanel extends BasePanel {
 	private void addButtonGrid() {
 		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 		ImageIcon cancelIcon = BaseUtils.populateImage(ImageConstants.CANCEL);
-		cancelButton = new BaseButton(cancelIcon, new GoToHomePageListner(this), CommonConstants.BUTTON_CANCEL);
+		cancelButton = new BaseButton(cancelIcon, new GoToHomePageListner(this), ButtonConstants.CANCEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(cancelButton);
 
 		ImageIcon searchIcon = BaseUtils.populateImage(ImageConstants.SEARCH);
-		mainButton = new BaseButton(searchIcon, null, CommonConstants.BUTTON_SEARCH);
+		mainButton = new BaseButton(searchIcon, null, ButtonConstants.SEARCH);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, mainButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(mainButton);
 
 		ImageIcon copyIcon = BaseUtils.populateImage(ImageConstants.COPY);
-		copyButton = new BaseButton(copyIcon, new CopyPersonActionListner(this), CommonConstants.BUTTON_COPY);
+		copyButton = new BaseButton(copyIcon, new CopyPersonActionListner(this), ButtonConstants.COPY);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, copyButton.getPreferredSize().getWidth());
 
 		ImageIcon relatedFdsIcon = BaseUtils.populateImage(ImageConstants.RELATED_FDS);
 		relatedFdsButton = new BaseButton(relatedFdsIcon, new FetchPersonRelatedActionListner(this),
-				CommonConstants.BUTTON_RELATED_FDS);
+				ButtonConstants.RELATED_FDS);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, relatedFdsButton.getPreferredSize().getWidth());
 
 		add(buttonGridPanel.createPanel());
@@ -175,14 +175,11 @@ public class PersonMainPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
-
 		/**
 		 * Person Id Row
 		 */
-		fromLeft = widthPadding;
-		fromTop = baseDimension.getHeight() + heightPadding;
+		int fromLeft = widthPadding;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;
@@ -310,7 +307,7 @@ public class PersonMainPanel extends BasePanel {
 			lastNameValidator.setMandatory(true);
 			setTitle(HeaderConstants.ADD_PERSON);
 			ImageIcon addIcon = BaseUtils.populateImage(ImageConstants.ADD);
-			mainButton.setAllValues(addIcon, new AddPersonActionListner(this), CommonConstants.BUTTON_ADD);
+			mainButton.setAllValues(addIcon, new AddPersonActionListner(this), ButtonConstants.ADD);
 			break;
 		case EDIT:
 			personIdField.setEditable(false);
@@ -323,7 +320,7 @@ public class PersonMainPanel extends BasePanel {
 			lastNameValidator.setMandatory(true);
 			setTitle(HeaderConstants.EDIT_PERSON);
 			ImageIcon updateIcon = BaseUtils.populateImage(ImageConstants.UPDATE);
-			mainButton.setAllValues(updateIcon, new UpdatePersonActionListner(this), CommonConstants.BUTTON_UPDATE);
+			mainButton.setAllValues(updateIcon, new UpdatePersonActionListner(this), ButtonConstants.UPDATE);
 			break;
 		case SEARCH:
 			personIdField.setEditable(true);
@@ -336,7 +333,7 @@ public class PersonMainPanel extends BasePanel {
 			lastNameValidator.setMandatory(false);
 			setTitle(HeaderConstants.SEARCH_PERSON);
 			ImageIcon searchIcon = BaseUtils.populateImage(ImageConstants.SEARCH);
-			mainButton.setAllValues(searchIcon, new SearchPersonActionListner(this), CommonConstants.BUTTON_SEARCH);
+			mainButton.setAllValues(searchIcon, new SearchPersonActionListner(this), ButtonConstants.SEARCH);
 			break;
 		case VIEW:
 			personIdField.setEditable(false);
@@ -349,7 +346,7 @@ public class PersonMainPanel extends BasePanel {
 			lastNameValidator.setMandatory(false);
 			setTitle(HeaderConstants.SHOW_PERSON);
 			ImageIcon editIcon = BaseUtils.populateImage(ImageConstants.EDIT);
-			mainButton.setAllValues(editIcon, new EditPersonActionListner(this), CommonConstants.BUTTON_EDIT);
+			mainButton.setAllValues(editIcon, new EditPersonActionListner(this), ButtonConstants.EDIT);
 			buttonGridPanel.addButtonToList(copyButton);
 			buttonGridPanel.addButtonToList(relatedFdsButton);
 			break;

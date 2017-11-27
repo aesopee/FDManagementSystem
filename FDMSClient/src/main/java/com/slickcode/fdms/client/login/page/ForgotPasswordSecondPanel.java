@@ -18,7 +18,7 @@ import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.baseframework.utils.ComponentEnum;
 import com.slickcode.basevalidatorframework.NonEmtryValidator;
 import com.slickcode.fdms.client.cache.FDMSCache;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
@@ -65,7 +65,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 	private LoginVO loginVO;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(LabelConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
+		personIdLabel = new BaseLabel(LabelConstants.PERSON_ID, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel.getPreferredSize().getWidth());
 		personIdLabel.setLabelFor(personIdValue);
 		add(personIdLabel);
@@ -76,7 +76,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 	}
 
 	private void populateSecurityQuestion() {
-		securityQuestionLabel = new BaseLabel(LabelConstants.LABEL_SECURITY_QUESTION, ComponentEnum.LABEL);
+		securityQuestionLabel = new BaseLabel(LabelConstants.SECURITY_QUESTION, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, securityQuestionLabel.getPreferredSize().getWidth());
 		securityQuestionLabel.setLabelFor(securityQuestionComboBox);
 		add(securityQuestionLabel);
@@ -88,7 +88,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 	}
 
 	private void populateSecurityAnswer() {
-		securityAnswerLabel = new BaseLabel(LabelConstants.LABEL_SECURITY_ANSWER, ComponentEnum.LABEL);
+		securityAnswerLabel = new BaseLabel(LabelConstants.SECURITY_ANSWER, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, securityAnswerLabel.getPreferredSize().getWidth());
 		securityAnswerLabel.setLabelFor(securityAnswerField);
 		add(securityAnswerLabel);
@@ -101,13 +101,13 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 		thirdColumnWidth = BaseUtils.getMax(thirdColumnWidth, securityAnswerLabelError.getPreferredSize().getWidth());
 		add(securityAnswerLabelError);
 
-		securityAnswerValidator = new NonEmtryValidator(LabelConstants.LABEL_SECURITY_ANSWER, securityAnswerField,
+		securityAnswerValidator = new NonEmtryValidator(LabelConstants.SECURITY_ANSWER, securityAnswerField,
 				securityAnswerLabelError, true);
 		securityAnswerField.getDocument().addDocumentListener(securityAnswerValidator);
 	}
 
 	private void populateUserName() {
-		userNameLabel = new BaseLabel(LabelConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
+		userNameLabel = new BaseLabel(LabelConstants.USER_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel.getPreferredSize().getWidth());
 		userNameLabel.setLabelFor(userNameValue);
 		add(userNameLabel);
@@ -120,13 +120,13 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 	private void addButtonGrid() {
 		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 		ImageIcon cancelIcon = BaseUtils.populateImage(ImageConstants.CANCEL);
-		cancelButton = new BaseButton(cancelIcon, new GoToLoginPageActionListner(), CommonConstants.BUTTON_CANCEL);
+		cancelButton = new BaseButton(cancelIcon, new GoToLoginPageActionListner(), ButtonConstants.CANCEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(cancelButton);
 
 		ImageIcon nextIcon = BaseUtils.populateImage(ImageConstants.NEXT);
 		nextButton = new BaseButton(nextIcon, new GoToForgotPasswordPageThirdActionListner(this),
-				CommonConstants.BUTTON_NEXT);
+				ButtonConstants.NEXT);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, nextButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(nextButton);
 		add(buttonGridPanel.createPanel());
@@ -134,14 +134,11 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
-
 		/**
 		 * Person Id Row
 		 */
-		fromLeft = widthPadding;
-		fromTop = baseDimension.getHeight() + heightPadding;
+		int fromLeft = widthPadding;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;

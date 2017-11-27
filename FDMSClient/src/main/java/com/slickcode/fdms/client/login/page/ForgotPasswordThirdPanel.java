@@ -15,7 +15,7 @@ import com.slickcode.baseframework.panel.BasePanel;
 import com.slickcode.baseframework.utils.BaseUtils;
 import com.slickcode.baseframework.utils.ComponentEnum;
 import com.slickcode.basevalidatorframework.NonEmtryValidator;
-import com.slickcode.fdms.client.constants.CommonConstants;
+import com.slickcode.fdms.client.constants.ButtonConstants;
 import com.slickcode.fdms.client.constants.HeaderConstants;
 import com.slickcode.fdms.client.constants.ImageConstants;
 import com.slickcode.fdms.client.constants.LabelConstants;
@@ -64,7 +64,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	private LoginVO loginVO;
 
 	private void populatePersonId() {
-		personIdLabel = new BaseLabel(LabelConstants.LABEL_PERSON_ID, ComponentEnum.LABEL);
+		personIdLabel = new BaseLabel(LabelConstants.PERSON_ID, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, personIdLabel.getPreferredSize().getWidth());
 		personIdLabel.setLabelFor(personIdValue);
 		add(personIdLabel);
@@ -75,7 +75,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	}
 
 	private void populateUserName() {
-		userNameLabel = new BaseLabel(LabelConstants.LABEL_USER_NAME, ComponentEnum.LABEL);
+		userNameLabel = new BaseLabel(LabelConstants.USER_NAME, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, userNameLabel.getPreferredSize().getWidth());
 		userNameLabel.setLabelFor(userNameValue);
 		add(userNameLabel);
@@ -86,7 +86,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	}
 
 	private void populatePassword() {
-		passwordLabel = new BaseLabel(LabelConstants.LABEL_PSWD, ComponentEnum.LABEL);
+		passwordLabel = new BaseLabel(LabelConstants.PSWD, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, passwordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(passwordField);
 		add(passwordLabel);
@@ -104,7 +104,7 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	}
 
 	private void populateConfirmPassword() {
-		confirmPasswordLabel = new BaseLabel(LabelConstants.LABEL_CONFIRM_PSWD, ComponentEnum.LABEL);
+		confirmPasswordLabel = new BaseLabel(LabelConstants.CONFIRM_PSWD, ComponentEnum.LABEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, confirmPasswordLabel.getPreferredSize().getWidth());
 		passwordLabel.setLabelFor(confirmPasswordField);
 		add(confirmPasswordLabel);
@@ -125,13 +125,13 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 	private void addButtonGrid() {
 		buttonGridPanel = new ButtonGridPanel(heightPadding, widthPadding, rowHeight);
 		ImageIcon cancelIcon = BaseUtils.populateImage(ImageConstants.CANCEL);
-		cancelButton = new BaseButton(cancelIcon, new GoToLoginPageActionListner(), CommonConstants.BUTTON_CANCEL);
+		cancelButton = new BaseButton(cancelIcon, new GoToLoginPageActionListner(), ButtonConstants.CANCEL);
 		firstColumnWidth = BaseUtils.getMax(firstColumnWidth, cancelButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(cancelButton);
 
 		ImageIcon changePasswordIcon = BaseUtils.populateImage(ImageConstants.CHANGE_PSWD);
 		changePasswordButton = new BaseButton(changePasswordIcon, new ChangePasswordButtonActionListner(this),
-				CommonConstants.BUTTON_CHANGE_PSWD);
+				ButtonConstants.CHANGE_PSWD);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, changePasswordButton.getPreferredSize().getWidth());
 		buttonGridPanel.addButtonToList(changePasswordButton);
 		add(buttonGridPanel.createPanel());
@@ -139,14 +139,11 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
-
 		/**
 		 * Person Id Row
 		 */
-		fromLeft = widthPadding;
-		fromTop = baseDimension.getHeight() + heightPadding;
+		int fromLeft = widthPadding;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(personIdLabel, fromLeft, fromTop, firstColumnWidth, rowHeight, 0, 0, baseDimension);
 
 		fromLeft = fromLeft + firstColumnWidth + widthPadding;

@@ -28,14 +28,11 @@ public class HomePanel extends BasePanel {
 
 	@Override
 	public void arrangeComponents() {
-		int fromLeft = baseDimension.getWidth();
-		int fromTop = baseDimension.getHeight();
-
 		/**
 		 * showMaturedFDPanel
 		 */
-		fromLeft = fromLeft + widthPadding;
-		fromTop = baseDimension.getHeight() + heightPadding;
+		int fromLeft = baseDimension.getWidth() + widthPadding;
+		int fromTop = baseDimension.getHeight() + heightPadding;
 		BaseUtils.setBound(showMaturedFDPanel, fromLeft, fromTop,
 				BaseUtils.getMax(0, showMaturedFDPanel.getPreferredSize().getWidth()),
 				BaseUtils.getMax(0, showMaturedFDPanel.getPreferredSize().getHeight()),
