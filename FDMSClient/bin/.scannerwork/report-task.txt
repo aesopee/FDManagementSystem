@@ -1,6 +1,0 @@
-projectKey=FDMSClient
-serverUrl=http://localhost:9000
-serverVersion=6.7.0.33306
-dashboardUrl=http://localhost:9000/dashboard/index/FDMSClient
-ceTaskId=AV_UKmkZURJ2EYy7CaLw
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AV_UKmkZURJ2EYy7CaLw

@@ -222,14 +222,13 @@ public class ForgotPasswordThirdPanel extends BasePanel {
 		prepareTabOutOrderList();
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public IPanelBean getPanelDataOnSubmit() {
 		LoginPanelBean bean = new LoginPanelBean();
 
 		LoginVO panelLoginVO = new LoginVO();
 		panelLoginVO.setUserName(userNameValue.getText());
-		panelLoginVO.setPassword(passwordField.getText());
+		panelLoginVO.setPassword(String.valueOf(passwordField.getPassword()));
 
 		PersonVO personVO = new PersonVO();
 		personVO.setPersonId(Integer.parseInt(personIdValue.getText()));

@@ -377,7 +377,6 @@ public class NewUserSecondPanel extends BasePanel {
 		prepareTabOutOrderList();
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public IPanelBean getPanelDataOnSubmit() {
 		PersonVO personVO = new PersonVO();
@@ -388,7 +387,7 @@ public class NewUserSecondPanel extends BasePanel {
 		LoginVO panelLoginVO = new LoginVO();
 		panelLoginVO.setPersonVO(personVO);
 		panelLoginVO.setUserName(userNameField.getText());
-		panelLoginVO.setPassword(passwordField.getText());
+		panelLoginVO.setPassword(String.valueOf(passwordField.getPassword()));
 		panelLoginVO.setSecurityQuestion(
 				FDMSCache.getInstance().getSecurityQuestionVOByCode(securityQuestionComboBox.getSelectedValue()));
 		panelLoginVO.setSecurityAnswer(securityAnswerField.getText());

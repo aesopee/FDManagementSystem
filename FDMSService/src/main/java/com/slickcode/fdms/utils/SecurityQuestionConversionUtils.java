@@ -8,11 +8,13 @@ public class SecurityQuestionConversionUtils {
 
 	}
 
-	public static SecurityQuestionVO convertToVO(SecurityQuestionDO questionDO) {
-		return (SecurityQuestionVO) StaticDataConversionUtils.convertToVO(questionDO);
+	public static SecurityQuestionVO convertToVO(SecurityQuestionDO securityQuestionDO) {
+		SecurityQuestionVO securityQuestionVO = new SecurityQuestionVO();
+		return (SecurityQuestionVO) StaticDataConversionUtils.convertToVO(securityQuestionDO, securityQuestionVO);
 	}
 
-	public static SecurityQuestionDO convertToDO(SecurityQuestionVO questionVO) {
-		return (SecurityQuestionDO) StaticDataConversionUtils.convertToDO(questionVO);
+	public static SecurityQuestionDO convertToDO(SecurityQuestionVO securityQuestionVO) {
+		SecurityQuestionDO securityQuestionDO = new SecurityQuestionDO();
+		return (SecurityQuestionDO) StaticDataConversionUtils.convertToDO(securityQuestionVO, securityQuestionDO);
 	}
 }

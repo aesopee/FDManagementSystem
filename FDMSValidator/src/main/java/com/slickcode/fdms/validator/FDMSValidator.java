@@ -63,10 +63,9 @@ public class FDMSValidator {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	public static boolean checkPasswordSimilarity(BasePasswordField passwordField,
 			BasePasswordField confirmPasswordField, BaseLabel passwordLabelError, BaseLabel confirmPasswordLabelError) {
-		if (!passwordField.getText().equals(confirmPasswordField.getText())) {
+		if (!(String.valueOf(passwordField.getPassword())).equals(String.valueOf(confirmPasswordField.getPassword()))) {
 			confirmPasswordLabelError.addError("Passwords don't match.");
 			passwordLabelError.addError("Passwords don't match.");
 			passwordField.changeComponentLayout(ComponentEnum.ERROR);

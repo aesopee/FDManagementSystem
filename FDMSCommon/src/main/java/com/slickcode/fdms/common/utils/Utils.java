@@ -1,5 +1,6 @@
 package com.slickcode.fdms.common.utils;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -13,7 +14,6 @@ public class Utils {
 	}
 
 	public static java.sql.Date dateConverter(String date) {
-
 		SimpleDateFormat simpleDateformat = new SimpleDateFormat("dd-MM-yyyy");
 		try {
 			java.util.Date utilDate = simpleDateformat.parse(date);
@@ -24,59 +24,22 @@ public class Utils {
 		}
 	}
 
-	@SuppressWarnings({ "deprecation" })
 	public static String convertDateToString(java.sql.Date sqlDate) {
-
-		Integer date = sqlDate.getDate();
-		Integer month = sqlDate.getMonth() + 1;
-		Integer year = sqlDate.getYear() + 1900;
-
-		String stringDate = date.toString();
-		String stringMonth = month.toString();
-		String stringYear = year.toString();
-		int size = stringDate.length();
-
-		if (size == 1) {
-			stringDate = "0" + stringDate;
-		}
-		size = stringMonth.length();
-		if (size == 1) {
-			stringMonth = "0" + stringMonth;
-		}
-		size = stringYear.length();
-		if (size == 1) {
-			stringYear = "000" + stringYear;
-		} else if (size == 2) {
-			stringYear = "00" + stringYear;
-		} else if (size == 3) {
-			stringYear = "0" + stringYear;
-		}
-		return stringDate + "-" + stringMonth + "-" + stringYear;
+		DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+		return df.format(sqlDate);
 	}
 
 	public static String getPersonName(PersonVO person) {
-
 		return person.getFirstName() + " " + person.getLastName();
 	}
 
 	public static String getBankName(BankVO bank) {
-
 		return bank.getName() + ", " + bank.getBranch();
 	}
 
 	public static java.sql.Date getTodaysDate() {
 		java.util.Date today = new java.util.Date();
 		return new java.sql.Date(today.getTime());
-	}
-
-	@SuppressWarnings("deprecation")
-	public static java.sql.Date getWeekLaterDate() {
-
-		java.util.Date today = new java.util.Date();
-		java.sql.Date sqlToday = new java.sql.Date(today.getTime());
-		sqlToday.setDate(sqlToday.getDate() + 7);
-
-		return sqlToday;
 	}
 
 	public static List<PersonVO> removePleaseSelectFromList(List<PersonVO> personList) {

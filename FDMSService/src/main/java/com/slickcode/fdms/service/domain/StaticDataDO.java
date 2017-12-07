@@ -1,12 +1,19 @@
 package com.slickcode.fdms.service.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class StaticDataDO {
+public class StaticDataDO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 178445005828792867L;
 
 	@Id
 	@GeneratedValue

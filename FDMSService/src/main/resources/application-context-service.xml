@@ -11,7 +11,7 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/fdmanagementsystem"></property>
+			value="jdbc:mysql://localhost:3306/fd_management_system"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="Monday123"></property>
 	</bean>

@@ -8,11 +8,13 @@ public class StaticDataConversionUtils {
 
 	}
 
-	public static StaticDataVO convertToVO(StaticDataDO staticDataDO) {
+	public static StaticDataVO convertToVO(StaticDataDO staticDataDO, StaticDataVO staticDataVO) {
 		if (null == staticDataDO) {
 			return null;
 		}
-		StaticDataVO staticDataVO = new StaticDataVO();
+		if (null == staticDataVO) {
+			return null;
+		}
 		staticDataVO.setId(staticDataDO.getId());
 		staticDataVO.setCode(staticDataDO.getCode());
 		staticDataVO.setNarrative(staticDataDO.getNarrative());
@@ -20,11 +22,13 @@ public class StaticDataConversionUtils {
 		return staticDataVO;
 	}
 
-	public static StaticDataDO convertToDO(StaticDataVO staticDataVO) {
+	public static StaticDataDO convertToDO(StaticDataVO staticDataVO, StaticDataDO staticDataDO) {
 		if (null == staticDataVO) {
 			return null;
 		}
-		StaticDataDO staticDataDO = new StaticDataDO();
+		if (null == staticDataDO) {
+			return null;
+		}
 		staticDataDO.setId(staticDataVO.getId());
 		staticDataDO.setCode(staticDataVO.getCode());
 		staticDataDO.setNarrative(staticDataVO.getNarrative());

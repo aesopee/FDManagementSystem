@@ -202,7 +202,6 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 		return this;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void loadPanelData() {
 		personIdValue.setText(loginVO.getPersonVO().getPersonId());
@@ -215,7 +214,7 @@ public class ForgotPasswordSecondPanel extends BasePanel {
 				.populateSecurityQuestionSelectItemList(FDMSCache.getInstance().getSecurityQuestionVOList()));
 		securityQuestionComboBox.setSelectedItem(
 				new SelectItem(loginVO.getSecurityQuestion().getCode(), loginVO.getSecurityQuestion().getNarrative()));
-		securityQuestionComboBox.disable();
+		securityQuestionComboBox.setEnabled(false);
 		securityQuestionComboBox.setEditable(false);
 		secondColumnWidth = BaseUtils.getMax(secondColumnWidth, securityQuestionComboBox.getPreferredSize().getWidth());
 

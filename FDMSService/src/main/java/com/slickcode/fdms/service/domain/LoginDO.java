@@ -22,21 +22,21 @@ public class LoginDO extends BaseDO {
 	@Column(name = "LOGIN_ID")
 	private Integer loginId;
 
-	@Column(name = "USERNAME", unique=true, nullable=false)
+	@Column(name = "USERNAME", unique = true, nullable = false)
 	private String userName;
 
-	@Column(name = "PASSWORD", nullable=false)
+	@Column(name = "PASSWORD", nullable = false)
 	private String password;
 
 	@OneToOne
-	@JoinColumn(name = "PERSON_ID", unique=true, nullable=false)
+	@JoinColumn(name = "PERSON_ID", unique = true, nullable = false)
 	private PersonDO personDO;
 
 	@ManyToOne
-	@JoinColumn(name = "SECURITY_QUESTION_ID", referencedColumnName="ID")
+	@JoinColumn(name = "SECURITY_QUESTION_ID", referencedColumnName = "ID")
 	private SecurityQuestionDO securityQuestionDO;
 
-	@Column(name = "SECURITY_ANSWER", nullable=false)
+	@Column(name = "SECURITY_ANSWER", nullable = false)
 	private String securityAnswer;
 
 	/**
@@ -129,15 +129,15 @@ public class LoginDO extends BaseDO {
 		this.securityAnswer = securityAnswer;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "LoginDO [loginId=" + loginId + ", userName=" + userName
-				+ ", password=" + password + ", personDO=" + personDO
-				+ ", securityQuestionDO=" + securityQuestionDO
-				+ ", securityAnswer=" + securityAnswer + "]";
+		return "LoginDO [loginId=" + loginId + ", userName=" + userName + ", password=" + password + ", personDO="
+				+ personDO + ", securityQuestionDO=" + securityQuestionDO + ", securityAnswer=" + securityAnswer + "]";
 	}
 
 }

@@ -172,12 +172,11 @@ public class LoginPanel extends BasePanel {
 		prepareTabOutOrderList();
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public IPanelBean getPanelDataOnSubmit() {
 		LoginPanelBean loginPanelBean = new LoginPanelBean();
 		LoginVO loginVO = new LoginVO();
-		loginVO.setPassword(passwordField.getText());
+		loginVO.setPassword(String.valueOf(passwordField.getPassword()));
 		loginVO.setUserName(userNameField.getText());
 		loginPanelBean.setLoginVO(loginVO);
 		return loginPanelBean;
